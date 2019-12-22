@@ -1,0 +1,1 @@
+mra -m publicinfo -v public -o src/app ../../club-website-backend/models/publicInfo/index-public.js 
