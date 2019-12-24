@@ -20,7 +20,7 @@
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
@@ -38,6 +38,9 @@
               </div>
  
 
+            <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
+                Category must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -55,7 +58,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -73,6 +76,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -90,7 +96,7 @@
             <input type="text" class="form-control rounded" id="EditAuthor" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
@@ -105,6 +111,9 @@
 
  
 
+            <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
+                Author must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -185,7 +194,7 @@
             <input type="text" class="form-control rounded" id="EditCategory" 
                     required
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['category']" name="EditCategory"
                     #EditCategory="ngModel">
@@ -203,6 +212,9 @@
               </div>
  
 
+            <div *ngIf="EditCategory.errors && EditCategory.errors.maxlength">
+                Category must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -220,7 +232,7 @@
             <input type="text" class="form-control rounded" id="EditTitle" 
                     required
                     
-                    
+                    maxlength="100"
                  
                     [(ngModel)]="detail['title']" name="EditTitle"
                     #EditTitle="ngModel">
@@ -238,6 +250,9 @@
               </div>
  
 
+            <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength">
+                Title must be at most 100 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -255,7 +270,7 @@
             <input type="text" class="form-control rounded" id="EditAuthor" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['author']" name="EditAuthor"
                     #EditAuthor="ngModel">
@@ -270,6 +285,9 @@
 
  
 
+            <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength">
+                Author must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>

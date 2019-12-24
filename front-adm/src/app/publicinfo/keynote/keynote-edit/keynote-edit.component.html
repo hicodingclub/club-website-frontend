@@ -84,7 +84,7 @@
             <input type="text" class="form-control rounded" id="EditDescription" 
                     
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
@@ -99,6 +99,9 @@
 
  
 
+            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
+                Description must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -146,7 +149,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -161,6 +164,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -245,7 +251,7 @@
             <input type="text" class="form-control rounded" id="EditDescription" 
                     
                     
-                    
+                    maxlength="1000"
                  
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
@@ -260,6 +266,9 @@
 
  
 
+            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
+                Description must be at most 1000 characters long.
+              </div>
           </div>
         
         </fieldset>
@@ -307,7 +316,7 @@
             <input type="text" class="form-control rounded" id="EditTag" 
                     
                     
-                    
+                    maxlength="50"
                  
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
@@ -322,6 +331,9 @@
 
  
 
+            <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
+                Tag must be at most 50 characters long.
+              </div>
           </div>
         
         </fieldset>

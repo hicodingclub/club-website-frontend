@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="mfilegroupTextSearch" 
 						#mfilegroupTextSearch [(ngModel)]="searchText"
@@ -37,9 +36,7 @@
 				</div>
 			
 
-			
-
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
@@ -47,6 +44,7 @@
 					
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
+					
 					
 				</div>
 			</div>
@@ -161,6 +159,7 @@
 					
 					
 					
+					
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -193,6 +192,7 @@
 				<div class="card-action-icons">
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 					
 					
 					
@@ -231,6 +231,7 @@
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
+	            	
 	            	
 					
 					

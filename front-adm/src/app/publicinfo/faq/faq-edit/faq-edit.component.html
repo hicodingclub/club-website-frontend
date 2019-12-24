@@ -82,7 +82,7 @@
                
                   [(ngModel)]="detail['order']" name="EditOrder"
                   #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditOrder.errors && EditOrder.errors.required">
@@ -214,7 +214,7 @@
                
                   [(ngModel)]="detail['order']" name="EditOrder"
                   #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.minnumber"
+          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
            class="alert alert-danger">
 
             <div *ngIf="EditOrder.errors && EditOrder.errors.required">

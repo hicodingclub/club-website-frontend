@@ -29,7 +29,7 @@ export const AccessRoutes: Routes = [
 
 export const access_server_root_uri: string = '/api/access';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Dec 20 2019 08:07:45 GMT-0800 (Pacific Standard Time)
+**Date: Mon Dec 23 2019 22:13:58 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 
@@ -44,21 +44,21 @@ export const AccessRoutes: Routes = [
     children: [
       {path: '',  redirectTo: 'musergroup', pathMatch: 'full'},
 
-      { path: 'musergroup',
+      { path: "musergroup",
         children: musergroupRoutingPath,
-        data: {mraLevel: 1, item: 'musergroup'}
+        data: {"mraLevel": 1, "item": "musergroup"}
       },
-      { path: 'mpubmodule',
+      { path: "mpubmodule",
         children: mpubmoduleRoutingPath,
-        data: {mraLevel: 1, item: 'mpubmodule'}
+        data: {"mraLevel": 1, "item": "mpubmodule"}
       },
-      { path: 'mpubaccess',
+      { path: "mpubaccess",
         children: mpubaccessRoutingPath,
-        data: {mraLevel: 1, item: 'mpubaccess'}
+        data: {"mraLevel": 1, "item": "mpubaccess"}
       },
     ]
   }
 ];
 
-export const access_server_root_uri: string = '/api/access';
+export const access_server_root_uri:string = "/api/access";
 **** End of recent updates.<<<*/

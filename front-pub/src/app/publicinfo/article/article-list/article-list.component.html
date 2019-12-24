@@ -21,7 +21,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="articleTextSearch" 
 						#articleTextSearch [(ngModel)]="searchText"
@@ -37,7 +36,6 @@
 				  </div>
 				</div>
 			
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -98,10 +96,12 @@
       
  
 
-						  <div class="action-buttons" style="margin-top: 10px;">
-								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
-								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
-						  </div>
+
+
+							<div class="action-buttons" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
 						</div>
 					</div>
 		        </div>
@@ -112,15 +112,15 @@
 					</span>
 				</div>
 		    
-			
 
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 		        <div class="action-buttons">
 					
 
+					
 					
 					
 				</div>
@@ -363,6 +363,7 @@
 	            </td>
 	            <td>
 					
+	            	
 	            	
 					
 					<span class="read-more-in-table" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>

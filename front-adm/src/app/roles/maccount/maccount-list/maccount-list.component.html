@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="maccountTextSearch" 
 						#maccountTextSearch [(ngModel)]="searchText"
@@ -36,7 +35,6 @@
 				  </div>
 				</div>
 			
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -97,10 +95,12 @@
       
  
 
-						  <div class="action-buttons" style="margin-top: 10px;">
-								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
-								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
-						  </div>
+
+
+							<div class="action-buttons" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
 						</div>
 					</div>
 		        </div>
@@ -111,9 +111,8 @@
 					</span>
 				</div>
 		    
-			
 
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
@@ -121,8 +120,9 @@
 					<lib-mdds-action-email *ngIf="emailFields.length > 0" [emailFields]="emailFields" (componentEvents)="onActionBaseEvent($event)"></lib-mdds-action-email>
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
-					<a *ngIf="list.length > 1" routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
+					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
+					
 				</div>
 			</div>
 		</div>
@@ -270,8 +270,9 @@
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
-					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					<a [routerLink]="['.']" (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+					
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 			<hr class="list-diverder">
@@ -329,7 +330,8 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box" *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+					
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 				</div>
 			</div>
 		</div>
@@ -413,7 +415,8 @@
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 	            	<a routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
-					<input class="list-check-box"  *ngIf="list.length > 1" type="checkbox" [(ngModel)]="checkedItem[i]"/>
+	            	
+					<input class="list-check-box" type="checkbox" [(ngModel)]="checkedItem[i]"/>
 					
 	            </td>
 	        </tr>
