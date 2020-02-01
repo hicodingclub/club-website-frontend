@@ -1,8 +1,8 @@
-<div class="header fixed-top">
+<div class="header">
 	<nav class="navbar navbar-light navbar-expand-lg">
 		<a class="navbar-brand" routerLink="/">
-			<img src="assets/logo.png" align="left" class="logo">
-			<div class="logo-text mt-2">(Organization Name)</div>
+			<img src="assets/logo.svg" align="left" class="logo">
+			<div class="logo-text mt-2">HiCoding Club</div>
 		</a>
 		
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,15 +15,20 @@
 					<a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLinkActive="active" routerLink="/contact" >Contact</a>
+					<a class="nav-link" routerLinkActive="active" routerLink="/contact" >Members</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLinkActive="active" routerLink="/contact" >Activites</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLinkActive="active" routerLink="/contact" >Contact Us</a>
 				</li>
 			</ul>
 		</div>
-
 	</nav>
 
 	<div class="auth-icon">
-		<lib-auth-icon></lib-auth-icon>
+		<lib-auth-icon [showUserName]="false"></lib-auth-icon>
 	</div>
 </div>
 
@@ -36,14 +41,6 @@
 
 <nav class="footer footer-font navbar navbar-light">
 	<div class="mx-auto mb-2 pt-2">
-		<div>© 2019 (Organization Name), Inc. All rights reserved.</div>
-		<div class="contact-info">
-				<div class="ml-3 mr-5">
-					<i class="fas fa-phone"></i> (tel-number)
-				</div>
-				<div>
-					<i class="fa fa-map-marker" aria-hidden="true"></i> (address)
-				</div>
-		</div>
+		<div>© 2020 HiCoding Club. All rights reserved.</div>
 	</div>
 </nav>
