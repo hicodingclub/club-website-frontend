@@ -78,7 +78,7 @@
   position: relative;
 	/*padding-top: 100px; same height with .header*/
 	width: 100%;
-  min-height: calc(100vh - 70px);  /*viewport height substracts footer height*/
+  min-height: calc(100vh - 70px - 65px);  /*viewport height substracts footer height*/
   
   display: flex;
   flex-direction: column;
