@@ -14,6 +14,7 @@ import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from '@hicoder/angular-file';
 import { file_upload_uri, file_download_uri } from './file-upload.config';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 
@@ -22,7 +23,7 @@ import { PublicinfoModule } from './publicinfo/publicinfo.module';
     AppComponent,
     HomepageComponent,
     ContactComponent,
-
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
