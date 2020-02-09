@@ -75,6 +75,16 @@ import { ArticleDetailFieldComponent } from './article/article-detail/article-de
 
 import { ArticleService } from './article/article.service';
 
+import { PageListComponent } from './page/page-list/page-list.component';
+
+import { PageDetailComponent } from './page/page-detail/page-detail.component';
+
+    import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-widget-page.component';
+import { PageDetailFieldComponent } from './page/page-detail/page-detail-field.component';
+
+
+import { PageService } from './page/page.service';
+
 
 
 
@@ -136,6 +146,14 @@ import { ArticleService } from './article/article.service';
     ArticleDetailFieldComponent,
     
 
+    PageListComponent,
+
+    PageDetailComponent,
+
+    PageDetailWidgetPageComponent,
+    PageDetailFieldComponent,
+    
+
 
 
 
@@ -188,6 +206,14 @@ import { ArticleService } from './article/article.service';
     ArticleDetailFieldComponent,
     
 
+    PageListComponent,
+
+    PageDetailComponent,
+
+    PageDetailWidgetPageComponent,
+    PageDetailFieldComponent,
+    
+
 
 
   ],
@@ -201,6 +227,7 @@ import { ArticleService } from './article/article.service';
     EventService,
     KeynoteService,
     ArticleService,
+    PageService,
   ],
   entryComponents: [
     GeneralinfoDetailWidgetInfoComponent,
@@ -210,6 +237,7 @@ import { ArticleService } from './article/article.service';
     KeynoteDetailWidgetSlideComponent,
     ArticleListWidgetCleanComponent,
     ArticleDetailWidgetPostComponent,
+    PageDetailWidgetPageComponent,
   ]
 })
 export class PublicinfoModule { }

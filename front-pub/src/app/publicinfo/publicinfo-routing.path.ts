@@ -30,6 +30,12 @@ import { ArticleDetailWidgetPostComponent } from './article/article-detail/artic
 
 
 
+import { PageListComponent } from './page/page-list/page-list.component';
+
+import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-widget-page.component';
+
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -75,6 +81,15 @@ export const keynoteRoutingPath = [
 export const articleRoutingPath = [
     {path: 'list', component: ArticleListComponent},
      {path: 'detail/:id', component: ArticleDetailWidgetPostComponent},
+    
+    
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const pageRoutingPath = [
+    {path: 'list', component: PageListComponent},
+     {path: 'detail/:id', component: PageDetailWidgetPageComponent},
     
     
     

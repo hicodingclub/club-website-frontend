@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath, pageRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -30,6 +30,10 @@ export const PublicinfoRoutes: Routes = [
       { path: "article",
         children: articleRoutingPath,
         data: {"mraLevel": 1, "item": "article"}
+      },
+      { path: "page",
+        children: pageRoutingPath,
+        data: {"mraLevel": 1, "item": "page"}
       },
     ]
   }
@@ -37,14 +41,14 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Dec 23 2019 22:13:44 GMT-0800 (Pacific Standard Time)
+**Date: Sun Feb 09 2020 11:11:54 GMT-0800 (Pacific Standard Time)
 
 import { Routes } from '@angular/router';
 
 import { PublicinfoComponent } from './publicinfo/publicinfo.component';
 
 //Import routing paths
-import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath,  } from './publicinfo/publicinfo-routing.path';
+import { generalinfoRoutingPath, faqRoutingPath, eventRoutingPath, keynoteRoutingPath, articleRoutingPath, pageRoutingPath,  } from './publicinfo/publicinfo-routing.path';
 
 export const PublicinfoRoutes: Routes = [
   { path: 'publicinfo',
@@ -71,6 +75,10 @@ export const PublicinfoRoutes: Routes = [
       { path: "article",
         children: articleRoutingPath,
         data: {"mraLevel": 1, "item": "article"}
+      },
+      { path: "page",
+        children: pageRoutingPath,
+        data: {"mraLevel": 1, "item": "page"}
       },
     ]
   }
