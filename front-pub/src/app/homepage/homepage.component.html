@@ -28,4 +28,14 @@
         </div>
         <div class="col-large"><app-event-list-widget-clean></app-event-list-widget-clean></div>
     </section>
+    <section class="slides-section">
+        <app-keynote-list-widget-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-widget-sld>
+    </section>
+    <!--
+    <section>
+        <div>
+          <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
+        </div>
+    </section>
+    -->
 </div>
