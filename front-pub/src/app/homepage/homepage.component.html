@@ -15,7 +15,27 @@
             <img class="mission-img" src="/assets/mission-website.jpg">
         </div>
     </section>
-    <section class="events-section">
-        <app-event-list-widget-clean></app-event-list-widget-clean>
+    <section class="row events-section">
+        <div class="col d-flex flex-column">
+            <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
+              [style]="{
+                  'card': {'background-color': 'transparent', 'color': '#00274c'},
+                  'card-header': {'background-color': 'transparent'}
+                }"
+              >
+            </app-generalinfo-detail-widget-info></div>
+            <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
+        </div>
+        <div class="col-large"><app-event-list-widget-clean></app-event-list-widget-clean></div>
     </section>
+    <section class="slides-section">
+        <app-keynote-list-widget-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-widget-sld>
+    </section>
+    <!--
+    <section>
+        <div>
+          <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
+        </div>
+    </section>
+    -->
 </div>

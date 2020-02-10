@@ -17,6 +17,24 @@ section > div, section > img {
     height: 100%;
 	width: 100vw;
 }
+.col-large{
+	flex-grow: 1;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: 740px;
+}
+
+.col-small {
+	width: 370px;
+	padding-right: 15px;
+    padding-left: 15px;
+}
+
+.internal_link {
+    margin-top: 1rem;
+    color: #307bff;
+    cursor: pointer;
+}
 
 /*Slogan section styles*/
 /*==================*/
@@ -110,4 +128,17 @@ section > div, section > img {
 	height: 300px;
 }
 
+/*Events section styles*/
+/*==================*/
+.events-section {
+	align-items: baseline;
+	margin-top: 50px;
+    margin-bottom: 50px;
+}
 
+/*Slides section styles*/
+/*==================*/
+.slides-section {
+	padding-top: 50px;
+	width: 100%;
+}

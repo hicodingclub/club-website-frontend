@@ -1,13 +1,11 @@
 .detail {
+	width: 100%;
 	margin: 0 auto;
 }
 
-.detail .card-header {
-  padding: 0;
-}
 .action-buttons {
 	width: 100%;
-	float: none; 
+	float:right; 
 	text-align: right;
 	margin-bottom: 1.25rem;
 }
@@ -94,58 +92,43 @@ div.badge-click:hover {
   height: 100%;
 }
 .grid-head {
-  display: inline-flex;
-  width: 100%;
+  display: flex;
   align-items: center;
-  /*width: 100%;*/
-  background-color: rgba(0, 0, 0, 0);
-
+  /*width: 100%;
+  background-color: rgba(0, 0, 0, 0.04);*/
 }
-.grid-head-picture, .list-head-picture {
-  width: 50%;
-  height: 20rem;
-  background-color: #f1f1f1;
+
+.grid-head-picture {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 6rem;
+  height: 6rem;
+
+  margin-right: 0.5rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 500px) {
+  .grid-head-picture {
+    flex-basis: 8rem;
+    height: 6rem;
+  }
 }
 
 .transparent-border {
   border-color: rgba(0,0,0,0);
 }
 
-.info-description-text {
+.info-term-text {
   line-height: 2rem;
   width: 70%;
-  margin-left: 10%;
+  margin-left: 1rem;
+}
+
+.term-check {
+  zoom: 2;
 }
 
 .slide-image {
   width: 100%;
-}
-
-.carousel-caption-h3 {
-  font-size: 1.25rem;
-}
-
-.carousel-caption {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-}
-.carousel-caption-h5 {
-  font-size: 0.75rem;
-}
-
-.carousel-caption-p {
-  display: none;
-}
-
-@media screen and  (min-width: 768px) {
-  .carousel-caption-h3 {
-    font-size: 1.75rem;
-  }
-  
-  .carousel-caption-h5 {
-    font-size: 1.25rem;
-  }
-  
-  .carousel-caption-p {
-    display: block;
-  }  
 }

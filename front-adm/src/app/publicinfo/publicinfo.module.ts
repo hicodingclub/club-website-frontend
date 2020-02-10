@@ -72,6 +72,16 @@ import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.compon
 
 import { KeynoteService } from './keynote/keynote.service';
 
+import { PageListComponent } from './page/page-list/page-list.component';
+
+import { PageDetailComponent } from './page/page-detail/page-detail.component';
+
+    import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-widget-page.component';
+import { PageDetailFieldComponent } from './page/page-detail/page-detail-field.component';
+import { PageEditComponent } from './page/page-edit/page-edit.component';
+
+import { PageService } from './page/page.service';
+
 
 
 
@@ -130,6 +140,14 @@ import { KeynoteService } from './keynote/keynote.service';
     KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
+    PageListComponent,
+
+    PageDetailComponent,
+
+    PageDetailWidgetPageComponent,
+    PageDetailFieldComponent,
+    PageEditComponent,
+
 
 
 
@@ -179,6 +197,14 @@ import { KeynoteService } from './keynote/keynote.service';
     KeynoteDetailFieldComponent,
     KeynoteEditComponent,
 
+    PageListComponent,
+
+    PageDetailComponent,
+
+    PageDetailWidgetPageComponent,
+    PageDetailFieldComponent,
+    PageEditComponent,
+
 
 
   ],
@@ -192,6 +218,7 @@ import { KeynoteService } from './keynote/keynote.service';
     FaqService,
     GeneralinfoService,
     KeynoteService,
+    PageService,
   ],
   entryComponents: [
     EventDetailWidgetPostComponent,
@@ -203,6 +230,8 @@ import { KeynoteService } from './keynote/keynote.service';
     GeneralinfoEditComponent,
     KeynoteDetailWidgetSlideComponent,
     KeynoteEditComponent,
+    PageDetailWidgetPageComponent,
+    PageEditComponent,
   ]
 })
 export class PublicinfoModule { }

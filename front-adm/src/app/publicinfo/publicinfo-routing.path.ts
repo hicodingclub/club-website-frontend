@@ -30,6 +30,12 @@ import { KeynoteDetailWidgetSlideComponent } from './keynote/keynote-detail/keyn
 import { KeynoteEditComponent } from './keynote/keynote-edit/keynote-edit.component';
 
 
+import { PageListComponent } from './page/page-list/page-list.component';
+
+import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-widget-page.component';
+import { PageEditComponent } from './page/page-edit/page-edit.component';
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -77,6 +83,15 @@ export const keynoteRoutingPath = [
      {path: 'detail/:id', component: KeynoteDetailWidgetSlideComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: KeynoteEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: KeynoteEditComponent, canActivate: [AuthGuard]},
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const pageRoutingPath = [
+    {path: 'list', component: PageListComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: PageDetailWidgetPageComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: PageEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: PageEditComponent, canActivate: [AuthGuard]},
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];
