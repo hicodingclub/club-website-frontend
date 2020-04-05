@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row.no-gutters>[class^="col-"],
+.row.no-gutters>[class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.hcc-row1 {}
+
+.hcc-row1>div {
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+}
+
+.mission {
+    background-color: rgb(56, 109, 189);
+    padding-top: 80px!important;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 36px;
+}
+
+.mission-title {
+    text-align: center;
+    background-color: rgb(56, 109, 189);
+    font-size: 5rem;
+}
+
+.picture-container {
+    background-color: #b7e5f7;
+}
+
+.head-picture {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+#join {
+    background-color: rgb(56, 109, 189);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 35px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.subtitle {
+    text-align: center;
+    color: rgb(56, 109, 189);
+    font-size: 70px;
+    margin-top: 3rem;
+}
+
+.team-row {
+    margin-top: 3rem;
+}
+
+.team {
+    border: rgb(56, 109, 189);
+    border-radius: 1rem;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.team-title {
+    color: rgb(56, 109, 189);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.paragraph {
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+}
+
+.members .card,
+.members i {
+    margin: 40px auto 40px auto;
+    width: 18rem;
+}
