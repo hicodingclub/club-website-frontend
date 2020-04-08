@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
@@ -26,6 +26,8 @@ export class MpubaccessDetailComponent extends MpubaccessComponent implements On
   public style: any; // {}
   @Input()
   public options: any; // {} uiOptions
+  @Output()
+  public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 

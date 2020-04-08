@@ -245,7 +245,7 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-head-picture">                
+      <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
       </div>
@@ -253,21 +253,21 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['title']}}
 
           </div>
         </h5>
         <div *ngIf="detail['author']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Author:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['author']}}
 
           </div>
         </div>
         <div *ngIf="detail['publishDate']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Publish Date:</label></div>
-          <div class="ml-3">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+          <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
           </div>
         </div>
@@ -299,14 +299,14 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture">                
+        <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
         </div>
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['title']}}
 
             </div>
@@ -316,13 +316,13 @@
       <div class="card-body">
           <div *ngIf="detail['author']" class="d-flex flex-wrap">
             <div class=""><label>Author:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['author']}}
 </div>
           </div>
           <div *ngIf="detail['publishDate']" class="d-flex flex-wrap">
             <div class=""><label>Publish Date:</label></div>
-            <div class="ml-3">                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+            <div class="ml-3">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 </div>
           </div>
       </div>
@@ -381,22 +381,22 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['title']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['author']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['publishDate']?detail['publishDate']['value']:""}}
+	            	  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 	            </td>
 	            <td>

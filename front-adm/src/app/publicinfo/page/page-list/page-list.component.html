@@ -329,20 +329,20 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['description']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+	            	  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['tag']}}
 
 	            </td>
@@ -373,26 +373,26 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['description']}}
 
           </div>
         </h5>
         <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Created at:</label></div>
-          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['updatedAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Updated at:</label></div>
-          <div class="ml-3">                  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+          <div class="ml-3">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['tag']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Tag:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['tag']}}
 
           </div>
@@ -428,7 +428,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['description']}}
 
             </div>
@@ -438,17 +438,17 @@
       <div class="card-body">
           <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
             <div class=""><label>Created at:</label></div>
-            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['updatedAt']" class="d-flex flex-wrap">
             <div class=""><label>Updated at:</label></div>
-            <div class="ml-3">                  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
+            <div class="ml-3">  {{detail['updatedAt']?detail['updatedAt']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['tag']" class="d-flex flex-wrap">
             <div class=""><label>Tag:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['tag']}}
 </div>
           </div>

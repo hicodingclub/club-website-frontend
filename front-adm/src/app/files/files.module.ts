@@ -121,6 +121,10 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
 
     MfileListSubComponent,
     
+
+
+
+
   ],
   providers: [
     { provide: Files_SERVER_ROOT_URI, useValue: files_server_root_uri },

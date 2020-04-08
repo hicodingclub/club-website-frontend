@@ -217,6 +217,10 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     MpermissionDetailSubComponent,
     MaccountroleListSubComponent,
     MaccountroleDetailSubComponent,
+
+
+
+
   ],
   providers: [
     { provide: Roles_SERVER_ROOT_URI, useValue: roles_server_root_uri },

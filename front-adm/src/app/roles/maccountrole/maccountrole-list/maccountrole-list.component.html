@@ -237,7 +237,7 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
@@ -246,7 +246,7 @@
         </h5>
         <div *ngIf="detail['role']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Role:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -289,7 +289,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
@@ -301,7 +301,7 @@
       <div class="card-body">
           <div *ngIf="detail['role']" class="d-flex flex-wrap">
             <div class=""><label>Role:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 
@@ -354,14 +354,14 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('account', detail['account'], $event)">
 	            	{{detail['account']?detail['account']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <div *ngIf="detail['role'] && detail['role']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['role']['selection']" let-idx="index">
                             <div class="badge-click badge badge-pill badge-secondary" 

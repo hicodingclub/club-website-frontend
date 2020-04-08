@@ -236,14 +236,14 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['module']}}
 
           </div>
         </h5>
         <div *ngIf="detail['resources']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Resources:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -285,7 +285,7 @@
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['module']}}
 
             </div>
@@ -295,7 +295,7 @@
       <div class="card-body">
           <div *ngIf="detail['resources']" class="d-flex flex-wrap">
             <div class=""><label>Resources:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -347,12 +347,12 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['module']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">

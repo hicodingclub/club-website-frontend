@@ -186,11 +186,11 @@
 	        	[ngClass]="{'clicked-row': detail['_id']==clickedId}" >
 	            <td scope="row" (click)="selectItemSelected(i)"  class="pointer">{{(page-1)*perPage+i+1}}</td>
 
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                     {{detail['module']}}
 
 	            </td>
-	            <td (click)="selectItemSelected(i)"  class="pointer">                
+	            <td (click)="selectItemSelected(i)"  class="pointer">
                     <div *ngIf="detail['resources'] && detail['resources']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">

@@ -320,7 +320,7 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields "  >
 
-      <div class="list-head-picture">                
+      <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
       </div>
@@ -328,21 +328,21 @@
       <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['name']}}
 
           </div>
         </h5>
         <div *ngIf="detail['type']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Type:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['type']}}
 
           </div>
         </div>
         <div *ngIf="detail['group']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Group:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
@@ -351,7 +351,7 @@
         </div>
         <div *ngIf="detail['labels']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Labels:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -364,19 +364,19 @@
         </div>
         <div *ngIf="detail['size']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Size:</label></div>
-          <div class="ml-3">                  {{detail['size']}} 
+          <div class="ml-3">{{detail['size']}} 
 
           </div>
         </div>
         <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Created at:</label></div>
-          <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['hasThumbnail']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Has Thumbnail:</label></div>
-          <div class="ml-3">                  {{detail['hasThumbnail']}} 
+          <div class="ml-3">{{detail['hasThumbnail']}} 
 
           </div>
         </div>
@@ -405,14 +405,14 @@
 				<div class="grid-fields "  >
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture">                
+        <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
         </div>
         <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['name']}}
 
             </div>
@@ -422,13 +422,13 @@
       <div class="card-body">
           <div *ngIf="detail['type']" class="d-flex flex-wrap">
             <div class=""><label>Type:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['type']}}
 </div>
           </div>
           <div *ngIf="detail['group']" class="d-flex flex-wrap">
             <div class=""><label>Group:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
@@ -436,7 +436,7 @@
           </div>
           <div *ngIf="detail['labels']" class="d-flex flex-wrap">
             <div class=""><label>Labels:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -448,17 +448,17 @@
           </div>
           <div *ngIf="detail['size']" class="d-flex flex-wrap">
             <div class=""><label>Size:</label></div>
-            <div class="ml-3">                  {{detail['size']}} 
+            <div class="ml-3">{{detail['size']}} 
 </div>
           </div>
           <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
             <div class=""><label>Created at:</label></div>
-            <div class="ml-3">                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['hasThumbnail']" class="d-flex flex-wrap">
             <div class=""><label>Has Thumbnail:</label></div>
-            <div class="ml-3">                  {{detail['hasThumbnail']}} 
+            <div class="ml-3">{{detail['hasThumbnail']}} 
 </div>
           </div>
       </div>
@@ -537,24 +537,24 @@
 	            </td>
 
 	            <td >
-	            	                
+	            	
                     {{detail['name']}}
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     {{detail['type']}}
 
 	            </td>
 	            <td >
-	            	                
+	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                             <div class="badge badge-pill badge-secondary">
@@ -565,20 +565,20 @@
 
 	            </td>
 	            <td >
-	            	                  {{detail['size']}} 
+	            	{{detail['size']}} 
 
 	            </td>
 	            <td >
-	            	                
+	            	
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
 	            <td >
-	            	                  {{detail['createdAt']?detail['createdAt']['value']:""}}
+	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
 	            <td >
-	            	                  {{detail['hasThumbnail']}} 
+	            	{{detail['hasThumbnail']}} 
 
 	            </td>
 	            <td>

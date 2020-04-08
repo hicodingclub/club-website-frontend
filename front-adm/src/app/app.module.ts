@@ -13,6 +13,7 @@ import { EmailingModule } from './emailing/emailing.module';
 import { HomeModule } from './home/home.module';
 
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
+import { TeachforlifeModule } from './teachforlife/teachforlife.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { file_upload_uri, file_download_uri, file_manage_root_uri } from './file
     EmailingModule,
     HomeModule,
     PublicinfoModule,
+    TeachforlifeModule,
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },

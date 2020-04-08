@@ -25,7 +25,7 @@ export const FilesRoutes: Routes = [
 
 export const files_server_root_uri: string = '/api/files';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Dec 23 2019 22:13:59 GMT-0800 (Pacific Standard Time)
+**Date: Tue Apr 07 2020 22:35:59 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -40,17 +40,17 @@ export const FilesRoutes: Routes = [
     children: [
       {path: '',  redirectTo: 'mfile', pathMatch: 'full'},
 
-      { path: "mfile",
+      { path: 'mfile',
         children: mfileRoutingPath,
-        data: {"mraLevel": 1, "item": "mfile"}
+        data: {mraLevel: 1, item: 'mfile'}
       },
-      { path: "mfilegroup",
+      { path: 'mfilegroup',
         children: mfilegroupRoutingPath,
-        data: {"mraLevel": 1, "item": "mfilegroup"}
+        data: {mraLevel: 1, item: 'mfilegroup'}
       },
     ]
   }
 ];
 
-export const files_server_root_uri:string = "/api/files";
+export const files_server_root_uri: string = '/api/files';
 **** End of recent updates.<<<*/

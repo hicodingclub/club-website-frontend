@@ -148,6 +148,10 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
 
     MpubaccessListSubComponent,
     MpubaccessDetailSubComponent,
+
+
+
+
   ],
   providers: [
     { provide: Access_SERVER_ROOT_URI, useValue: access_server_root_uri },
