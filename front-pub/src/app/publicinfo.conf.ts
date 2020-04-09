@@ -41,7 +41,7 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Feb 09 2020 11:11:54 GMT-0800 (Pacific Standard Time)
+**Date: Wed Apr 08 2020 22:48:07 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -56,33 +56,33 @@ export const PublicinfoRoutes: Routes = [
     children: [
       {path: '',  redirectTo: 'generalinfo', pathMatch: 'full'},
 
-      { path: "generalinfo",
+      { path: 'generalinfo',
         children: generalinfoRoutingPath,
-        data: {"mraLevel": 1, "item": "generalinfo"}
+        data: {mraLevel: 1, item: 'generalinfo'}
       },
-      { path: "faq",
+      { path: 'faq',
         children: faqRoutingPath,
-        data: {"mraLevel": 1, "item": "faq"}
+        data: {mraLevel: 1, item: 'faq'}
       },
-      { path: "event",
+      { path: 'event',
         children: eventRoutingPath,
-        data: {"mraLevel": 1, "item": "event"}
+        data: {mraLevel: 1, item: 'event'}
       },
-      { path: "keynote",
+      { path: 'keynote',
         children: keynoteRoutingPath,
-        data: {"mraLevel": 1, "item": "keynote"}
+        data: {mraLevel: 1, item: 'keynote'}
       },
-      { path: "article",
+      { path: 'article',
         children: articleRoutingPath,
-        data: {"mraLevel": 1, "item": "article"}
+        data: {mraLevel: 1, item: 'article'}
       },
-      { path: "page",
+      { path: 'page',
         children: pageRoutingPath,
-        data: {"mraLevel": 1, "item": "page"}
+        data: {mraLevel: 1, item: 'page'}
       },
     ]
   }
 ];
 
-export const publicinfo_server_root_uri:string = "/api/publicinfo";
+export const publicinfo_server_root_uri: string = '/api/publicinfo';
 **** End of recent updates.<<<*/

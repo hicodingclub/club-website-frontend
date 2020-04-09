@@ -18,6 +18,8 @@ import { AboutComponent } from './about/about.component';
 import { MembersComponent } from './members/members.component';
 
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
+import { TeachforlifeModule } from './teachforlife/teachforlife.module';
+import { Teach4lifeComponent } from './teach4life/teach4life.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { PublicinfoModule } from './publicinfo/publicinfo.module';
     ContactComponent,
     AboutComponent,
     MembersComponent,
+    Teach4lifeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { PublicinfoModule } from './publicinfo/publicinfo.module';
 
     AuthenticationModule,
     PublicinfoModule,
+    TeachforlifeModule
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },

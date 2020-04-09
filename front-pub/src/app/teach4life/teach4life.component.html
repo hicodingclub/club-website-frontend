@@ -1,0 +1,55 @@
+<div class="image-container">
+    <div class="head-picture">
+        <div class="head-text center">HCC's Response to COVID-19</div>
+    </div>
+</div>
+<div>
+    <nav class="nav nav-pills nav-fill sub-header">
+        <a class="nav-item nav-link" [ngClass]="{active: showAbout}" (click)="onClick('about')">About</a>
+        <a class="nav-item nav-link" [ngClass]="{active: showTutors}" (click)="onClick('tutors')">Tutors</a>
+        <a class="nav-item nav-link" [ngClass]="{active: showSubjects}" (click)="onClick('subjects')">Subjects</a>
+    </nav>
+</div>
+
+<div class="container-fluid">
+    <div *ngIf="showAbout">
+        <div class="row about">
+            <div class="col-1 col-lg-3"></div>
+            <div class="col-10 col-lg-6 about-text">
+                <p>
+                    As the COVID-19 virus spreads, everyone is impacted and facing difficulties. Those doctors and nurses who are at the frontline of combating this deadly virus is in dire need of medical supplies. Those who lost job because of the virus are in great concern
+                    about their family income. Those students who have to stay at home as the schools are closing down are seeking more educational opportunities.
+                </p>
+                <br>
+                <p>
+                    HiCoding Club sees the difficulties everyone is facing and decided to take action. We organized the Teach4Life Program in order to support those in need of help. We are tutoring kids at an affordable price (10 dollars per session) to secure their educational
+                    opportunities without placing much burden to their parents. All profits through this event will be used to purchase medical supplies and donate to local hospitals. We all hope this end quickly, and we can continue this event even after
+                    the difficult time.
+                </p>
+                <br>
+                <p class="about-text-important">
+                    Now you can contribute to the end of Coronavirus and further your education by signing up for tutoring in the Teach4Life event!
+                </p>
+                <div class="row justify-content-center my-5">
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg theme-color" (click)="onClick('tutors')">Find a Tutor</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1 col-lg-3"></div>
+        </div>
+    </div>
+
+    <div *ngIf="showTutors" style="min-height: 100vh;">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <app-tutor-list></app-tutor-list>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="showSubjects">
+        subjects
+    </div>
+</div>

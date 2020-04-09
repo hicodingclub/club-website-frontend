@@ -1,1 +1,2 @@
 mra -m publicinfo -v public -o src/app ../../club-website-backend/models/publicInfo/index-public.js 
+mra -m teachforlife -v public -o src/app ../../club-website-backend/models/teachforlife/index-public.js

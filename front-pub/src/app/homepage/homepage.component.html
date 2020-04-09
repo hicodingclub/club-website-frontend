@@ -1,4 +1,7 @@
 <div class="container container-common">
+    <section class="important-post">
+        <div class="important-post-text">Check out HCC's response to COVID-19 at <a routerLink="/teach4life">Teach4Life</a></div>
+    </section>
     <section class="slogan-section">
         <div class="back-ground-full"></div>
         <img src="/assets/slogan-happy-coding.png">
@@ -17,16 +20,18 @@
     </section>
     <section class="row events-section">
         <div class="col d-flex flex-column">
-            <div><app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true"
-              [style]="{
+            <div>
+                <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true" [style]="{
                   'card': {'background-color': 'transparent', 'color': '#00274c'},
                   'card-header': {'background-color': 'transparent'}
-                }"
-              >
-            </app-generalinfo-detail-widget-info></div>
+                }">
+                </app-generalinfo-detail-widget-info>
+            </div>
             <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
         </div>
-        <div class="col-large"><app-event-list-widget-clean></app-event-list-widget-clean></div>
+        <div class="col-large">
+            <app-event-list-widget-clean></app-event-list-widget-clean>
+        </div>
     </section>
     <section class="slides-section">
         <app-keynote-list-widget-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-widget-sld>
