@@ -3,18 +3,19 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { TutorComponent, ViewType } from '../tutor.component';
-import { TutorService } from '../tutor.service';
+import { EnrollmentComponent, ViewType } from '../enrollment.component';
+import { EnrollmentService } from '../enrollment.service';
 
 
+import { ComponentFactoryResolver } from '@angular/core';
 
 
 @Component({
-  selector: 'app-tutor-detail',
-  templateUrl: './tutor-detail.component.html',
-  styleUrls: ['./tutor-detail.component.css']
+  selector: 'app-enrollment-detail',
+  templateUrl: './enrollment-detail.component.html',
+  styleUrls: ['./enrollment-detail.component.css']
 })
-export class TutorDetailComponent extends TutorComponent implements OnInit, AfterViewInit {
+export class EnrollmentDetailComponent extends EnrollmentComponent implements OnInit, AfterViewInit {
   @Input() 
   public id:string;
   @Input()
@@ -31,32 +32,32 @@ export class TutorDetailComponent extends TutorComponent implements OnInit, Afte
 
 
   constructor(
-      
-      public tutorService: TutorService,
+      public componentFactoryResolver: ComponentFactoryResolver,
+      public enrollmentService: EnrollmentService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
-          super(
-                tutorService, injector, router, route, location, ViewType.DETAIL);
+          super(componentFactoryResolver,
+                enrollmentService, injector, router, route, location, ViewType.DETAIL);
 
+          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
-          this.stringFields.push('introduction');
-          this.stringFields.push('photo');
-          this.stringFields.push('acceptGrade');
-          this.stringFields.push('availableTime');
-          this.stringFields.push('specificSubjects');
+          this.stringFields.push('status');
+          this.stringFields.push('notes');
+
+          this.referenceFields = ['tutor', ];
+
+          this.dateFields = ['createdAt', ];
 
 
 
 
 
-
-
-          this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
+          this.textareaFields = ['notes', ];
 
   }
 
@@ -77,9 +78,5 @@ export class TutorDetailComponent extends TutorComponent implements OnInit, Afte
 
   ngAfterViewInit() {
 
-    //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
-      this.router.navigate(['./enrollment/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
-    }
   }
 }

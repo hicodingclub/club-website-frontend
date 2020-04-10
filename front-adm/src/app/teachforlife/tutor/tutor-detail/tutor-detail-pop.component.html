@@ -1,19 +1,24 @@
+<div class="select-model show" (keyup.esc)="uiOnEscapeKey()" tabindex="0" #TeachforlifeModal>
+  <div class="select-model-content">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ItemCamelName}} Detail</h5>
+        <button type="button" class="close" aria-label="Close" (click)="uiCloseModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+<!--  model body starts -->
+
 
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
-    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
-    <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
-        <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
-        <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
-    </a>
-</div>
-</div>
-	<div class="card text-left transparent-border ">
-		<div class="grid-fields">
+	<div class="action-buttons">
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+		<div class="card-text">
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">
@@ -92,18 +97,17 @@
       </div>
 
 		</div>
+	  </div>
 	</div>
-	<div *ngIf="!options['disablePipeline']">
-</div>
-	<div *ngIf="!options['disableRefLink']">
-    <br/>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a [routerLink]="['./enrollment/list']"
-                    class="nav-link" routerLinkActive="active">Sign Up</a>
-        </li>
-    </ul>
-    <router-outlet></router-outlet>
-</div>
 </div>
 
+
+
+<!--  model body ends -->
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div> 

@@ -6,20 +6,13 @@
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
     <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
     <a routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-    <a routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
-        <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
-        <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
-    </a>
+    
 </div>
 </div>
 	<div class="card text-left transparent-border ">
 		<div class="grid-fields">
 
       <div class="card-header grid-head">
-        <div class="grid-head-picture">
-                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-
-        </div>
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
@@ -31,13 +24,6 @@
         </div>
       </div>
       <div class="card-body">
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
-                <div><label>Grade:</label></div>
-                <div class="ml-3">{{detail['grade']}} 
-</div>
-            </div>
-          </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Email:</label></div>
@@ -56,36 +42,42 @@
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
-                <div><label>Introduction:</label></div>
+                <div><label>Grade:</label></div>
+                <div class="ml-3">{{detail['grade']}} 
+</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Status:</label></div>
                 <div class="ml-3">
-                    <div [innerHTML]="detail['introduction']"></div>
+                    {{detail['status']}}
+</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Notes:</label></div>
+                <div class="ml-3">
+                    <div [innerHTML]="detail['notes']"></div>
                         
 </div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
-                <div><label>Open to Grade:</label></div>
+                <div><label>Tutor:</label></div>
                 <div class="ml-3">
-                    {{detail['acceptGrade']}}
+               	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
+	            	{{detail['tutor']?detail['tutor']['value']:""}}
+	              </a>
 </div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
-                <div><label>Available Time:</label></div>
-                <div class="ml-3">
-                    <div [innerHTML]="detail['availableTime']"></div>
-                        
-</div>
-            </div>
-          </div>
-          <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
-                <div><label>Tutoring Subjects:</label></div>
-                <div class="ml-3">
-                    <div [innerHTML]="detail['specificSubjects']"></div>
-                        
+                <div><label>Created at:</label></div>
+                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
 </div>
             </div>
           </div>
@@ -96,14 +88,6 @@
 	<div *ngIf="!options['disablePipeline']">
 </div>
 	<div *ngIf="!options['disableRefLink']">
-    <br/>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a [routerLink]="['./enrollment/list']"
-                    class="nav-link" routerLinkActive="active">Sign Up</a>
-        </li>
-    </ul>
-    <router-outlet></router-outlet>
 </div>
 </div>
 
