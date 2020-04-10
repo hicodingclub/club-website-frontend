@@ -102,3 +102,12 @@
     margin: 40px auto 40px auto;
     width: 18rem;
 }
+
+@media screen and (max-width: 768px) {
+    .mission {
+        padding-top: 30px!important;
+    }
+    .mission-title {
+        line-height: 1;
+    }
+}
