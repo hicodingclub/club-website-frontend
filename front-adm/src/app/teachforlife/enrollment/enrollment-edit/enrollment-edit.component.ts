@@ -51,11 +51,14 @@ export class EnrollmentEditComponent extends EnrollmentComponent implements OnIn
           super(componentFactoryResolver,
                 enrollmentService, injector, router, route, location, ViewType.EDIT);
 
+          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
+          this.stringFields.push('status');
           this.stringFields.push('notes');
+          this.stringFields.push('adminNotes');
 
           this.referenceFields = ['tutor', ];
 
@@ -64,7 +67,7 @@ export class EnrollmentEditComponent extends EnrollmentComponent implements OnIn
 
 
 
-          this.textareaFields = ['notes', ];
+          this.textareaFields = ['notes', 'adminNotes', ];
 
 
           
@@ -103,7 +106,7 @@ export class EnrollmentEditComponent extends EnrollmentComponent implements OnIn
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
+            status: "processing",
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -112,7 +115,7 @@ export class EnrollmentEditComponent extends EnrollmentComponent implements OnIn
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
+              status: "processing",
           };
           this.detail = this.formatDetail(detail);
       }

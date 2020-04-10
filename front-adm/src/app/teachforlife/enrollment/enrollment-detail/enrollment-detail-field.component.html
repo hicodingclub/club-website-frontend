@@ -24,6 +24,11 @@
                         
 
 		</div>
+		<div *ngIf="detail && showFields.includes('adminNotes')">
+                    <div [innerHTML]="detail['adminNotes']"></div>
+                        
+
+		</div>
 		<div *ngIf="detail && showFields.includes('tutor')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
 	            	{{detail['tutor']?detail['tutor']['value']:""}}

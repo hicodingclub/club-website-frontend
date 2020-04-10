@@ -53,7 +53,7 @@ export class EnrollmentComponent extends MddsBaseComponent {
         this.referenceFieldsMap = {'tutor': 'tutor',};
         this.referenceFieldsReverseMap = {'tutor': 'tutor',};
         this.emailFields = [['Email','email'],];
-        this.requiredFields = ['name','email','grade','tutor','status',];
+        this.requiredFields = ['name','email','status','grade','tutor',];
 
 
         this.schemaName = 'enrollment';

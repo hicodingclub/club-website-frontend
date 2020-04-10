@@ -48,6 +48,7 @@ export class EnrollmentDetailComponent extends EnrollmentComponent implements On
           this.stringFields.push('phoneNumber');
           this.stringFields.push('status');
           this.stringFields.push('notes');
+          this.stringFields.push('adminNotes');
 
           this.referenceFields = ['tutor', ];
 
@@ -57,7 +58,7 @@ export class EnrollmentDetailComponent extends EnrollmentComponent implements On
 
 
 
-          this.textareaFields = ['notes', ];
+          this.textareaFields = ['notes', 'adminNotes', ];
 
   }
 

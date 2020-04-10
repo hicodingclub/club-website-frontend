@@ -111,6 +111,80 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('status')">
+
+        <fieldset class="form-group">
+          <label for="EditStatus">Status</label>
+          
+          
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['status'].includes(detail['status']),
+                          'ng-invalid': !enums['status'].includes(detail['status'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatusprocessing" [value]="'processing'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">processing</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatuspaid" [value]="'paid'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">paid</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatusconfirmed" [value]="'confirmed'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">confirmed</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatuscancelled" [value]="'cancelled'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">cancelled</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditStatus.valid || EditStatus.pristine || EditStatus.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditStatus.errors && EditStatus.errors.required">
+              Status is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
 <div *ngIf="!hiddenFields.includes('grade')">
 
         <fieldset class="form-group">
@@ -159,6 +233,38 @@
           </div>
 
           <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('adminNotes')">
+
+        <fieldset class="form-group">
+          <label for="EditAdminNotes">Admin Notes</label>
+          
+          <span><i data-toggle="tooltip" title="notes for admin only" class="far fa-question-circle"></i></span>
+
+          <div class="input-group">
+            <textarea rows="8" class="form-control rounded" id="EditAdminNotes"
+                    
+                    
+                    
+                
+                    [(ngModel)]="detail['adminNotes']" name="EditAdminNotes"
+                    #EditAdminNotes="ngModel"></textarea>
+            <div *ngIf="detail['adminNotes']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('adminNotes')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditAdminNotes.valid || EditAdminNotes.pristine || EditAdminNotes.errors.minlength"
            class="alert alert-danger">
 
  
@@ -306,6 +412,80 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('status')">
+
+        <fieldset class="form-group">
+          <label for="EditStatus">Status</label>
+          
+          
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['status'].includes(detail['status']),
+                          'ng-invalid': !enums['status'].includes(detail['status'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatusprocessing" [value]="'processing'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">processing</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatuspaid" [value]="'paid'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">paid</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatusconfirmed" [value]="'confirmed'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">confirmed</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditStatus"
+                class="form-check-input"
+                required
+                id="EditStatuscancelled" [value]="'cancelled'"
+                
+                [(ngModel)]="detail['status']"
+                #EditStatus="ngModel">
+              <label class="form-check-label">cancelled</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditStatus.valid || EditStatus.pristine || EditStatus.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditStatus.errors && EditStatus.errors.required">
+              Status is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
 <div *ngIf="!hiddenFields.includes('grade')">
 
         <fieldset class="form-group">
@@ -354,6 +534,38 @@
           </div>
 
           <div [hidden]="EditNotes.valid || EditNotes.pristine || EditNotes.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('adminNotes')">
+
+        <fieldset class="form-group">
+          <label for="EditAdminNotes">Admin Notes</label>
+          
+          <span><i data-toggle="tooltip" title="notes for admin only" class="far fa-question-circle"></i></span>
+
+          <div class="input-group">
+            <textarea rows="8" class="form-control rounded" id="EditAdminNotes"
+                    
+                    
+                    
+                
+                    [(ngModel)]="detail['adminNotes']" name="EditAdminNotes"
+                    #EditAdminNotes="ngModel"></textarea>
+            <div *ngIf="detail['adminNotes']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('adminNotes')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditAdminNotes.valid || EditAdminNotes.pristine || EditAdminNotes.errors.minlength"
            class="alert alert-danger">
 
  
