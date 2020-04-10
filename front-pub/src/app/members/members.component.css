@@ -13,7 +13,9 @@
     padding-left: 0;
 }
 
-.hcc-row1 {}
+.hcc-row1 {
+    margin-top: 20px;
+}
 
 .hcc-row1>div {
     position: relative;
