@@ -54,6 +54,7 @@ section>img {
     color: red;
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 
@@ -149,6 +150,11 @@ section>img {
     height: 300px;
 }
 
+@media screen and (max-width: 992px) {
+    .mission-img {
+        display: none;
+    }
+}
 
 /*Events section styles
 /*==================*/
