@@ -41,7 +41,7 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri:string = "/api/publicinfo";
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Apr 08 2020 22:48:07 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Apr 09 2020 23:55:45 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

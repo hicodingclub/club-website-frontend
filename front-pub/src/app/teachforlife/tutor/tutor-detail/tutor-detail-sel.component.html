@@ -1,19 +1,28 @@
+<div class="select-model show" (keyup.esc)="uiOnEscapeKey()" tabindex="0" #TeachforlifeModal>
+  <div class="select-model-content">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Selected {{ItemCamelName}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="uiCloseModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-<div class="mt-4 mb-4" *ngIf="!options['disableTitle']">
-	<h3>Tutors</h3>
-</div>
+<!--  model body starts -->
+
+
+
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
-    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a [routerLink]="['../../list' ]"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
-</div>
-</div>
-	<div class="card text-left transparent-border ">
-		<div class="grid-fields">
+	<div class="action-buttons">
+        <a routerLink="." (click)="detailSelBack()"><i class="fas fa-angle-double-left" title="Back to list">&nbsp; {{ItemCamelName}} List</i></a>
+		<a routerLink="." class="btn btn-outline-primary" (click)="detailSelSelected()">Select</a>
+	</div>
+	
+	<div class="card text-left">
+	  <div class="card-body">
+	    <h4 class="card-title">{{ItemCamelName}} Detail</h4>    
+		<div class="card-text">
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">
@@ -92,19 +101,17 @@
       </div>
 
 		</div>
+	  </div>
 	</div>
-	<div *ngIf="!options['disablePipeline']">
-    <br/>
-    <div class="row justify-content-center">
-        <button type="button" class="btn btn-primary" routerLink="/teach4life/enroll" [queryParams]="{tutor: detail['_id']}">I'm Interested in This Tutor</button>
-    </div>
-</div>
-	<div *ngIf="!options['disableRefLink']">
-    <br/>
-    <ul class="nav nav-tabs">
-        
-    </ul>
-    <router-outlet></router-outlet>
-</div>
 </div>
 
+
+
+<!--  model body ends -->
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div> 
