@@ -2,7 +2,9 @@
 	<nav class="navbar navbar-light navbar-expand-lg">
 		<a class="navbar-brand" routerLink="/"> <img src="assets/logo.png"
 			align="left" class="logo">
-			<div class="logo-text mt-2">HiCoding Club</div>
+			<div class="logo-text mt-2">
+				HiCoding<sup>Club+</sup>
+			</div>
 		</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -37,6 +39,28 @@
     </div>
     -->
 </div>
+
+<div class="alert info">
+	<span class="closebtn">&times;</span> <strong>Learn more
+	about HiCoding Club's Response to COVID-19.<br /></strong>
+	<a href="https://hicodingclub.org/teach4life">
+		Get started now ></a>
+</div>
+
+<script>
+	var close = document.getElementsByClassName("closebtn");
+	var i;
+
+	for (i = 0; i < close.length; i++) {
+		close[i].onclick = function() {
+			var div = this.parentElement;
+			div.style.opacity = "0";
+			setTimeout(function() {div.style.display = "none";
+			}, 600);
+		}
+	}
+</script>
+
 
 <div class="content">
 	<div>

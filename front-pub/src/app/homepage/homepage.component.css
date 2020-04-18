@@ -144,15 +144,35 @@ section>img {
 }
 
 .mission-text {
-    font-weight: bold;
-    font-size: 40px;
+    font-family: Helvetica Neue;
     line-height: 48px;
     /* identical to box height */
     display: flex;
     align-items: center;
     text-align: center;
     color: #FFFFFF;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing:8px;
+    margin-bottom: 20px;
+    animation: text 3s 1;
 }
+
+@keyframes text {
+  0%{
+  	color: #0096ff;
+  	marigin-bottom: -40px;
+  }
+  30%{
+  	letter-spacing: 25px;
+  	margin-bottom: -40px;
+  }
+  85%{
+  	letter-spacing: 8px;
+  	margin-bottom: -40px;
+  }
+}
+
 
 .mission-description {
     margin-top: 20px;
