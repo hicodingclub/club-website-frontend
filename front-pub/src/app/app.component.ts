@@ -9,6 +9,8 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   title = 'app';
 
+  public showAlert: boolean = true;
+
   public currentUrl: string = '';
 
   constructor(private router: Router) {
@@ -25,5 +27,9 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  public hideAlert() {
+    this.showAlert = false;
   }
 }
