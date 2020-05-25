@@ -12,7 +12,6 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 25px;
-    overflow: hidden;
     position: -webkit-sticky;
     /* Safari */
     position: sticky;
@@ -20,20 +19,8 @@
     z-index: 999;
 }
 
-a:link {
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
-}
-
 .navbar-brand {
     height: 100%;
-}
-
-a:hover {
-    color: #f9f9f9;
-    background-color: transparent;
-    text-decoration: none;
 }
 
 .alert {
@@ -49,7 +36,7 @@ a:hover {
 }
 
 .alert.info {
-    background-color: #105EAB;
+    background-color: #3f71a2;
 }
 
 .closebtn {
@@ -132,6 +119,14 @@ sup {
 .navbar {
     flex-grow: 1;
     font-family: Helvetica Neue;
+}
+
+.alertLink {
+    color: #d88e72;
+}
+
+.alertLink:hover {
+    color: white
 }
 
 .auth-icon {
