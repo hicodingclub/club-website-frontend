@@ -79,26 +79,40 @@ section>img {
     align-items: center;
     text-align: center;
     color: #000000;
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .1em solid black; /* The typwriter cursor */
-	white-space: nowrap; /* Keeps the content on a single line */
- 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  	letter-spacing: 0px; /* Adjust as needed */
-    animation: 
-    typing 4s steps(43, end),
-    blink-caret .75s step-end infinite;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .1em solid black;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    letter-spacing: 0px;
+    /* Adjust as needed */
+    animation: typing 2s steps(43, end), blink-caret .75s step-end infinite;
 }
+
 
 /* The typing effect */
+
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
 }
 
+
 /* The typewriter cursor effect */
+
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: black; }
+    from,
+    to {
+        border-color: transparent
+    }
+    50% {
+        border-color: black;
+    }
 }
 
 .slogan-subtext {
@@ -153,26 +167,25 @@ section>img {
     color: #FFFFFF;
     font-size: 60px;
     font-weight: 700;
-    letter-spacing:8px;
+    letter-spacing: 8px;
     margin-bottom: 20px;
     animation: text 3s 1;
 }
 
 @keyframes text {
-  0%{
-  	color: #0096ff;
-  	marigin-bottom: -40px;
-  }
-  30%{
-  	letter-spacing: 25px;
-  	margin-bottom: -40px;
-  }
-  85%{
-  	letter-spacing: 8px;
-  	margin-bottom: -40px;
-  }
+    0% {
+        color: #0096ff;
+        marigin-bottom: -40px;
+    }
+    30% {
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+    }
+    85% {
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
 }
-
 
 .mission-description {
     margin-top: 20px;
@@ -195,6 +208,7 @@ section>img {
         display: none;
     }
 }
+
 
 /*Events section styles
 /*==================*/

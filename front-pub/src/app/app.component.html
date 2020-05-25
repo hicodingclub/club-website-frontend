@@ -1,76 +1,54 @@
 <div class="header">
-	<nav class="navbar navbar-light navbar-expand-lg">
-		<a class="navbar-brand" routerLink="/"> <img src="assets/logo.png"
-			align="left" class="logo">
-			<div class="logo-text mt-2">
-				HiCoding<sup>Club+</sup>
-			</div>
-		</a>
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <div style="height:100%">
+            <a class="navbar-brand d-flex align-items-center" routerLink="/">
+                <img src="assets/logo.png" align="left" class="logo">
+                <div class="logo-text">
+                    HiCoding Club
+                </div>
+            </a>
+        </div>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarItems" aria-controls="navbarItems"
-			aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
-			<ul class="navbar-nav" data-toggle="collapse"
-				data-target=".navbar-collapse.show">
-				<li class="nav-item"><a class="nav-link"
-					routerLinkActive="active" routerLink="/teach4life">Teach4Life</a></li>
-				<li class="nav-item"><a class="nav-link"
-					[ngClass]="{'active': currentUrl === '' || currentUrl === '/' }"
-					routerLink="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link"
-					routerLinkActive="active" routerLink="/members">Members</a></li>
-				<li class="nav-item"><a class="nav-link"
-					routerLinkActive="active" routerLink="/publicinfo/event">News</a></li>
-				<li class="nav-item"><a class="nav-link"
-					routerLinkActive="active" routerLink="/about">About Us</a></li>
-				<li class="nav-item"><a class="nav-link"
-					routerLinkActive="active" routerLink="/contact">Contact Us</a></li>
-			</ul>
-		</div>
-	</nav>
+        <div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
+            <ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/teach4life">Teach4Life</a></li>
+                <li class="nav-item"><a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/members">Members</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/publicinfo/event">News</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
-	<!-- 
+    <!-- 
     <div class="auth-icon">
         <lib-auth-icon [showUserName]="false"></lib-auth-icon>
     </div>
     -->
 </div>
 
-<div class="alert info">
-	<span class="closebtn">&times;</span> <strong>Learn more
+<div *ngIf="showAlert" class="alert info">
+    <span (click)="hideAlert()" class="closebtn">&times;</span> <strong>Learn more
 	about HiCoding Club's Response to COVID-19.<br /></strong>
-	<a href="https://hicodingclub.org/teach4life">
+    <a href="/teach4life">
 		Get started now ></a>
 </div>
 
-<script>
-	var close = document.getElementsByClassName("closebtn");
-	var i;
-
-	for (i = 0; i < close.length; i++) {
-		close[i].onclick = function() {
-			var div = this.parentElement;
-			div.style.opacity = "0";
-			setTimeout(function() {div.style.display = "none";
-			}, 600);
-		}
-	}
-</script>
-
 
 <div class="content">
-	<div>
-		<router-outlet></router-outlet>
-	</div>
-	<div class="content-min-height"></div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="content-min-height"></div>
 </div>
 
 <nav class="footer footer-font navbar navbar-light">
-	<div class="mx-auto mb-2 pt-2">
-		<div>© 2020 HiCoding Club. All rights reserved.</div>
-	</div>
+    <div class="mx-auto mb-2 pt-2">
+        <div>© 2020 HiCoding Club. All rights reserved.</div>
+    </div>
 </nav>
