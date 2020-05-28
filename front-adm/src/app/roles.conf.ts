@@ -37,7 +37,7 @@ export const RolesRoutes: Routes = [
 
 export const roles_server_root_uri: string = '/api/roles';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Apr 10 2020 12:17:38 GMT-0700 (Pacific Daylight Time)
+**Date: Thu May 28 2020 10:36:32 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

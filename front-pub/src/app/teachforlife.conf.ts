@@ -26,7 +26,7 @@ export const TeachforlifeRoutes: Routes = [
 
 export const teachforlife_server_root_uri: string = '/api/teachforlife';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Apr 10 2020 12:18:17 GMT-0700 (Pacific Daylight Time)
+**Date: Thu May 28 2020 10:42:37 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

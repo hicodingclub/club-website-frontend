@@ -85,6 +85,15 @@ import { PageDetailFieldComponent } from './page/page-detail/page-detail-field.c
 
 import { PageService } from './page/page.service';
 
+import { AlertListComponent } from './alert/alert-list/alert-list.component';
+
+
+
+import { AlertDetailFieldComponent } from './alert/alert-detail/alert-detail-field.component';
+
+
+import { AlertService } from './alert/alert.service';
+
 
 
 
@@ -154,6 +163,13 @@ import { PageService } from './page/page.service';
     PageDetailFieldComponent,
     
 
+    AlertListComponent,
+
+    
+
+    AlertDetailFieldComponent,
+    
+
 
 
 
@@ -214,6 +230,13 @@ import { PageService } from './page/page.service';
     PageDetailFieldComponent,
     
 
+    AlertListComponent,
+
+    
+
+    AlertDetailFieldComponent,
+    
+
 
 
 
@@ -232,6 +255,7 @@ import { PageService } from './page/page.service';
     KeynoteService,
     ArticleService,
     PageService,
+    AlertService,
   ],
   entryComponents: [
     GeneralinfoDetailWidgetInfoComponent,

@@ -36,6 +36,12 @@ import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-wi
 import { PageEditComponent } from './page/page-edit/page-edit.component';
 
 
+import { AlertListComponent } from './alert/alert-list/alert-list.component';
+import { AlertDetailComponent } from './alert/alert-detail/alert-detail.component';
+
+import { AlertEditComponent } from './alert/alert-edit/alert-edit.component';
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -92,6 +98,15 @@ export const pageRoutingPath = [
      {path: 'detail/:id', component: PageDetailWidgetPageComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: PageEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: PageEditComponent, canActivate: [AuthGuard]},
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const alertRoutingPath = [
+    {path: 'list', component: AlertListComponent, canActivate: [AuthGuard]},
+     {path: 'detail/:id', component: AlertDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: AlertEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: AlertEditComponent, canActivate: [AuthGuard]},
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

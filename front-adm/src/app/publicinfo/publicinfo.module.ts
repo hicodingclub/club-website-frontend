@@ -82,6 +82,15 @@ import { PageEditComponent } from './page/page-edit/page-edit.component';
 
 import { PageService } from './page/page.service';
 
+import { AlertListComponent } from './alert/alert-list/alert-list.component';
+
+import { AlertDetailComponent } from './alert/alert-detail/alert-detail.component';
+
+import { AlertDetailFieldComponent } from './alert/alert-detail/alert-detail-field.component';
+import { AlertEditComponent } from './alert/alert-edit/alert-edit.component';
+
+import { AlertService } from './alert/alert.service';
+
 
 
 
@@ -148,6 +157,13 @@ import { PageService } from './page/page.service';
     PageDetailFieldComponent,
     PageEditComponent,
 
+    AlertListComponent,
+
+    AlertDetailComponent,
+
+    AlertDetailFieldComponent,
+    AlertEditComponent,
+
 
 
 
@@ -205,6 +221,13 @@ import { PageService } from './page/page.service';
     PageDetailFieldComponent,
     PageEditComponent,
 
+    AlertListComponent,
+
+    AlertDetailComponent,
+
+    AlertDetailFieldComponent,
+    AlertEditComponent,
+
 
 
 
@@ -223,6 +246,7 @@ import { PageService } from './page/page.service';
     GeneralinfoService,
     KeynoteService,
     PageService,
+    AlertService,
   ],
   entryComponents: [
     EventDetailWidgetPostComponent,
@@ -236,6 +260,7 @@ import { PageService } from './page/page.service';
     KeynoteEditComponent,
     PageDetailWidgetPageComponent,
     PageEditComponent,
+    AlertEditComponent,
   ]
 })
 export class PublicinfoModule { }

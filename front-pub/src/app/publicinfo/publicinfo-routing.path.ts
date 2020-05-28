@@ -36,6 +36,12 @@ import { PageDetailWidgetPageComponent } from './page/page-detail/page-detail-wi
 
 
 
+import { AlertListComponent } from './alert/alert-list/alert-list.component';
+
+
+
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -90,6 +96,15 @@ export const articleRoutingPath = [
 export const pageRoutingPath = [
     {path: 'list', component: PageListComponent},
      {path: 'detail/:id', component: PageDetailWidgetPageComponent},
+    
+    
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const alertRoutingPath = [
+    {path: 'list', component: AlertListComponent},
+     
     
     
     

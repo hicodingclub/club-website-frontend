@@ -31,13 +31,19 @@
     </div>
     -->
 </div>
-
-<div *ngIf="showAlert" class="alert info">
-    <span (click)="hideAlert()" class="closebtn">&times;</span> <strong>Learn more
-	about HiCoding Club's Response to COVID-19.<br /></strong>
-    <a href="/teach4life" class="alertLink">
-		Get started now ></a>
+<div *ngFor="let alert of alertItems; index as i">
+    <div *ngIf="showAlert[i] && alert.show" class="alert info">
+        <span (click)="hideAlert(i)" class="closebtn">&times;</span>
+        <strong>
+            {{alert.description}}
+        </strong>
+        <br>
+        <div (click)="clickAlert(i)" class="alertLink">
+            {{alert.linkName}}
+        </div>
+    </div>
 </div>
+
 
 
 <div class="content">
