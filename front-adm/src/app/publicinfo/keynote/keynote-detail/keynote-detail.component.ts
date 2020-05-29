@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { KeynoteComponent, ViewType } from '../keynote.component';
+import { KeynoteDetailCustComponent } from '../../../publicinfo-cust/base/keynote/keynote-detail.cust.component';
+import { ViewType } from '../keynote.component';
 import { KeynoteService } from '../keynote.service';
 
 
@@ -14,19 +15,15 @@ import { KeynoteService } from '../keynote.service';
   templateUrl: './keynote-detail.component.html',
   styleUrls: ['./keynote-detail.component.css']
 })
-export class KeynoteDetailComponent extends KeynoteComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class KeynoteDetailComponent extends KeynoteDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -39,6 +36,13 @@ export class KeynoteDetailComponent extends KeynoteComponent implements OnInit, 
       public location: Location) {
           super(
                 keynoteService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'subtitle': 'Subtitle',
+            'description': 'Description',
+          };
 
 
           this.stringFields.push('signaturePicture');
@@ -53,11 +57,12 @@ export class KeynoteDetailComponent extends KeynoteComponent implements OnInit, 
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

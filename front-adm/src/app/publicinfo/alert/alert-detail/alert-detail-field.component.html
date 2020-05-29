@@ -6,7 +6,6 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('description')">
                     <div [innerHTML]="detail['description']"></div>
-                        
 
 		</div>
 		<div *ngIf="detail && showFields.includes('linkName')">
@@ -20,6 +19,7 @@
 		<div *ngIf="detail && showFields.includes('show')">{{detail['show']}} 
 
 		</div>
-		<div *ngIf="detail && showFields.includes('order')">{{detail['order']}} 
+		<div *ngIf="detail && showFields.includes('order')">
+                    {{detail['order']}}
 
 		</div>

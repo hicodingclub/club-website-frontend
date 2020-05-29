@@ -12,7 +12,7 @@
                     {{detail['subject']}}
 
 		</div>
-		<div *ngIf="detail && showFields.includes('content')"> 
+		<div *ngIf="detail && showFields.includes('content')">
                     <div libMddsRichtextShow="emailtemplateDetailContent" [content]="detail['content']"></div>
 
 		</div>

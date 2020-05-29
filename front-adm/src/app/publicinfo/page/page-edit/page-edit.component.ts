@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { PageComponent, ViewType } from '../page.component';
+import { PageEditCustComponent } from '../../../publicinfo-cust/base/page/page-edit.cust.component';
+import { ViewType } from '../page.component';
 import { PageService } from '../page.service';
 
 
@@ -21,21 +22,21 @@ import { MddsRichTextSelectDirective } from '@hicoder/angular-core';
   templateUrl: './page-edit.component.html',
   styleUrls: ['./page-edit.component.css']
 })
-export class PageEditComponent extends PageComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class PageEditComponent extends PageEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -55,10 +56,18 @@ export class PageEditComponent extends PageComponent implements OnInit, AfterVie
           super(
                 pageService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'description': 'Description',
+            'content': 'Content',
+            'tag': 'Tag',
+          };
+
 
           this.stringFields.push('description');
           this.stringFields.push('content');
           this.stringFields.push('tag');
+
+
 
 
 
@@ -82,6 +91,7 @@ export class PageEditComponent extends PageComponent implements OnInit, AfterVie
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -101,6 +111,8 @@ export class PageEditComponent extends PageComponent implements OnInit, AfterVie
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {

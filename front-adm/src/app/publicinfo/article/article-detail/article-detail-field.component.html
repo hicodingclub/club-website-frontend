@@ -15,7 +15,7 @@
 		<div *ngIf="detail && showFields.includes('publishDate')">  {{detail['publishDate']?detail['publishDate']['value']:""}}
 
 		</div>
-		<div *ngIf="detail && showFields.includes('content')"> 
+		<div *ngIf="detail && showFields.includes('content')">
                     <div libMddsRichtextShow="articleDetailContent" [content]="detail['content']"></div>
 
 		</div>

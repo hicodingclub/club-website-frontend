@@ -4,8 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { TeachforlifeComponent } from './teachforlife.component';
-import { TeachforlifeRoutes } from '../teachforlife.conf';
+import { TeachforlifeRoutes } from '../teachforlife-cust/teachforlife.conf';
 
 @NgModule({
   imports: [RouterModule.forChild(TeachforlifeRoutes)],

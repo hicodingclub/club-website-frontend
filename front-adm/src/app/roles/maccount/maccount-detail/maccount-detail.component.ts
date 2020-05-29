@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MaccountComponent, ViewType } from '../maccount.component';
+import { MaccountDetailCustComponent } from '../../../roles-cust/base/maccount/maccount-detail.cust.component';
+import { ViewType } from '../maccount.component';
 import { MaccountService } from '../maccount.service';
 
 
@@ -14,19 +15,15 @@ import { MaccountService } from '../maccount.service';
   templateUrl: './maccount-detail.component.html',
   styleUrls: ['./maccount-detail.component.css']
 })
-export class MaccountDetailComponent extends MaccountComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class MaccountDetailComponent extends MaccountDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -39,6 +36,14 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
       public location: Location) {
           super(
                 maccountService, injector, router, route, location, ViewType.DETAIL);
+
+          this.fieldDisplayNames = {
+            'username': 'Username',
+            'email': 'Email',
+            'phone': 'Phone',
+            'since': 'Since',
+            'status': 'Status',
+          };
 
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 
@@ -55,11 +60,12 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -75,7 +81,7 @@ export class MaccountDetailComponent extends MaccountComponent implements OnInit
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./maccountrole/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmailsettingsComponent, ViewType } from '../emailsettings.component';
+import { EmailsettingsDetailCustComponent } from '../../../emailing-cust/base/emailsettings/emailsettings-detail.cust.component';
+import { ViewType } from '../emailsettings.component';
 import { EmailsettingsService } from '../emailsettings.service';
 
 
@@ -14,19 +15,15 @@ import { EmailsettingsService } from '../emailsettings.service';
   templateUrl: './emailsettings-detail.component.html',
   styleUrls: ['./emailsettings-detail.component.css']
 })
-export class EmailsettingsDetailComponent extends EmailsettingsComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class EmailsettingsDetailComponent extends EmailsettingsDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -40,6 +37,11 @@ export class EmailsettingsDetailComponent extends EmailsettingsComponent impleme
           super(
                 emailsettingsService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'settingName': 'Setting Name',
+            'defaultSender': 'Default Sender Email Address',
+          };
+
 
           this.stringFields.push('settingName');
           this.stringFields.push('defaultSender');
@@ -51,11 +53,12 @@ export class EmailsettingsDetailComponent extends EmailsettingsComponent impleme
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

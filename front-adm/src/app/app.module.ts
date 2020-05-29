@@ -1,19 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from '@hicoder/angular-auth';
 import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI, AUTHENTICATION_INTERFACES } from '@hicoder/angular-auth';
 import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI, FILE_MANAGE_ROOT_URI } from '@hicoder/angular-file';
 
 import { UsersModule } from './users/users.module';
-import { AccessModule } from './access/access.module';
-import { RolesModule } from './roles/roles.module';
-import { FilesModule } from './files/files.module';
-import { EmailingModule } from './emailing/emailing.module';
 import { HomeModule } from './home/home.module';
-
-import { PublicinfoModule } from './publicinfo/publicinfo.module';
-import { TeachforlifeModule } from './teachforlife/teachforlife.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,16 +25,11 @@ import { file_upload_uri, file_download_uri, file_manage_root_uri } from './file
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     AuthenticationModule,
-    AccessModule,
-    RolesModule,
     UsersModule,
-    FilesModule,
-    EmailingModule,
     HomeModule,
-    PublicinfoModule,
-    TeachforlifeModule,
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },

@@ -13,9 +13,9 @@ import { EnrollmentService } from '../enrollment.service';
 })
 export class EnrollmentDetailFieldComponent extends EnrollmentComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,18 @@ export class EnrollmentDetailFieldComponent extends EnrollmentComponent
           super(null,
                 enrollmentService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'grade': 'Grade',
+            'status': 'Status',
+            'notes': 'Notes',
+            'adminNotes': 'Admin Notes',
+            'tutor': 'Tutor',
+            'createdAt': 'Created at',
+          };
+
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
 
           this.stringFields.push('name');
@@ -40,11 +52,14 @@ export class EnrollmentDetailFieldComponent extends EnrollmentComponent
 
           this.dateFields = ['createdAt', ];
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['notes', 'adminNotes', ];
+
 
     }
 

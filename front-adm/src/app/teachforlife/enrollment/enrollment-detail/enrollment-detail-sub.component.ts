@@ -13,7 +13,7 @@ import { EnrollmentService } from '../enrollment.service';
 })
 export class EnrollmentDetailSubComponent extends EnrollmentDetailComponent 
         implements OnInit {
-    @Input() inputData;
+    // @Input() inputData;
     
     constructor(
         public enrollmentService: EnrollmentService,

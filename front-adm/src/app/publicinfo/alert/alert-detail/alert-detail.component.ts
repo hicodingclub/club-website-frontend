@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { AlertComponent, ViewType } from '../alert.component';
+import { AlertDetailCustComponent } from '../../../publicinfo-cust/base/alert/alert-detail.cust.component';
+import { ViewType } from '../alert.component';
 import { AlertService } from '../alert.service';
 
 
@@ -14,19 +15,15 @@ import { AlertService } from '../alert.service';
   templateUrl: './alert-detail.component.html',
   styleUrls: ['./alert-detail.component.css']
 })
-export class AlertDetailComponent extends AlertComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class AlertDetailComponent extends AlertDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -40,6 +37,15 @@ export class AlertDetailComponent extends AlertComponent implements OnInit, Afte
           super(
                 alertService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'description': 'Description',
+            'linkName': 'Link Name',
+            'linkURL': 'Link U R L',
+            'show': 'Show',
+            'order': 'Order',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('description');
@@ -48,17 +54,19 @@ export class AlertDetailComponent extends AlertComponent implements OnInit, Afte
 
 
 
+          this.numberFields = ['order', ];
+
 
 
 
 
           this.textareaFields = ['description', ];
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

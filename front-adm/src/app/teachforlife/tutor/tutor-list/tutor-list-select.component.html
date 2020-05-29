@@ -13,13 +13,13 @@
 
 	<div class="container search">
 		<div class="row">
-			<div class="col-9">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="tutorTextSearch" 
 						#tutorTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for name, introduction, specificSubjects"> 
+					    placeholder="Search for name, introduction, tutoring subjects"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -72,17 +72,15 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
-			<div class="col-3">
-			</div>
 		</div>
 		<hr/>
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>
@@ -155,7 +153,6 @@
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">
@@ -164,7 +161,6 @@
 	            </td>
 	            <td (click)="selectItemSelected(i)"  class="pointer">
                     <div [innerHTML]="detail['specificSubjects']"></div>
-                        
 
 	            </td>
 
@@ -177,7 +173,7 @@
 	</table>
 	
 	<div class="container">
-				<div class="row justify-content-end mt-3">
+		<div class="row justify-content-end mt-3">
 		
 			
 		</div>

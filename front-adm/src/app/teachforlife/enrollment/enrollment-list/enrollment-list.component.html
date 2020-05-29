@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,9 +17,9 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="enrollmentTextSearch" 
@@ -48,14 +49,25 @@
 					<div class="card">
 						<div class="card-body">
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="enrollmentEditGrade">Grade</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="enrollmentEditGrade">
+				Grade
+				</label>
+			</div>
 	        <div class="col-8">
 
 
-	        <input type="number" class="form-control" id="enrollmentEditGrade" 
-	                [(ngModel)]="detail['grade']" name="enrollmentEditGrade"
-	                #enrollmentEditGrade="ngModel">
+			<div class="input-group">
+			  
+		      <input type="number" class="form-control" id="enrollmentEditGrade"
+		             [(ngModel)]="detail['__mra_grade_from']" name="enrollmentEditGrade"
+		             #enrollmentEditGrade="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input type="number" class="form-control" id="enrollmentEditGrade"
+		             [(ngModel)]="detail['__mra_grade_to']" name="enrollmentEditGrade"
+		             #enrollmentEditGrade="ngModel">
+		    </div><!-- input group --> 
 
 	      </div>
 	      
@@ -69,8 +81,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="enrollmentEditTutor">Tutor</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="enrollmentEditTutor">
+				Tutor
+				</label>
+			</div>
 	        <div class="col-8">
 
 
@@ -95,8 +111,12 @@
       
  
 	    <div class="single-line-edit">
-	      <div class="row">
-	        <div class="col-3"><label for="enrollmentEditCreatedAt">Created at</label></div>
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="enrollmentEditCreatedAt">
+				Created at
+				</label>
+			</div>
 	        <div class="col-8">
 
  
@@ -154,14 +174,14 @@
 		        <div *ngIf="!moreSearchOpened" style="text-align: left;">
 					<span class="badge badge-pill badge-info" *ngFor="let value of searchMoreDetail">
 					    <a (click)="toggleMoreSearch()" class="pointer"> {{value[0]}}: {{value[1]}}</a>
-					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[0])" title="Clear"></i>
+					    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromDetailAndSearchList(value[2])" title="Clear"></i>
 					</span>
 				</div>
 		    
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -174,6 +194,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -196,8 +217,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'desc')">Status<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('tutor', 'Tutor', 'asc')">Tutor<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('tutor', 'Tutor', 'desc')">Tutor<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">CreatedAt<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">CreatedAt<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">Created at<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">Created at<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -264,6 +285,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -294,7 +316,8 @@
         </div>
         <div *ngIf="detail['grade']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Grade:</label></div>
-          <div class="ml-3">{{detail['grade']}} 
+          <div class="ml-3">
+                    {{detail['grade']}}
 
           </div>
         </div>
@@ -364,7 +387,8 @@
           </div>
           <div *ngIf="detail['grade']" class="d-flex flex-wrap">
             <div class=""><label>Grade:</label></div>
-            <div class="ml-3">{{detail['grade']}} 
+            <div class="ml-3">
+                    {{detail['grade']}}
 </div>
           </div>
           <div *ngIf="detail['status']" class="d-flex flex-wrap">
@@ -468,7 +492,8 @@
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	{{detail['grade']}} 
+	            	
+                    {{detail['grade']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -503,6 +528,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -550,9 +576,10 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>
 
 
-<ng-template teachforlife-ref-select></ng-template>
+<ng-template *ngIf="!options['disableRefs']" teachforlife-ref-select></ng-template>

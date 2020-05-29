@@ -5,7 +5,8 @@ import { Injector } from '@angular/core';
 
 declare const $: any;
 
-import { TutorComponent, ViewType } from '../tutor.component';
+import { TutorEditCustComponent } from '../../../teachforlife-cust/base/tutor/tutor-edit.cust.component';
+import { ViewType } from '../tutor.component';
 import { TutorService } from '../tutor.service';
 
 
@@ -96,21 +97,21 @@ export class TeachforlifeTutorDirectivePhoneNumber implements Validator {
   templateUrl: './tutor-edit.component.html',
   styleUrls: ['./tutor-edit.component.css']
 })
-export class TutorEditComponent extends TutorComponent implements OnInit, AfterViewInit {        
-    @Input() 
-    public id: string;
-    @Input()
-    public cid: string; // copy id
-    @Input()
-    public initData: any; // some fields has data already. eg: {a: b}. Used for add
-    @Output()
-    public doneData = new EventEmitter<boolean>();
-    @Output()
-    public done = new EventEmitter<any>();
-    @Input()
-    public embeddedView: boolean;
-    @Input()
-    public embedMode: string; // parent to tell the action - create
+export class TutorEditComponent extends TutorEditCustComponent implements OnInit, AfterViewInit {        
+    // @Input() 
+    // public id: string;
+    // @Input()
+    // public cid: string; // copy id
+    // @Input()
+    // public initData: any; // some fields has data already. eg: {a: b}. Used for add
+    // @Output()
+    // public doneData = new EventEmitter<boolean>();
+    // @Output()
+    // public done = new EventEmitter<any>();
+    // @Input()
+    // public embeddedView: boolean;
+    // @Input()
+    // public embedMode: string; // parent to tell the action - create
 
     public action: string;
     public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
@@ -126,6 +127,18 @@ export class TutorEditComponent extends TutorComponent implements OnInit, AfterV
           super(
                 tutorService, injector, router, route, location, ViewType.EDIT);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'introduction': 'Introduction',
+            'photo': 'Photo',
+            'acceptGrade': 'Open to Grade',
+            'availableTime': 'Available Time',
+            'specificSubjects': 'Tutoring Subjects',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('email');
@@ -138,11 +151,14 @@ export class TutorEditComponent extends TutorComponent implements OnInit, AfterV
 
 
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
+
 
 
           
@@ -151,6 +167,7 @@ export class TutorEditComponent extends TutorComponent implements OnInit, AfterV
     }
 
     ngOnInit() {
+      super.ngOnInit();
       if (this.embedMode == 'create') { // parent ask to create
         this.action='Create';
         this.getDetailData();
@@ -170,6 +187,8 @@ export class TutorEditComponent extends TutorComponent implements OnInit, AfterV
             }
         }
       }
+      // get editHintFields
+      this.searchHintFieldValues();
     }
 
     ngAfterViewInit() {

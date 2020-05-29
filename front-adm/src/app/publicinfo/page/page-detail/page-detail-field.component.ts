@@ -13,9 +13,9 @@ import { PageService } from '../page.service';
 })
 export class PageDetailFieldComponent extends PageComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,8 +27,14 @@ export class PageDetailFieldComponent extends PageComponent
           super(
                 pageService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'content': 'Content',
+          };
+
 
           this.stringFields.push('content');
+
+
 
 
 

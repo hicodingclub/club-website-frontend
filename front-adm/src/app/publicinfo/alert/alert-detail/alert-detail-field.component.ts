@@ -13,9 +13,9 @@ import { AlertService } from '../alert.service';
 })
 export class AlertDetailFieldComponent extends AlertComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,15 @@ export class AlertDetailFieldComponent extends AlertComponent
           super(
                 alertService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'description': 'Description',
+            'linkName': 'Link Name',
+            'linkURL': 'Link U R L',
+            'show': 'Show',
+            'order': 'Order',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('description');
@@ -35,11 +44,14 @@ export class AlertDetailFieldComponent extends AlertComponent
 
 
 
+          this.numberFields = ['order', ];
+
 
 
 
 
           this.textareaFields = ['description', ];
+
 
     }
 

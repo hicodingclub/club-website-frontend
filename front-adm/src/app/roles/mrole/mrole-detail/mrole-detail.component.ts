@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { MroleComponent, ViewType } from '../mrole.component';
+import { MroleDetailCustComponent } from '../../../roles-cust/base/mrole/mrole-detail.cust.component';
+import { ViewType } from '../mrole.component';
 import { MroleService } from '../mrole.service';
 
 
@@ -14,19 +15,15 @@ import { MroleService } from '../mrole.service';
   templateUrl: './mrole-detail.component.html',
   styleUrls: ['./mrole-detail.component.css']
 })
-export class MroleDetailComponent extends MroleComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class MroleDetailComponent extends MroleDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -40,6 +37,11 @@ export class MroleDetailComponent extends MroleComponent implements OnInit, Afte
           super(
                 mroleService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'role': 'Role',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('role');
           this.stringFields.push('description');
@@ -51,11 +53,12 @@ export class MroleDetailComponent extends MroleComponent implements OnInit, Afte
 
 
 
+
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);
@@ -71,7 +74,7 @@ export class MroleDetailComponent extends MroleComponent implements OnInit, Afte
   ngAfterViewInit() {
 
     //Load first reference, if not others activated
-    if (!this.isChildRouterActivated()) {
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
       this.router.navigate(['./mpermission/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
     }
   }

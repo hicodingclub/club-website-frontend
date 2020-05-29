@@ -13,8 +13,8 @@ import { TutorService } from '../tutor.service';
 })
 export class TutorListSelectComponent extends TutorListComponent
         implements OnInit {
-    @Input() inputData;
-    @Output() outputData;
+    // @Input() inputData;
+    // @Output() outputData;
     done = new EventEmitter<boolean>();
 
     constructor(

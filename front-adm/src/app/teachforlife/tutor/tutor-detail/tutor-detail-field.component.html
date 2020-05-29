@@ -4,7 +4,8 @@
                     {{detail['name']}}
 
 		</div>
-		<div *ngIf="detail && showFields.includes('grade')">{{detail['grade']}} 
+		<div *ngIf="detail && showFields.includes('grade')">
+                    {{detail['grade']}}
 
 		</div>
 		<div *ngIf="detail && showFields.includes('email')">
@@ -17,7 +18,6 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('introduction')">
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 
 		</div>
 		<div *ngIf="detail && showFields.includes('photo')">
@@ -30,11 +30,9 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('availableTime')">
                     <div [innerHTML]="detail['availableTime']"></div>
-                        
 
 		</div>
 		<div *ngIf="detail && showFields.includes('specificSubjects')">
                     <div [innerHTML]="detail['specificSubjects']"></div>
-                        
 
 		</div>
