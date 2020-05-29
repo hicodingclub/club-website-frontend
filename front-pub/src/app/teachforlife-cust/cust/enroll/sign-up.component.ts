@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { TutorService } from '../../teachforlife/tutor/tutor.service';
+import { TutorService } from '../../../teachforlife/tutor/tutor.service';
 
 @Component({
   selector: 'app-sign-up',

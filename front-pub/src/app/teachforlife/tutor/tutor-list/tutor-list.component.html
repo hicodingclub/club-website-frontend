@@ -1,7 +1,8 @@
 
-<div class="mt-4 mb-4 d-flex">
 
-	<div class="list-title">Tutors</div>
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
+
+	<div class="list-title" *ngIf="!options['disableTitle']">Tutors</div>
 
 </div>
 
@@ -17,15 +18,15 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="tutorTextSearch" 
 						#tutorTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for name, introduction, specificSubjects"> 
+					    placeholder="Search for name, introduction, tutoring subjects"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -39,7 +40,7 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -51,6 +52,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -67,8 +69,8 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'desc')">Name<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'asc')">Introduction<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'desc')">Introduction<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'asc')">SpecificSubjects<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'desc')">SpecificSubjects<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'asc')">Tutoring Subjects<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'desc')">Tutoring Subjects<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -134,6 +136,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -167,14 +170,12 @@
             <div class=""><label>Introduction:</label></div>
             <div class="ml-3">
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 </div>
           </div>
           <div *ngIf="detail['specificSubjects']" class="d-flex flex-wrap">
             <div class=""><label>Tutoring Subjects:</label></div>
             <div class="ml-3">
                     <div [innerHTML]="detail['specificSubjects']"></div>
-                        
 </div>
           </div>
       </div>
@@ -209,7 +210,6 @@
           <div><label>Introduction:</label></div>
           <div class="ml-3">
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 
           </div>
         </div>
@@ -217,7 +217,6 @@
           <div><label>Tutoring Subjects:</label></div>
           <div class="ml-3">
                     <div [innerHTML]="detail['specificSubjects']"></div>
-                        
 
           </div>
         </div>
@@ -274,7 +273,6 @@
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	
                     <div [innerHTML]="detail['introduction']"></div>
-                        
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -285,7 +283,6 @@
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	
                     <div [innerHTML]="detail['specificSubjects']"></div>
-                        
 
 	            </td>
 	        </tr>
@@ -295,6 +292,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -342,6 +340,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

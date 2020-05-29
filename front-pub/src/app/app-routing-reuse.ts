@@ -8,7 +8,7 @@ function getResolvedUrl(route: ActivatedRouteSnapshot): string {
         .join('/');
 }
 
-const ReusePageURLs: string[] = ['/', '/teach4life', '/publicinfo/event/list', '/about', '/contact'];
+const ReusePageURLs: string[] = ['/', '/teachforlife/cust/home', '/publicinfo/event/list', '/about', '/contact'];
 
 export class AppRouteReuseStrategy implements RouteReuseStrategy {
 

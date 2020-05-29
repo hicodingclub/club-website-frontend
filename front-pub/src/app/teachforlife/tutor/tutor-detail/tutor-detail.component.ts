@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { TutorComponent, ViewType } from '../tutor.component';
+import { TutorDetailCustComponent } from '../../../teachforlife-cust/base/tutor/tutor-detail.cust.component';
+import { ViewType } from '../tutor.component';
 import { TutorService } from '../tutor.service';
 
 
@@ -14,19 +15,15 @@ import { TutorService } from '../tutor.service';
   templateUrl: './tutor-detail.component.html',
   styleUrls: ['./tutor-detail.component.css']
 })
-export class TutorDetailComponent extends TutorComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class TutorDetailComponent extends TutorDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -40,6 +37,18 @@ export class TutorDetailComponent extends TutorComponent implements OnInit, Afte
           super(
                 tutorService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'introduction': 'Introduction',
+            'photo': 'Photo',
+            'acceptGrade': 'Open to Grade',
+            'availableTime': 'Available Time',
+            'specificSubjects': 'Tutoring Subjects',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('email');
@@ -52,17 +61,19 @@ export class TutorDetailComponent extends TutorComponent implements OnInit, Afte
 
 
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
 
+
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

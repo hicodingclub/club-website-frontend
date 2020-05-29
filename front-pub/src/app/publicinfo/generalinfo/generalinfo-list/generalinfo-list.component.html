@@ -1,5 +1,6 @@
 
-<div class="mt-4 mb-4 d-flex">
+
+<div class="mt-4 mb-4 d-flex" *ngIf="!options['disableTitleRow']">
 
 
 </div>
@@ -16,9 +17,9 @@
 
 
 <div>
-	<div class="container search">
-		<div class="row">
-			<div class="col-9">
+	<div *ngIf="!options['disableListHead']" class="container search">
+		<div class="row" *ngIf="!options['disableListSearch']">
+			<div class="col">
 
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="generalinfoTextSearch" 
@@ -38,7 +39,7 @@
 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons">
 					
@@ -50,6 +51,7 @@
 			</div>
 		</div>
 		<hr/>
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			<div *ngIf="list.length > 2" class="sort-selection mr-5">
@@ -133,6 +135,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	<div class="no-records" *ngIf="list.length === 0">
 		<span *ngIf="loaded">No records found.</span>
@@ -163,7 +166,6 @@
           <div><label>Description:</label></div>
           <div class="ml-3">
                     <div [innerHTML]="detail['description']"></div>
-                        
 
           </div>
         </div>
@@ -210,7 +212,6 @@
             <div class=""><label>Description:</label></div>
             <div class="ml-3">
                     <div [innerHTML]="detail['description']"></div>
-                        
 </div>
           </div>
           <div *ngIf="detail['tag']" class="d-flex flex-wrap">
@@ -276,7 +277,6 @@
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	
                     <div [innerHTML]="detail['description']"></div>
-                        
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
@@ -291,6 +291,7 @@
 
 	</div>
 	<div class="container">
+		<div *ngIf="!options['disablePagination']">
 		<div class="row justify-content-end mt-3">
 		
 			
@@ -338,6 +339,7 @@
 				</div>
 		</div>
 
+		</div>
 	</div>
 	
 </div>

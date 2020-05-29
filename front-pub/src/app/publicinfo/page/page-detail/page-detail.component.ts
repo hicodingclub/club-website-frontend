@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { PageComponent, ViewType } from '../page.component';
+import { PageDetailCustComponent } from '../../../publicinfo-cust/base/page/page-detail.cust.component';
+import { ViewType } from '../page.component';
 import { PageService } from '../page.service';
 
 
@@ -16,19 +17,15 @@ import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   templateUrl: './page-detail.component.html',
   styleUrls: ['./page-detail.component.css']
 })
-export class PageDetailComponent extends PageComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class PageDetailComponent extends PageDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
   @ViewChildren(MddsRichTextShowDirective) textEditors: QueryList<MddsRichTextShowDirective>;
@@ -43,8 +40,14 @@ export class PageDetailComponent extends PageComponent implements OnInit, AfterV
           super(
                 pageService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'content': 'Content',
+          };
+
 
           this.stringFields.push('content');
+
+
 
 
 
@@ -56,8 +59,7 @@ export class PageDetailComponent extends PageComponent implements OnInit, AfterV
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

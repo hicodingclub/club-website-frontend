@@ -13,9 +13,9 @@ import { TutorService } from '../tutor.service';
 })
 export class TutorDetailFieldComponent extends TutorComponent
         implements OnInit {
-    @Input() id: string;
-    @Input() detailObj: any;
-    @Input() showFieldsStr: string;
+    // @Input() id: string;
+    // @Input() detailObj: any;
+    // @Input() showFieldsStr: string;
     showFields: string[];
     
     constructor(
@@ -27,6 +27,18 @@ export class TutorDetailFieldComponent extends TutorComponent
           super(
                 tutorService, injector, router, route, location, ViewType.DETAIL);
           
+          this.fieldDisplayNames = {
+            'name': 'Name',
+            'grade': 'Grade',
+            'email': 'Email',
+            'phoneNumber': 'Phone Number',
+            'introduction': 'Introduction',
+            'photo': 'Photo',
+            'acceptGrade': 'Open to Grade',
+            'availableTime': 'Available Time',
+            'specificSubjects': 'Tutoring Subjects',
+          };
+
 
           this.stringFields.push('name');
           this.stringFields.push('email');
@@ -39,11 +51,14 @@ export class TutorDetailFieldComponent extends TutorComponent
 
 
 
+          this.numberFields = ['grade', ];
+
 
 
 
 
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
+
 
     }
 

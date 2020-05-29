@@ -11,16 +11,16 @@ import { Location } from "@angular/common";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Injector } from "@angular/core";
 
-import { EnrollmentEditComponent } from "../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component";
-import { EnrollmentService } from "../../teachforlife/enrollment/enrollment.service";
+import { EnrollmentEditComponent } from "../../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component";
+import { EnrollmentService } from "../../../teachforlife/enrollment/enrollment.service";
 import { ComponentFactoryResolver } from "@angular/core";
 
 @Component({
   selector: "app-enroll-embedded",
   templateUrl:
-    "../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component.html",
+    "../../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component.html",
   styleUrls: [
-    "../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component.css",
+    "../../../teachforlife/enrollment/enrollment-edit/enrollment-edit.component.css",
   ],
 })
 export class EnrollComponent extends EnrollmentEditComponent implements OnInit {
@@ -49,9 +49,8 @@ export class EnrollComponent extends EnrollmentEditComponent implements OnInit {
     // now subscribe to the edit submit event
     this.done.subscribe((val: boolean) => {
       if (val) {
-        this.router.navigate(["/teach4life"]);
+        this.router.navigate(["/teachforlife/cust/home"]);
       } else {
-        this.location.back();
       }
     });
     this.hiddenFields.push("tutor");

@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { GeneralinfoComponent, ViewType } from '../generalinfo.component';
+import { GeneralinfoDetailCustComponent } from '../../../publicinfo-cust/base/generalinfo/generalinfo-detail.cust.component';
+import { ViewType } from '../generalinfo.component';
 import { GeneralinfoService } from '../generalinfo.service';
 
 
@@ -14,19 +15,15 @@ import { GeneralinfoService } from '../generalinfo.service';
   templateUrl: './generalinfo-detail.component.html',
   styleUrls: ['./generalinfo-detail.component.css']
 })
-export class GeneralinfoDetailComponent extends GeneralinfoComponent implements OnInit, AfterViewInit {
-  @Input() 
-  public id:string;
-  @Input()
-  public searchObj:any;
-  @Input()
-  public disableActionButtions:boolean;
-  @Input()
-  public style: any; // {}
-  @Input()
-  public options: any; // {} uiOptions
-  @Output()
-  public eventEmitter: EventEmitter<any> = new EventEmitter();
+export class GeneralinfoDetailComponent extends GeneralinfoDetailCustComponent implements OnInit, AfterViewInit {
+  // @Input() 
+  // public id:string;
+  // @Input()
+  // public searchObj:any;
+  // @Input()
+  // public disableActionButtions:boolean;
+  // @Output()
+  // public eventEmitter: EventEmitter<any> = new EventEmitter();
 
 
 
@@ -40,6 +37,12 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
           super(
                 generalinfoService, injector, router, route, location, ViewType.DETAIL);
 
+          this.fieldDisplayNames = {
+            'signaturePicture': 'Signature Picture',
+            'title': 'Title',
+            'description': 'Description',
+          };
+
 
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
@@ -51,13 +54,14 @@ export class GeneralinfoDetailComponent extends GeneralinfoComponent implements 
 
 
 
+
           this.textareaFields = ['description', ];
+
 
   }
 
   ngOnInit() {
-      this.style = this.style || {};
-      this.options = this.options || {};
+      super.ngOnInit();
       if (!this.id) this.id = this.route.snapshot.paramMap.get('id');
       if (this.id) {
         this.populateDetail(this.id);

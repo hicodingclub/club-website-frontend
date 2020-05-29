@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,14 +20,9 @@ import { AboutComponent } from './about/about.component';
 import { MembersComponent } from './members/members.component';
 
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
-import { TeachforlifeModule } from './teachforlife/teachforlife.module';
-import { Teach4lifeComponent } from './teach4life/teach4life.component';
 
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRouteReuseStrategy } from './app-routing-reuse';
-import { EnrollComponent } from './teach4life/enroll/enroll.component';
-import { SignUpComponent } from './teach4life/enroll/sign-up.component';
-
 
 @NgModule({
   declarations: [
@@ -35,18 +31,15 @@ import { SignUpComponent } from './teach4life/enroll/sign-up.component';
     ContactComponent,
     AboutComponent,
     MembersComponent,
-    Teach4lifeComponent,
-    EnrollComponent,
-    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
 
     AuthenticationModule,
     PublicinfoModule,
-    TeachforlifeModule
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },
