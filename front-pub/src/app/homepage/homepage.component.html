@@ -29,7 +29,11 @@
             <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
         </div>
         <div class="col-large">
-            <app-event-list></app-event-list>
+            <app-event-list [options]="{disableCatetory: true, disablePagination: true,
+                disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+                disableListHead: true, disableTitleRow: true}"
+                [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
+            </app-event-list>
         </div>
     </section>
     <section class="slides-section">
