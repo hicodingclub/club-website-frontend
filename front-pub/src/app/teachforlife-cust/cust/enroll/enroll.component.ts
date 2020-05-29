@@ -51,6 +51,7 @@ export class EnrollComponent extends EnrollmentEditComponent implements OnInit {
       if (val) {
         this.router.navigate(["/teachforlife/cust/home"]);
       } else {
+        this.goBack();
       }
     });
     this.hiddenFields.push("tutor");
