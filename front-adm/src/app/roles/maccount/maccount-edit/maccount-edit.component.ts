@@ -115,7 +115,7 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
       if (this.initData) {
         this.action='Add';
         let detail = {
-            status: "Enabled",
+          status: "Enabled",
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -124,7 +124,7 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              status: "Enabled",
+            status: "Enabled",
           };
           this.detail = this.formatDetail(detail);
       }

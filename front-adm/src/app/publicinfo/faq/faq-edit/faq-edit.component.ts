@@ -125,7 +125,7 @@ export class FaqEditComponent extends FaqEditCustComponent implements OnInit, Af
       if (this.initData) {
         this.action='Add';
         let detail = {
-            enable: false,
+          enable: false,
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -134,7 +134,7 @@ export class FaqEditComponent extends FaqEditCustComponent implements OnInit, Af
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              enable: false,
+            enable: false,
           };
           this.detail = this.formatDetail(detail);
       }

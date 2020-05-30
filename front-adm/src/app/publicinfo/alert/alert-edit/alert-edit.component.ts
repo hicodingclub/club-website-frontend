@@ -116,7 +116,7 @@ export class AlertEditComponent extends AlertEditCustComponent implements OnInit
       if (this.initData) {
         this.action='Add';
         let detail = {
-            show: false,
+          show: false,
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -125,7 +125,7 @@ export class AlertEditComponent extends AlertEditCustComponent implements OnInit
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              show: false,
+            show: false,
           };
           this.detail = this.formatDetail(detail);
       }

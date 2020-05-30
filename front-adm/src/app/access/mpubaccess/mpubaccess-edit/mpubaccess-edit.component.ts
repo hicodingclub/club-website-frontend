@@ -115,7 +115,6 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -124,7 +123,6 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

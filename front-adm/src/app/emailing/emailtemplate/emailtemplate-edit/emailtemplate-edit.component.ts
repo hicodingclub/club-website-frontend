@@ -128,7 +128,6 @@ export class EmailtemplateEditComponent extends EmailtemplateEditCustComponent i
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -137,7 +136,6 @@ export class EmailtemplateEditComponent extends EmailtemplateEditCustComponent i
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

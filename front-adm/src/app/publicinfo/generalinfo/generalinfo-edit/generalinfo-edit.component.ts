@@ -113,7 +113,6 @@ export class GeneralinfoEditComponent extends GeneralinfoEditCustComponent imple
       if (this.initData) {
         this.action='Add';
         let detail = {
-            
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -122,7 +121,6 @@ export class GeneralinfoEditComponent extends GeneralinfoEditCustComponent imple
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              
           };
           this.detail = this.formatDetail(detail);
       }

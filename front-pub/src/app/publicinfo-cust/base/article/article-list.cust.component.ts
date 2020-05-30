@@ -6,7 +6,7 @@ export class ArticleListCustComponent extends ArticleComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri May 29 2020 12:37:20 GMT-0700 (Pacific Daylight Time)
+**Date: Fri May 29 2020 18:15:37 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

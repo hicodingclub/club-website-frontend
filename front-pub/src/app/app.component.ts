@@ -11,9 +11,7 @@ export class AppComponent {
   title = 'app';
 
   public alertItems: any[];
-
   public showAlert: boolean[];
-
   public currentUrl: string = '';
 
   constructor(private router: Router, private alertService: AlertService) {

@@ -124,7 +124,7 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
       if (this.initData) {
         this.action='Add';
         let detail = {
-            status: "processing",
+          status: "processing",
         };
         for (let prop of Object.keys(this.initData)) {
             detail[prop] = this.initData[prop];
@@ -133,7 +133,7 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
         this.detail = this.formatDetail(detail);
       } else {
           let detail = {
-              status: "processing",
+            status: "processing",
           };
           this.detail = this.formatDetail(detail);
       }
