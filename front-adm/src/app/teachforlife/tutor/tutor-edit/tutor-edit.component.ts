@@ -137,6 +137,7 @@ export class TutorEditComponent extends TutorEditCustComponent implements OnInit
             'acceptGrade': 'Open to Grade',
             'availableTime': 'Available Time',
             'specificSubjects': 'Tutoring Subjects',
+            'subjectTags': 'Subject Tags',
           };
 
 
@@ -155,10 +156,14 @@ export class TutorEditComponent extends TutorEditCustComponent implements OnInit
 
 
 
+          this.arrayFields = [['subjectTags', 'SchemaString'],];
 
 
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
 
+          this.editHintFields = {
+            'subjectTags': [],
+          };
 
 
           

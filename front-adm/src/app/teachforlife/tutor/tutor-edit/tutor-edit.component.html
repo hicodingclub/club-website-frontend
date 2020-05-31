@@ -325,6 +325,97 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('subjectTags')">
+
+        <fieldset class="form-group">
+          <label for="EditSubjectTags">Subject Tags</label>
+          
+          
+
+          <div class="form-check"
+                ngModelGroup="EditSubjectTags"
+                directiveTeachforlifeArrayRequired
+                #EditSubjectTags="ngModelGroup" 
+            >
+            <div class="badge-group" *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+              <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['subjectTags']['selection']; let i = index;">
+                  {{element}}
+                <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('subjectTags', i)" title="Remove"></i>
+              </div>
+
+              <span *ngIf="arraySelected('subjectTags')" 
+                class="icon-clear" (click)="clearValueFromDetail('subjectTags')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>
+            </div>
+
+            <hr>
+
+            <div class="new-area">
+
+                <div *ngIf="editHintFields['subjectTags'].length > 0" style="font-size: 0.9rem;">Select from Available Subject Tags: </div>
+                <ng-template ngFor let-hintEle [ngForOf]="editHintFields['subjectTags']" let-i="index">
+                  <div class="badge badge-pill badge-primary pointer"
+                    *ngIf="!detail['subjectTags']['selection'].includes(hintEle['_id'])" 
+                    (click)="onAddArrayItemValue('subjectTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                  </div>
+                </ng-template>
+
+                <div class="mt-1">
+                  <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('subjectTags')"
+                    style="font-size: 0.75rem;">
+                    <i class="fas fa-plus-square" title="New"></i>
+                    New
+                  </a>
+                </div>
+            </div>
+            <div *ngIf="detail['subjectTags']['adding']" class="new-modal">
+              <div class="card text-center new-card">
+                <div class="card-body">
+                  <input type="search" class="form-control border"
+                    id="EditSubjectTagsNew" #EditSubjectTagsNew="ngModel"
+                    [(ngModel)]="detail['subjectTags']['new']" [ngModelOptions]="{standalone: true}"
+                          
+                          
+                       
+                    (keydown.enter)="$event.target.blur();onAddArrayItem('subjectTags');false"> 
+                  
+                  <div [hidden]="EditSubjectTagsNew.valid
+                      || EditSubjectTagsNew.pristine 
+                      || EditSubjectTagsNew.errors.minlength"
+                        class="alert alert-danger small p-1">
+ 
+
+                  </div>
+
+
+                  <div class="d-flex my-3 justify-content-center">
+                    <button class="btn btn-outline-primary mx-1" [disabled]="!EditSubjectTagsNew.valid" (click)="onAddArrayItem('subjectTags')">Confirm</button>
+                    <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('subjectTags')">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditSubjectTagsSelection" 
+               style="display:none"
+               id="EditSubjectTagsSelection"
+                 [(ngModel)]="detail['subjectTags']['selection'].length" 
+                 #EditSubjectTagsSelection="ngModel">
+          </div>
+
+          <div [hidden]="EditSubjectTags.valid || EditSubjectTags.pristine"
+           class="alert alert-danger">
+
+            <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required">
+              SubjectTags is required.
+              </div>
+          </div>
+        </fieldset>
+    
+</div>
 
 				</div>
 				<div *ngIf="action == 'Create' || action == 'Add' ">
@@ -636,6 +727,97 @@
         
         </fieldset>
 
+    
+</div>
+<div *ngIf="!hiddenFields.includes('subjectTags')">
+
+        <fieldset class="form-group">
+          <label for="EditSubjectTags">Subject Tags</label>
+          
+          
+
+          <div class="form-check"
+                ngModelGroup="EditSubjectTags"
+                directiveTeachforlifeArrayRequired
+                #EditSubjectTags="ngModelGroup" 
+            >
+            <div class="badge-group" *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+              <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['subjectTags']['selection']; let i = index;">
+                  {{element}}
+                <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('subjectTags', i)" title="Remove"></i>
+              </div>
+
+              <span *ngIf="arraySelected('subjectTags')" 
+                class="icon-clear" (click)="clearValueFromDetail('subjectTags')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </span>
+            </div>
+
+            <hr>
+
+            <div class="new-area">
+
+                <div *ngIf="editHintFields['subjectTags'].length > 0" style="font-size: 0.9rem;">Select from Available Subject Tags: </div>
+                <ng-template ngFor let-hintEle [ngForOf]="editHintFields['subjectTags']" let-i="index">
+                  <div class="badge badge-pill badge-primary pointer"
+                    *ngIf="!detail['subjectTags']['selection'].includes(hintEle['_id'])" 
+                    (click)="onAddArrayItemValue('subjectTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                  </div>
+                </ng-template>
+
+                <div class="mt-1">
+                  <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('subjectTags')"
+                    style="font-size: 0.75rem;">
+                    <i class="fas fa-plus-square" title="New"></i>
+                    New
+                  </a>
+                </div>
+            </div>
+            <div *ngIf="detail['subjectTags']['adding']" class="new-modal">
+              <div class="card text-center new-card">
+                <div class="card-body">
+                  <input type="search" class="form-control border"
+                    id="EditSubjectTagsNew" #EditSubjectTagsNew="ngModel"
+                    [(ngModel)]="detail['subjectTags']['new']" [ngModelOptions]="{standalone: true}"
+                          
+                          
+                       
+                    (keydown.enter)="$event.target.blur();onAddArrayItem('subjectTags');false"> 
+                  
+                  <div [hidden]="EditSubjectTagsNew.valid
+                      || EditSubjectTagsNew.pristine 
+                      || EditSubjectTagsNew.errors.minlength"
+                        class="alert alert-danger small p-1">
+ 
+
+                  </div>
+
+
+                  <div class="d-flex my-3 justify-content-center">
+                    <button class="btn btn-outline-primary mx-1" [disabled]="!EditSubjectTagsNew.valid" (click)="onAddArrayItem('subjectTags')">Confirm</button>
+                    <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('subjectTags')">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- fake hidden input ngModel for directive to check the values-->
+            <input type="checkbox" name="EditSubjectTagsSelection" 
+               style="display:none"
+               id="EditSubjectTagsSelection"
+                 [(ngModel)]="detail['subjectTags']['selection'].length" 
+                 #EditSubjectTagsSelection="ngModel">
+          </div>
+
+          <div [hidden]="EditSubjectTags.valid || EditSubjectTags.pristine"
+           class="alert alert-danger">
+
+            <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required">
+              SubjectTags is required.
+              </div>
+          </div>
+        </fieldset>
     
 </div>
 

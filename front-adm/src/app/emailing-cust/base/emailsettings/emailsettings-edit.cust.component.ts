@@ -5,7 +5,7 @@ import { EmailsettingsComponent } from '../../../emailing/emailsettings/emailset
 export class EmailsettingsEditCustComponent extends EmailsettingsComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri May 29 2020 18:16:20 GMT-0700 (Pacific Daylight Time)
+**Date: Sun May 31 2020 10:31:21 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

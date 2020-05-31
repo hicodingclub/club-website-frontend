@@ -6,6 +6,7 @@ import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { MraNgbDateFormatterService } from './teachforlife.directive';
 
 
+import { DirectiveTeachforlifeArrayRequired } from './teachforlife.directive';
 
 
 import { FileUploadModule } from '@hicoder/angular-file';
@@ -95,6 +96,7 @@ import { TeachforlifeTutorDirectivePhoneNumber } from './tutor/tutor-edit/tutor-
     TeachforlifeTutorDirectivePhoneNumber,
 
 
+    DirectiveTeachforlifeArrayRequired,
 
   ],
   exports: [
@@ -127,6 +129,7 @@ import { TeachforlifeTutorDirectivePhoneNumber } from './tutor/tutor-edit/tutor-
       TeachforlifeTutorDirectivePhoneNumber,
 
 
+      DirectiveTeachforlifeArrayRequired,
 
   ],
   providers: [

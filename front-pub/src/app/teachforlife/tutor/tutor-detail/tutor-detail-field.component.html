@@ -36,3 +36,13 @@
                     <div [innerHTML]="detail['specificSubjects']"></div>
 
 		</div>
+		<div *ngIf="detail && showFields.includes('subjectTags')">
+                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+
+		</div>

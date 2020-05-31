@@ -96,6 +96,20 @@
 </div>
             </div>
           </div>
+          <div>
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+                <div><label>Subject Tags:</label></div>
+                <div class="ml-3">
+                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
+</div>
+            </div>
+          </div>
       </div>
 
 		</div>

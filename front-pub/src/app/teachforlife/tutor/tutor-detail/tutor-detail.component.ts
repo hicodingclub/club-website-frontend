@@ -47,6 +47,7 @@ export class TutorDetailComponent extends TutorDetailCustComponent implements On
             'acceptGrade': 'Open to Grade',
             'availableTime': 'Available Time',
             'specificSubjects': 'Tutoring Subjects',
+            'subjectTags': 'Subject Tags',
           };
 
 
@@ -65,6 +66,7 @@ export class TutorDetailComponent extends TutorDetailCustComponent implements On
 
 
 
+          this.arrayFields = [['subjectTags', 'SchemaString'],];
 
 
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];

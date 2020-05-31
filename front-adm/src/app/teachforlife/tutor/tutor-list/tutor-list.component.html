@@ -25,7 +25,7 @@
 	              <input type="search" class="form-control border border-secondary" id="tutorTextSearch" 
 						#tutorTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for name, introduction, tutoring subjects"> 
+					    placeholder="Search for name, introduction"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -48,6 +48,54 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="tutorEditSubjectTags">
+				Subject Tags
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+
+
+			<div class="badge-group" *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+				<div class="badge badge-pill badge-secondary" *ngFor="let element of detail['subjectTags']['selection']; let i = index;">
+					{{element}}
+					<i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('subjectTags', i)" title="Remove"></i>
+				</div>
+			</div>
+			<hr>
+	
+			<div class="available-hints">
+
+				<div *ngIf="editHintFields['subjectTags'].length > 0" style="font-size: 0.9rem;">Select from Available Subject Tags: </div>
+				<ng-template ngFor let-hintEle [ngForOf]="editHintFields['subjectTags']" let-i="index">
+					<div class="badge badge-pill badge-primary pointer"
+						*ngIf="!detail['subjectTags']['selection'].includes(hintEle['_id'])" 
+						(click)="onAddArrayItemValue('subjectTags', hintEle['_id'])">
+						{{hintEle['_id']}}
+					</div>
+				</ng-template>
+
+			</div>
+
+
+
+ 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('subjectTags')"
+		        *ngIf="checkValueDefinedFromDetail('subjectTags')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
 
 
 							<hr>
@@ -119,8 +167,6 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('name', 'Name', 'desc')">Name<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'asc')">Introduction<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('introduction', 'Introduction', 'desc')">Introduction<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'asc')">Tutoring Subjects<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('specificSubjects', 'Tutoring Subjects', 'desc')">Tutoring Subjects<i class="fas fa-arrow-down"></i></a>
 						</div>
 					</div>
 			</div>
@@ -223,10 +269,16 @@
                     <div [innerHTML]="detail['introduction']"></div>
 </div>
           </div>
-          <div *ngIf="detail['specificSubjects']" class="d-flex flex-wrap">
-            <div class=""><label>Tutoring Subjects:</label></div>
+          <div *ngIf="detail['subjectTags']" class="d-flex flex-wrap">
+            <div class=""><label>Subject Tags:</label></div>
             <div class="ml-3">
-                    <div [innerHTML]="detail['specificSubjects']"></div>
+                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
 </div>
           </div>
       </div>
@@ -275,10 +327,16 @@
 
           </div>
         </div>
-        <div *ngIf="detail['specificSubjects']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Tutoring Subjects:</label></div>
+        <div *ngIf="detail['subjectTags']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Subject Tags:</label></div>
           <div class="ml-3">
-                    <div [innerHTML]="detail['specificSubjects']"></div>
+                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
 
           </div>
         </div>
@@ -323,13 +381,8 @@
 				</th>
 				<th scope="col">Photo</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('specificSubjects', 'Tutoring Subjects')">
-					Tutoring Subjects
-					<span *ngIf="listSortField === 'specificSubjects'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th><th scope="col" style="width:9.8rem;"></th>
+				<th scope="col">Subject Tags</th>
+<th scope="col" style="width:9.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -355,7 +408,13 @@
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
 	            	
-                    <div [innerHTML]="detail['specificSubjects']"></div>
+                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+                            <div class="badge badge-pill badge-secondary">
+                                {{element}}
+                            </div>
+                        </ng-template>
+                    </div>
 
 	            </td>
 	            <td>

@@ -32,7 +32,7 @@ import { SignUpComponent } from './cust/enroll/sign-up.component';
 })
 export class TeachforlifeCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri May 29 2020 18:15:38 GMT-0700 (Pacific Daylight Time)
+**Date: Sun May 31 2020 10:31:27 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

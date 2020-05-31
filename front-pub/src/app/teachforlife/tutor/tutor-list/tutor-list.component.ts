@@ -46,6 +46,7 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
             'introduction': 'Introduction',
             'photo': 'Photo',
             'specificSubjects': 'Tutoring Subjects',
+            'subjectTags': 'Subject Tags',
           };
 
 
@@ -59,6 +60,7 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
 
 
 
+          this.arrayFields = [['subjectTags', 'SchemaString'],];
 
 
           this.textareaFields = ['introduction', 'specificSubjects', ];
@@ -67,7 +69,7 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
 
           this.listViewFilter = 'grid';
 
-          const listCategories = [];
+          const listCategories = [{"listCategoryField":"subjectTags"}];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
   }
