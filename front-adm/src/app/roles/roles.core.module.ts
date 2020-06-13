@@ -95,6 +95,7 @@ import { MaccountroleDetailSubComponent } from './maccountrole/maccountrole-deta
     MddsCoreModule,
     ActionEmailModule,
 
+
     RolesRoutingCoreModule,
   ],
   declarations: [

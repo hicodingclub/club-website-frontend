@@ -1,0 +1,48 @@
+<div class="image-container">
+    <div class="head-picture">
+        <div class="head-text center">Hicoding Club Summer Camp</div>
+    </div>
+</div>
+<div>
+    <nav class="nav nav-pills nav-fill sub-header">
+        <a class="nav-item nav-link" [ngClass]="{active: showAbout}" (click)="onClick('about')">About</a>
+        <a class="nav-item nav-link" [ngClass]="{active: showDetails}" (click)="onClick('details')">Program Details</a>
+    </nav>
+</div>
+
+<div class="container-fluid">
+    <div *ngIf="showAbout">
+        <div class="row about">
+            <div class="col-1 col-lg-3"></div>
+            <div class="col-10 col-lg-6 about-text">
+                <p>
+                    In response to the ongoing pandemic that is greatly impacting the lives of many in multiple facets and canceling summer programs for students, we have decided to host an entirely FREE 3-week online summer camp (6/6 to 6/24). Participants will have the
+                    opportunity to learn the whole process of developing a website and produce an elegant and functional website by the end of the program.
+                </p>
+                <br>
+                <div class="d-flex flex-wrap justify-content-center my-5">
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg theme-color m-4 button-bottem" routerLink="../enroll">Register</button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-lg theme-color m-4 button-bottem" (click)="onClick('details')">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1 col-lg-3"></div>
+        </div>
+    </div>
+
+    <div *ngIf="showDetails" style="min-height: 100vh;">
+        <div class="d-flex flex-wrap justify-content-center">
+            <img src="../../../assets/SPDetails-1.jpeg" class="details mx-4">
+            <img src="../../../assets/SPDetails-2.jpeg" class="details mx-4">
+        </div>
+        <div class="d-flex flex-wrap justify-content-center my-5">
+            <div>
+                <button type="button" class="btn btn-primary btn-lg theme-color button-bottem" routerLink="../enroll">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

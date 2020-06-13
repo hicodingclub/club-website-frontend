@@ -142,10 +142,10 @@
 	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-diverder">
-			<div class="list-card text-left clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'], 'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
 
       <div class="list-body-fields">
         <h5>
@@ -173,7 +173,7 @@
 
 				</div>
 			</div>
-			<hr class="list-diverder">
+			<hr class="list-devider">
 		</div>
 	</div>
 
@@ -181,9 +181,9 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100 clickable-card "
-				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
-				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
+			<div class="card text-left h-100"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'], 'clickable-card': clickItemAction}" >
+				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
 
       <div class="card-header grid-head">
         <div>
@@ -242,21 +242,21 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="onDetailLinkClicked(detail['_id'])"  class="pointer read-more">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['description']}}
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     <div libMddsRichtextShow="pageDetailContent" [content]="detail['content']"></div>
 
 	            </td>
-	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
                     {{detail['tag']}}
 

@@ -22,10 +22,11 @@ import { RolesCoreModule } from '../roles/roles.core.module';
 })
 export class RolesCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun May 31 2020 10:31:22 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jun 12 2020 17:09:24 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { RolesCoreModule } from '../roles/roles.core.module';
@@ -34,7 +35,8 @@ import { RolesCoreModule } from '../roles/roles.core.module';
   imports: [
     CommonModule,
     FormsModule,
-  
+    RouterModule,
+
     RolesCoreModule,
   ],
   declarations: [

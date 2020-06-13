@@ -22,10 +22,11 @@ import { PublicinfoCoreModule } from '../publicinfo/publicinfo.core.module';
 })
 export class PublicinfoCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun May 31 2020 10:31:24 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jun 12 2020 17:09:26 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { PublicinfoCoreModule } from '../publicinfo/publicinfo.core.module';
@@ -34,7 +35,8 @@ import { PublicinfoCoreModule } from '../publicinfo/publicinfo.core.module';
   imports: [
     CommonModule,
     FormsModule,
-  
+    RouterModule,
+
     PublicinfoCoreModule,
   ],
   declarations: [

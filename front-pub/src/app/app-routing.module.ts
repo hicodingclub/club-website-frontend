@@ -12,6 +12,7 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent},
     { path: 'members', component: MembersComponent},
     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
+    { path: 'summerprogram', loadChildren: () => import('./summerprogram/summerprogram.module').then(m => m.SummerprogramModule) },
 ];
 
 @NgModule({
