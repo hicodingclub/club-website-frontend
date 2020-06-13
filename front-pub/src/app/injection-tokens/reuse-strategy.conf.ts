@@ -5,4 +5,5 @@ export const route_reuse_uris: Array<string> = [
     '/members',
     '/about',
     '/contact',
+    '/summerprogram/cust/home',
   ];
