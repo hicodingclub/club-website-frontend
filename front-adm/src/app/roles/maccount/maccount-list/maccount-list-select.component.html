@@ -198,8 +198,7 @@
 	            </td>
 
 	            <td><a routerLink="." class="btn" 
-					 [ngClass]="{'btn-primary': detail['_id']==selectedId || checkedItem[i], 
-					 			'btn-outline-primary': detail['_id']!==selectedId && !checkedItem[i]}"
+	                 [ngClass]="{'btn-primary': detail['_id']==selectedId, 'btn-outline-primary': detail['_id']!==selectedId}"
 	            	 (click)="selectViewDetail(i)">View Details</a>
 	            </td>
 	        </tr>
@@ -255,6 +254,8 @@
 		</div>
 
 	</div>
+	
+
 <!--  model body ends -->
 
       </div>

@@ -59,7 +59,6 @@ import { MfileListSubComponent } from './mfile/mfile-list/mfile-list-sub.compone
     MddsCoreModule,
     FileUploadModule,
 
-
     FilesRoutingCoreModule,
   ],
   declarations: [

@@ -38,7 +38,6 @@ import { SpenrollmentService } from './spenrollment/spenrollment.service';
     FormsModule,
     MddsCoreModule,
 
-
     SummerprogramRoutingCoreModule,
   ],
   declarations: [

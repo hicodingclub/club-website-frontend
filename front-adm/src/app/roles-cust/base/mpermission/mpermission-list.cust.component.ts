@@ -6,7 +6,7 @@ export class MpermissionListCustComponent extends MpermissionComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 12 2020 17:09:24 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 19:57:52 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

@@ -26,7 +26,6 @@ export class TutorListSelectComponent extends TutorListComponent
         ) {
             super(tutorService, injector, router, route, location);
             this.majorUi = false;
-            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

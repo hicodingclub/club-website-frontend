@@ -22,11 +22,10 @@ import { AccessCoreModule } from '../access/access.core.module';
 })
 export class AccessCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 12 2020 17:09:23 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 19:57:51 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AccessCoreModule } from '../access/access.core.module';
@@ -35,8 +34,7 @@ import { AccessCoreModule } from '../access/access.core.module';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
-
+  
     AccessCoreModule,
   ],
   declarations: [

@@ -26,7 +26,6 @@ export class MroleListSelectComponent extends MroleListComponent
         ) {
             super(mroleService, injector, router, route, location);
             this.majorUi = false;
-            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

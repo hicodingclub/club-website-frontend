@@ -74,9 +74,6 @@ export class EventListComponent extends EventListCustComponent implements OnInit
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
-
-          
-          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -84,9 +81,6 @@ export class EventListComponent extends EventListCustComponent implements OnInit
 
       this.adjustListViewForWindowSize();
 
-      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
-      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
-  
       if (!this.options) {
         this.options = {};
       }

@@ -57,7 +57,6 @@ import { TutorDetailSelComponent } from './tutor/tutor-detail/tutor-detail-sel.c
     FileUploadModule,
     ActionEmailModule,
 
-
     TeachforlifeRoutingCoreModule,
   ],
   declarations: [

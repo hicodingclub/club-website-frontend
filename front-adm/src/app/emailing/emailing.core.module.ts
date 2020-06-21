@@ -59,7 +59,6 @@ import { EmaillogService } from './emaillog/emaillog.service';
     NgbModule,
     MddsCoreModule,
 
-
     EmailingRoutingCoreModule,
   ],
   declarations: [

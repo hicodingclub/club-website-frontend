@@ -72,9 +72,6 @@ export class EmailtemplateListComponent extends EmailtemplateListCustComponent i
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
-
-          this.clickItemAction = 'detail';
-          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -82,9 +79,6 @@ export class EmailtemplateListComponent extends EmailtemplateListCustComponent i
 
       this.adjustListViewForWindowSize();
 
-      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
-      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
-  
       if (!this.options) {
         this.options = {};
       }

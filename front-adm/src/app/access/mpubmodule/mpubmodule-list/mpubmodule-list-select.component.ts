@@ -26,7 +26,6 @@ export class MpubmoduleListSelectComponent extends MpubmoduleListComponent
         ) {
             super(mpubmoduleService, injector, router, route, location);
             this.majorUi = false;
-            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

@@ -5,7 +5,7 @@ import { ArticleComponent } from '../../../publicinfo/article/article.component'
 export class ArticleDetailCustComponent extends ArticleComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jun 12 2020 17:11:40 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 19:57:42 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

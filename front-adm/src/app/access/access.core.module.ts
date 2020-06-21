@@ -66,7 +66,6 @@ import { MpubaccessDetailSubComponent } from './mpubaccess/mpubaccess-detail/mpu
     FormsModule,
     MddsCoreModule,
 
-
     AccessRoutingCoreModule,
   ],
   declarations: [

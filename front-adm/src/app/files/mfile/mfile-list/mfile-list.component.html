@@ -360,10 +360,10 @@
 	<div *ngIf="list.length > 0">
 	<div class="listview" *ngIf="isShowListView('list')">
 		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<hr *ngIf="i==0" class="list-devider">
-			<div class="list-card text-left"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'], 'clickable-card': clickItemAction}" >
-				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+			<hr *ngIf="i==0" class="list-diverder">
+			<div class="list-card text-left  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="list-fields "  >
 
       <div class="list-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
@@ -429,7 +429,7 @@
 					
 				</div>
 			</div>
-			<hr class="list-devider">
+			<hr class="list-diverder">
 		</div>
 	</div>
 
@@ -437,9 +437,9 @@
 
 	<div class="gridview" *ngIf="isShowListView('grid')">
 		<div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
-			<div class="card text-left h-100"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'], 'clickable-card': clickItemAction}" >
-				<div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)" >
+			<div class="card text-left h-100  "
+				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
+				<div class="grid-fields "  >
 
       <div class="card-header grid-head">
         <div class="grid-head-picture">
@@ -555,28 +555,28 @@
 	    </thead>
 	    <tbody>
 	        <tr *ngFor="let detail of list;  let i = index; let list_index = index;" [ngClass]="{'clicked-row': clickedId==detail['_id']}">
-	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            <td scope="row" >
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
 
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                     {{detail['name']}}
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                     {{detail['type']}}
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('group', detail['group'], $event)">
 	            	{{detail['group']?detail['group']['value']:""}}
 	              </a>
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                     <div *ngIf="detail['labels'] && detail['labels']['selection']">
                         <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
@@ -587,21 +587,21 @@
                     </div>
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                     {{detail['size']}}
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	
                     <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
 
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+	            <td >
 	            	{{detail['hasThumbnail']}} 
 
 	            </td>

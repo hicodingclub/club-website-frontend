@@ -26,7 +26,6 @@ export class MaccountListSelectComponent extends MaccountListComponent
         ) {
             super(maccountService, injector, router, route, location);
             this.majorUi = false;
-            this.itemMultiSelect = false;
     }
 
     ngOnInit() {

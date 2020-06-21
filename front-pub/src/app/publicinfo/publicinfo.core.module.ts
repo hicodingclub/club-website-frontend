@@ -103,7 +103,6 @@ import { AlertService } from './alert/alert.service';
     MddsCoreModule,
     FileUploadModule,
 
-
     PublicinfoRoutingCoreModule,
   ],
   declarations: [

@@ -43,7 +43,6 @@ import { SpenrollmentService } from './spenrollment/spenrollment.service';
     MddsCoreModule,
     ActionEmailModule,
 
-
     SummerprogramRoutingCoreModule,
   ],
   declarations: [
