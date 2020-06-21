@@ -57,24 +57,12 @@ export class SpenrollmentEditComponent extends SpenrollmentEditCustComponent imp
             'grade': 'Grade',
             'notes': 'Notes',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('notes');
-
-
-
           this.numberFields = ['grade', ];
-
-
-
-
-
           this.textareaFields = ['notes', ];
-
-
 
           
           const detail = {};

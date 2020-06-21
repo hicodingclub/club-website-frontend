@@ -30,19 +30,7 @@ export class PageDetailFieldComponent extends PageComponent
           this.fieldDisplayNames = {
             'content': 'Content',
           };
-
-
           this.stringFields.push('content');
-
-
-
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

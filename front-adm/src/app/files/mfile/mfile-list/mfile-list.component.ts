@@ -53,31 +53,22 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
             'createdAt': 'Created at',
             'hasThumbnail': 'Has Thumbnail',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('type');
           this.stringFields.push('link');
-
           this.referenceFields = ['group', ];
-
           this.dateFields = ['createdAt', ];
-
           this.numberFields = ['size', ];
-
-
-
           this.arrayFields = [['labels', 'SchemaString'],];
-
-
-
-
 
           this.listViewFilter = 'list';
 
           const listCategories = [{"listCategoryField":"group","showCategoryCounts":true,"showEmptyCategory":false,"listCategoryRef":"mfilegroup"}];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -85,6 +76,9 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

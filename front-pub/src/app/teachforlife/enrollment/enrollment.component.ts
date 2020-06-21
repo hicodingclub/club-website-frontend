@@ -111,12 +111,10 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['grade', 'Grade']);this.briefFieldsInfo.push(['status', 'Status']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
 
 
-
         this.referenceFieldsMap = {'tutor': 'tutor',};
         this.referenceFieldsReverseMap = {'tutor': 'tutor',};
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['name','email','grade','tutor',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'enrollment';
         

@@ -49,27 +49,18 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
             'content': 'Content',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('description');
           this.stringFields.push('content');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          this.clickItemAction = 'detail';
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -77,6 +68,9 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

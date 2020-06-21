@@ -43,19 +43,7 @@ export class PageDetailComponent extends PageDetailCustComponent implements OnIn
           this.fieldDisplayNames = {
             'content': 'Content',
           };
-
-
           this.stringFields.push('content');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

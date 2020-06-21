@@ -90,12 +90,10 @@ export class AlertComponent extends MddsBaseComponent implements OnInit {
 
         
         this.briefFieldsInfo = [];
-        this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['linkName', 'Link Name']);this.briefFieldsInfo.push(['linkURL', 'Link U R L']);this.briefFieldsInfo.push(['show', 'Show']);this.briefFieldsInfo.push(['order', 'Order']);
-
+        this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['linkName', 'Link Name']);this.briefFieldsInfo.push(['linkURL', 'Link Url']);this.briefFieldsInfo.push(['show', 'Show']);this.briefFieldsInfo.push(['order', 'Order']);
 
 
         this.requiredFields = ['name','description','order',];
-
 
         this.schemaName = 'alert';
         

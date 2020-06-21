@@ -45,28 +45,16 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
             'name': 'Name',
             'description': 'Description',
             'linkName': 'Link Name',
-            'linkURL': 'Link U R L',
+            'linkURL': 'Link Url',
             'show': 'Show',
             'order': 'Order',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('description');
           this.stringFields.push('linkName');
           this.stringFields.push('linkURL');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
           this.textareaFields = ['description', ];
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');
@@ -74,6 +62,9 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -81,6 +72,9 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

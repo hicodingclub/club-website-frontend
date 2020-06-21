@@ -6,7 +6,7 @@ import { EmailingComponent } from '../emailing/emailing.component';
 import { 
   emailtemplateRoutingCorePath, 
   emailsettingsRoutingCorePath, 
-  emaillogRoutingCorePath,  
+  emailqueueRoutingCorePath,  
 } from '../emailing/emailing-routing.core.path';
 
 export const EmailingCoreRoutes: Routes = [
@@ -29,9 +29,9 @@ export const EmailingCoreRoutes: Routes = [
         children: emailsettingsRoutingCorePath,
         data: {mraLevel: 1, item: 'emailsettings'}
       },
-      { path: 'emaillog',
-        children: emaillogRoutingCorePath,
-        data: {mraLevel: 1, item: 'emaillog'}
+      { path: 'emailqueue',
+        children: emailqueueRoutingCorePath,
+        data: {mraLevel: 1, item: 'emailqueue'}
       },
     ]
   },
@@ -53,7 +53,7 @@ export const EmailingRoutes: Routes = [
 
 export const emailing_server_root_uri: string = '/api/emailing';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:50 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:11 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -61,14 +61,14 @@ import { EmailingComponent } from '../emailing/emailing.component';
 
 //Import routing paths
 import { 
-  emailtemplateRoutingCorePath, 
-  emailsettingsRoutingCorePath, 
-  emaillogRoutingCorePath,  
+  emailtemplateRoutingCorePath,
+  emailsettingsRoutingCorePath,
+  emailqueueRoutingCorePath,
 } from '../emailing/emailing-routing.core.path';
 
 export const EmailingCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'emailing', loadChildren: () => import('./emailing/emailing.module').then(m => m.EmailingModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -86,9 +86,9 @@ export const EmailingCoreRoutes: Routes = [
         children: emailsettingsRoutingCorePath,
         data: {mraLevel: 1, item: 'emailsettings'}
       },
-      { path: 'emaillog',
-        children: emaillogRoutingCorePath,
-        data: {mraLevel: 1, item: 'emaillog'}
+      { path: 'emailqueue',
+        children: emailqueueRoutingCorePath,
+        data: {mraLevel: 1, item: 'emailqueue'}
       },
     ]
   },
@@ -98,7 +98,7 @@ import { EmailingRoutingCustPath } from './emailing-routing.cust.path';
 
 export const EmailingRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'emailing', loadChildren: () => import('./emailing/emailing.module').then(m => m.EmailingModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -106,7 +106,4 @@ export const EmailingRoutes: Routes = [
 
     children: EmailingRoutingCustPath,
   },
-];
-
-export const emailing_server_root_uri: string = '/api/emailing';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

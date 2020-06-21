@@ -73,7 +73,7 @@ export const PublicinfoRoutes: Routes = [
 
 export const publicinfo_server_root_uri: string = '/api/publicinfo';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:54 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:15 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -81,18 +81,18 @@ import { PublicinfoComponent } from '../publicinfo/publicinfo.component';
 
 //Import routing paths
 import { 
-  eventRoutingCorePath, 
-  articleRoutingCorePath, 
-  faqRoutingCorePath, 
-  generalinfoRoutingCorePath, 
-  keynoteRoutingCorePath, 
-  pageRoutingCorePath, 
-  alertRoutingCorePath,  
+  eventRoutingCorePath,
+  articleRoutingCorePath,
+  faqRoutingCorePath,
+  generalinfoRoutingCorePath,
+  keynoteRoutingCorePath,
+  pageRoutingCorePath,
+  alertRoutingCorePath,
 } from '../publicinfo/publicinfo-routing.core.path';
 
 export const PublicinfoCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -138,7 +138,7 @@ import { PublicinfoRoutingCustPath } from './publicinfo-routing.cust.path';
 
 export const PublicinfoRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -146,7 +146,4 @@ export const PublicinfoRoutes: Routes = [
 
     children: PublicinfoRoutingCustPath,
   },
-];
-
-export const publicinfo_server_root_uri: string = '/api/publicinfo';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

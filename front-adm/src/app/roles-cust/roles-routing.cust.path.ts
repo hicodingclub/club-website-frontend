@@ -5,7 +5,7 @@ export const RolesRoutingCustPath = [
   // your customization goes here
 ];
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:52 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:14 GMT-0700 (Pacific Daylight Time)
 
 
 

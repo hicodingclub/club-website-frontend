@@ -93,10 +93,8 @@ export class SpenrollmentComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['grade', 'Grade']);this.briefFieldsInfo.push(['status', 'Status']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
 
 
-
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['name','email','phoneNumber','grade',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'spenrollment';
         

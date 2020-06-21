@@ -47,28 +47,16 @@ export class SpenrollmentDetailComponent extends SpenrollmentDetailCustComponent
             'adminNotes': 'Admin Notes',
             'createdAt': 'Created at',
           };
-
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('status');
           this.stringFields.push('notes');
           this.stringFields.push('adminNotes');
-
-
           this.dateFields = ['createdAt', ];
-
           this.numberFields = ['grade', ];
-
-
-
-
-
           this.textareaFields = ['notes', 'adminNotes', ];
-
-
   }
 
   ngOnInit() {

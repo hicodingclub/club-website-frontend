@@ -22,10 +22,11 @@ import { TeachforlifeCoreModule } from '../teachforlife/teachforlife.core.module
 })
 export class TeachforlifeCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:55 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:16 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { TeachforlifeCoreModule } from '../teachforlife/teachforlife.core.module';
@@ -34,7 +35,8 @@ import { TeachforlifeCoreModule } from '../teachforlife/teachforlife.core.module
   imports: [
     CommonModule,
     FormsModule,
-  
+    RouterModule,
+
     TeachforlifeCoreModule,
   ],
   declarations: [

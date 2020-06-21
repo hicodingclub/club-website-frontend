@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { PageBaseService } from './page.base.service';
 import { Publicinfo_SERVER_ROOT_URI } from '../publicinfo.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class PageService extends PageBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

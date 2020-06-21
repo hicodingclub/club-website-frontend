@@ -48,23 +48,11 @@ export class KeynoteListComponent extends KeynoteListCustComponent implements On
             'description': 'Description',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('subtitle');
           this.stringFields.push('description');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('title', 'Title', 'asc');
@@ -72,6 +60,9 @@ export class KeynoteListComponent extends KeynoteListCustComponent implements On
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          this.clickItemAction = 'detail';
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -79,6 +70,9 @@ export class KeynoteListComponent extends KeynoteListCustComponent implements On
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

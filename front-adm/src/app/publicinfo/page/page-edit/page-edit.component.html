@@ -1,6 +1,5 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!embeddedView" class="action-buttons">
-		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	<div *ngIf="!embeddedView" class="action-buttons my-3">
 	</div>
 
 	<div class="card" style="text-align: left;">
@@ -13,21 +12,15 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('description')">
-
-        <fieldset class="form-group">
-          <label for="EditDescription">Description</label>
-          
-          <span><i data-toggle="tooltip" title="Brief description of the page" class="far fa-question-circle"></i></span>
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('description')">
+				<fieldset class="form-group">
+					<label for="EditDescription">Description</label><span><i data-toggle="tooltip" title="Brief description of the page" class="far fa-question-circle"></i></span>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditDescription" 
                     required
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
             <div *ngIf="detail['description']"
@@ -35,62 +28,43 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
               Description is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
                 Description must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
+          <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('tag')">
-
-        <fieldset class="form-group">
-          <label for="EditTag">Tag</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('tag')">
+				<fieldset class="form-group">
+					<label for="EditTag">Tag</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTag" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
             <div *ngIf="detail['tag']"
@@ -98,37 +72,26 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
                 Tag must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('description')">
-
-        <fieldset class="form-group">
-          <label for="EditDescription">Description</label>
-          
-          <span><i data-toggle="tooltip" title="Brief description of the page" class="far fa-question-circle"></i></span>
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('description')">
+				<fieldset class="form-group">
+					<label for="EditDescription">Description</label>
+					<span><i data-toggle="tooltip" title="Brief description of the page" class="far fa-question-circle"></i></span>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditDescription" 
                     required
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['description']" name="EditDescription"
                     #EditDescription="ngModel">
             <div *ngIf="detail['description']"
@@ -136,62 +99,43 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditDescription.errors && EditDescription.errors.required">
               Description is required.
-              </div>
- 
-
+            </div>
             <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
                 Description must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
+          <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('tag')">
-
-        <fieldset class="form-group">
-          <label for="EditTag">Tag</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('tag')">
+				<fieldset class="form-group">
+					<label for="EditTag">Tag</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTag" 
-                    
-                    
                     maxlength="50"
-                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
             <div *ngIf="detail['tag']"
@@ -199,25 +143,17 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditTag.errors && EditTag.errors.maxlength">
                 Tag must be at most 50 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-
-				<div class="action-buttons-center">
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
 				</div>

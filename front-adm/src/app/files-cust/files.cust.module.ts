@@ -22,10 +22,11 @@ import { FilesCoreModule } from '../files/files.core.module';
 })
 export class FilesCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:53 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:12 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { FilesCoreModule } from '../files/files.core.module';
@@ -34,7 +35,8 @@ import { FilesCoreModule } from '../files/files.core.module';
   imports: [
     CommonModule,
     FormsModule,
-  
+    RouterModule,
+
     FilesCoreModule,
   ],
   declarations: [

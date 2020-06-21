@@ -1,35 +1,25 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
-    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card transparent-border">
-		<div class="post-head-picture" *ngIf="detail['signaturePicture']">
+		<div class="post-head-picture" *ngIf="fieldHasValue(detail['signaturePicture'])">
 			
                     <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
-
 		</div>
 		<div class="card-body">
 			<h3 class="card-title">
-                    {{detail['title']}}
-</h3>
+                    {{detail['title']}}</h3>
 			<h6 class="card-subtitle mb-2 text-muted">
 				
-                    {{detail['author']}}
- &nbsp;&nbsp;
-				  {{detail['publishDate']?detail['publishDate']['value']:""}}
-
+                    {{detail['author']}} &nbsp;&nbsp;
+				  {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
 			</h6>
 
 			<div class="card-text">
 					
                     <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
-
 			</div>
 		</div>
 	</div>

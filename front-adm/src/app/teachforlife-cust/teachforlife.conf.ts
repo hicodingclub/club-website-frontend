@@ -48,7 +48,7 @@ export const TeachforlifeRoutes: Routes = [
 
 export const teachforlife_server_root_uri: string = '/api/teachforlife';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:55 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:16 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -56,13 +56,13 @@ import { TeachforlifeComponent } from '../teachforlife/teachforlife.component';
 
 //Import routing paths
 import { 
-  tutorRoutingCorePath, 
-  enrollmentRoutingCorePath,  
+  tutorRoutingCorePath,
+  enrollmentRoutingCorePath,
 } from '../teachforlife/teachforlife-routing.core.path';
 
 export const TeachforlifeCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -88,7 +88,7 @@ import { TeachforlifeRoutingCustPath } from './teachforlife-routing.cust.path';
 
 export const TeachforlifeRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -96,7 +96,4 @@ export const TeachforlifeRoutes: Routes = [
 
     children: TeachforlifeRoutingCustPath,
   },
-];
-
-export const teachforlife_server_root_uri: string = '/api/teachforlife';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

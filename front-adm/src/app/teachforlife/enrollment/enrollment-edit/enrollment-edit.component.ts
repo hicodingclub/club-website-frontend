@@ -62,28 +62,16 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
             'adminNotes': 'Admin Notes',
             'tutor': 'Tutor',
           };
-
           this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('status');
           this.stringFields.push('notes');
           this.stringFields.push('adminNotes');
-
           this.referenceFields = ['tutor', ];
-
-
           this.numberFields = ['grade', ];
-
-
-
-
-
           this.textareaFields = ['notes', 'adminNotes', ];
-
-
 
           
           const detail = {};

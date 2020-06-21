@@ -46,33 +46,28 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
             'username': 'Username',
             'email': 'Email',
             'phone': 'Phone',
+            'firstname': 'Firstname',
+            'lastname': 'Lastname',
             'since': 'Since',
             'status': 'Status',
           };
-
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
           this.stringFields.push('status');
-
-
           this.dateFields = ['since', ];
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          this.clickItemAction = 'detail';
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -80,6 +75,9 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

@@ -6,7 +6,7 @@ export class TutorListCustComponent extends TutorComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:43 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:02:25 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

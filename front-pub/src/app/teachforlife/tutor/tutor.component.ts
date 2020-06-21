@@ -96,10 +96,8 @@ export class TutorComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['introduction', 'Introduction']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['specificSubjects', 'Tutoring Subjects']);this.briefFieldsInfo.push(['subjectTags', 'Subject Tags']);
 
 
-
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['name','introduction','photo','specificSubjects','subjectTags','grade','email','acceptGrade','availableTime',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'tutor';
         

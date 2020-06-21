@@ -51,22 +51,10 @@ export class EventListComponent extends EventListCustComponent implements OnInit
             'author': 'Author',
             'publishDate': 'Publish Date',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
-
-
           this.dateFields = ['publishDate', ];
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');
@@ -74,6 +62,9 @@ export class EventListComponent extends EventListCustComponent implements OnInit
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          this.clickItemAction = 'detail';
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -81,6 +72,9 @@ export class EventListComponent extends EventListCustComponent implements OnInit
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

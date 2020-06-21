@@ -52,24 +52,12 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
             'publishDate': 'Publish Date',
             'category': 'Category',
           };
-
-
           this.stringFields.push('signaturePicture');
           this.stringFields.push('title');
           this.stringFields.push('author');
           this.stringFields.push('category');
-
-
           this.dateFields = ['publishDate', ];
-
-
-
-
-
           this.viewHiddenFields = ['category', ];
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('publishDate', 'Publish Date', 'desc');
@@ -77,6 +65,9 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -84,6 +75,9 @@ export class ArticleListComponent extends ArticleListCustComponent implements On
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

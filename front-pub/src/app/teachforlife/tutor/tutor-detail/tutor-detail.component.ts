@@ -49,8 +49,6 @@ export class TutorDetailComponent extends TutorDetailCustComponent implements On
             'specificSubjects': 'Tutoring Subjects',
             'subjectTags': 'Subject Tags',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
@@ -59,19 +57,9 @@ export class TutorDetailComponent extends TutorDetailCustComponent implements On
           this.stringFields.push('acceptGrade');
           this.stringFields.push('availableTime');
           this.stringFields.push('specificSubjects');
-
-
-
           this.numberFields = ['grade', ];
-
-
-
           this.arrayFields = [['subjectTags', 'SchemaString'],];
-
-
           this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
-
-
   }
 
   ngOnInit() {

@@ -61,21 +61,9 @@ export class PageEditComponent extends PageEditCustComponent implements OnInit, 
             'content': 'Content',
             'tag': 'Tag',
           };
-
-
           this.stringFields.push('description');
           this.stringFields.push('content');
           this.stringFields.push('tag');
-
-
-
-
-
-
-
-
-
-
 
           this.textEditorMap['EditContent'] = {
             required: true ,

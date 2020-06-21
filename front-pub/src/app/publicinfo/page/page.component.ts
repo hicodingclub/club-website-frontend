@@ -93,9 +93,7 @@ export class PageComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['description', 'Description']);this.briefFieldsInfo.push(['content', 'Content']);this.briefFieldsInfo.push(['tag', 'Tag']);
 
 
-
         this.requiredFields = ['description','content',];
-
 
         this.schemaName = 'page';
         

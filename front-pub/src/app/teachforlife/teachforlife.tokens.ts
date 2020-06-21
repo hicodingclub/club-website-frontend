@@ -1,3 +1,11 @@
 import { InjectionToken } from '@angular/core';
 
-export const Teachforlife_SERVER_ROOT_URI = new InjectionToken('Teachforlife_SERVER_ROOT_URI');
+import { teachforlife_server_root_uri } from '../teachforlife-cust/teachforlife.tokens.value';
+
+export const Teachforlife_SERVER_ROOT_URI = new InjectionToken<string>(
+    'Teachforlife_SERVER_ROOT_URI',
+    {
+        factory: (): string => teachforlife_server_root_uri,
+        providedIn: 'root',
+    },
+);

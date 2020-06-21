@@ -53,7 +53,7 @@ export const AccessRoutes: Routes = [
 
 export const access_server_root_uri: string = '/api/access';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 19:57:51 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 21:00:13 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -61,14 +61,14 @@ import { AccessComponent } from '../access/access.component';
 
 //Import routing paths
 import { 
-  musergroupRoutingCorePath, 
-  mpubmoduleRoutingCorePath, 
-  mpubaccessRoutingCorePath,  
+  musergroupRoutingCorePath,
+  mpubmoduleRoutingCorePath,
+  mpubaccessRoutingCorePath,
 } from '../access/access-routing.core.path';
 
 export const AccessCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'access', loadChildren: () => import('./access/access.module').then(m => m.AccessModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -98,7 +98,7 @@ import { AccessRoutingCustPath } from './access-routing.cust.path';
 
 export const AccessRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'access', loadChildren: () => import('./access/access.module').then(m => m.AccessModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -106,7 +106,4 @@ export const AccessRoutes: Routes = [
 
     children: AccessRoutingCustPath,
   },
-];
-
-export const access_server_root_uri: string = '/api/access';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

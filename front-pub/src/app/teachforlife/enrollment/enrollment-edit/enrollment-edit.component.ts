@@ -60,26 +60,14 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
             'notes': 'Notes',
             'tutor': 'Tutor',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('notes');
-
           this.referenceFields = ['tutor', ];
-
-
           this.numberFields = ['grade', ];
-
-
-
-
           this.viewHiddenFields = ['tutor', ];
-
           this.textareaFields = ['notes', ];
-
-
 
           
           const detail = {};

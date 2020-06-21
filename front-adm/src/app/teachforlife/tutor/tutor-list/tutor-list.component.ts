@@ -47,32 +47,23 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
             'photo': 'Photo',
             'subjectTags': 'Subject Tags',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('introduction');
           this.stringFields.push('photo');
-
-
-
-
-
-
           this.arrayFields = [['subjectTags', 'SchemaString'],];
-
-
           this.textareaFields = ['introduction', ];
-
           this.editHintFields = {
             'subjectTags': [],
           };
-
 
           this.listViewFilter = 'grid';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
+
+          this.clickItemAction = 'detail';
+          this.itemMultiSelect = true;
   }
 
   ngOnInit() {
@@ -80,6 +71,9 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
 
       this.adjustListViewForWindowSize();
 
+      this.clickItemAction = typeof this.options.clickItemAction === 'undefined'? this.clickItemAction : this.options.clickItemAction;
+      this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ?  this.options.itemMultiSelect : this.itemMultiSelect;
+  
       if (!this.options) {
         this.options = {};
       }

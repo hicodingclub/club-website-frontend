@@ -1,12 +1,7 @@
 
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
-    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
-    <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-    
-    
-    
-    
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons my-3">
+    <a *ngIf="!options['disableActionList']" routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
 </div>
 </div>
 	<div class="card text-left transparent-border ">
@@ -14,11 +9,10 @@
 
       <div class="card-body">
           <div>
-            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
+            <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
                 <div><label>Content:</label></div>
                 <div class="ml-3">
-                    <div libMddsRichtextShow="pageDetailContent" [content]="detail['content']"></div>
-</div>
+                    <div libMddsRichtextShow="pageDetailContent" [content]="detail['content']"></div></div>
             </div>
           </div>
       </div>

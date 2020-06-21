@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { TutorBaseService } from './tutor.base.service';
 import { Teachforlife_SERVER_ROOT_URI } from '../teachforlife.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class TutorService extends TutorBaseService implements OnDestroy {
     constructor(
         http: HttpClient,
