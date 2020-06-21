@@ -75,5 +75,9 @@ export class SpenrollmentDetailComponent extends SpenrollmentDetailCustComponent
 
   ngAfterViewInit() {
 
+    //Load first reference, if not others activated
+    if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
+      this.router.navigate(['./confirmation/list', {}], {relativeTo: this.route, queryParamsHandling: 'preserve',});
+    }
   }
 }

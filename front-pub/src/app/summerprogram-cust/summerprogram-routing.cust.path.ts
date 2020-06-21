@@ -1,15 +1,17 @@
 import { SummerProgramHomeComponent } from './cust/summerProgramHome.component';
 import { SPSignUpComponent } from './cust/enroll/spsign-up.component';
+import { SPConformationComponent } from './cust/sp-confirmation/sp-confirmation.component';
 
 // Path under summerprogram/cust/
 export const SummerprogramRoutingCustPath = [
   { path: '',  redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: SummerProgramHomeComponent },
   { path: 'enroll', component: SPSignUpComponent },
+  { path: 'confirm', component: SPConformationComponent },
   // your customization goes here
 ];
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 21:02:26 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jun 25 2020 13:50:35 GMT-0700 (Pacific Daylight Time)
 
 
 

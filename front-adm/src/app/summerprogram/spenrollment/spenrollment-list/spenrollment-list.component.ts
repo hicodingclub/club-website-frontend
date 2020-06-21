@@ -56,7 +56,8 @@ export class SpenrollmentListComponent extends SpenrollmentListCustComponent imp
           this.dateFields = ['createdAt', ];
           this.numberFields = ['grade', ];
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
+          this.setListSort('createdAt', 'Created at', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

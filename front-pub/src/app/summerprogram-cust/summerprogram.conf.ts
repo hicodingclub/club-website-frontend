@@ -4,7 +4,8 @@ import { SummerprogramComponent } from '../summerprogram/summerprogram.component
 
 //Import routing paths
 import { 
-  spenrollmentRoutingCorePath,  
+  spenrollmentRoutingCorePath,
+  confirmationRoutingCorePath,
 } from '../summerprogram/summerprogram-routing.core.path';
 
 export const SummerprogramCoreRoutes: Routes = [
@@ -22,6 +23,10 @@ export const SummerprogramCoreRoutes: Routes = [
       { path: 'spenrollment',
         children: spenrollmentRoutingCorePath,
         data: {mraLevel: 1, item: 'spenrollment'}
+      },
+      { path: 'confirmation',
+        children: confirmationRoutingCorePath,
+        data: {mraLevel: 1, item: 'confirmation'}
       },
     ]
   },
@@ -43,7 +48,7 @@ export const SummerprogramRoutes: Routes = [
 
 export const summerprogram_server_root_uri: string = '/api/summerprogram';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 21:02:26 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jun 25 2020 13:50:35 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -69,6 +74,10 @@ export const SummerprogramCoreRoutes: Routes = [
       { path: 'spenrollment',
         children: spenrollmentRoutingCorePath,
         data: {mraLevel: 1, item: 'spenrollment'}
+      },
+      { path: 'confirmation',
+        children: confirmationRoutingCorePath,
+        data: {mraLevel: 1, item: 'confirmation'}
       },
     ]
   },

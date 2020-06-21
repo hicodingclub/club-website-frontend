@@ -76,5 +76,13 @@
 	<div *ngIf="!options['disablePipeline']">
 </div>
 	<div *ngIf="!options['disableRefLink']">
+    <br/>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a [routerLink]="['./confirmation/list']"
+                    class="nav-link" routerLinkActive="active">Confirmation</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
 </div>
 </div>

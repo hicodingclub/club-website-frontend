@@ -1,0 +1,292 @@
+<div>
+	<div class="add-area d-flex">
+
+		
+		<div class="d-flex ml-auto">
+
+		</div>
+	</div>
+
+		
+	
+	<div *ngIf="list.length === 0" class="no-records">
+		<span *ngIf="loaded">No records found.</span>
+		<span *ngIf="!loaded">Loading...</span>
+	</div>
+	<div class="container search">
+		<div class="row justify-content-end mt-3">
+		
+			
+		</div>
+		<div class="d-flex justify-content-between">
+			<div>
+			</div>
+
+			<div>
+				<div class="total_counts">
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
+
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
+
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
+		</div>
+
+	</div>
+
+	<div *ngIf="list.length > 0">
+	<table *ngIf="isShowListView('table')" class="table table-bordered table-hover">
+	    <thead class="thead-light">
+	    	<tr>
+		        <th scope="col">#</th>
+
+				<th class="pointer" scope="col" (click)="toggleListSort('name', 'Name')" >
+					Name
+					<span *ngIf="listSortField === 'name'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('email', 'Email')" >
+					Email
+					<span *ngIf="listSortField === 'email'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('type', 'Type')" >
+					Type
+					<span *ngIf="listSortField === 'type'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('enrollment', 'Enrollment')"
+					*ngIf="referenceFieldsMap['enrollment'] != parentItem"  >
+					Enrollment
+					<span *ngIf="listSortField === 'enrollment'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('confirmed', 'Confirmed')" >
+					Confirmed
+					<span *ngIf="listSortField === 'confirmed'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')" >
+					Created at
+					<span *ngIf="listSortField === 'createdAt'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th scope="col" style="width:4.8rem;"></th>
+	    	</tr>
+	    </thead>
+	    <tbody>
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
+	            	{{(page-1)*perPage+i+1}}
+	            </td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['name']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['email']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['type']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['enrollment'] != parentItem"
+					>
+	            	
+               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollment', detail['enrollment'], $event)">
+	            	{{detail['enrollment']?detail['enrollment']['value']:""}}
+	              </a>
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	
+                    {{detail['confirmed']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+				</td>
+	            <td>
+					
+	            	
+	            	
+					
+					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
+	            </td>
+			</tr>
+			</ng-template>
+	    </tbody>
+	</table>
+
+
+	<div class="listview" *ngIf="isShowListView('list')">
+		<div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+			<hr *ngIf="i==0" class="list-devider">
+			<div class="list-card text-left"
+				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+							'selected-row': clickItemAction === 'select' && checkedItem[i],
+							'clickable-card': clickItemAction}" >
+				<div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+
+      <div class="list-body-fields">
+        <h5>
+          <div class="mr-1 d-inline-block">
+            
+                    {{detail['email']}}
+          </div>
+        </h5>
+        <div>
+            <div *ngIf="fieldHasValue(detail['name'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Name:</label></div>
+              <div class="ml-3">
+                    {{detail['name']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['type'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Type:</label></div>
+              <div class="ml-3">
+                    {{detail['type']}}
+              </div>
+            </div>
+          <div *ngIf="referenceFieldsMap['enrollment'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['enrollment'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Enrollment:</label></div>
+              <div class="ml-3">
+               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollment', detail['enrollment'], $event)">
+	            	{{detail['enrollment']?detail['enrollment']['value']:""}}
+	              </a>
+              </div>
+            </div>
+          </div>
+            <div *ngIf="fieldHasValue(detail['confirmed'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Confirmed:</label></div>
+              <div class="ml-3">
+                    {{detail['confirmed']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Created at:</label></div>
+              <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+              </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-1">
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
+        </div>
+      </div>
+				</div>
+			</div>
+			<hr class="list-devider">
+		</div>
+	</div>
+
+
+
+	</div>
+	<div class="container">
+		<div class="row justify-content-end mt-3">
+		
+			
+		</div>
+		<div class="d-flex justify-content-between">
+			<div>
+			</div>
+
+			<div>
+				<div class="total_counts">
+					<span *ngIf="totalCount > 2">Total: <b>{{totalCount}}</b></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center flex-wrap mt-2">
+			<div *ngIf="totalPages > 1">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"
+							[ngClass]="{'disabled': page<=1}">
+					<a class="page-link" routerLink="." (click)="onPreviousPage()"
+						aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+					</li>
+
+					<li *ngIf="leftMore" class="page-item"><a class="page-link">...</a></li>
+
+					<li *ngFor="let p of pages;  let i = index" class="page-item"
+							[ngClass]="{'active': p==page}">
+						<a class="page-link" routerLink="." (click)="onGotoPage(p)">{{p}}</a>
+					</li>
+
+					<li *ngIf="rightMore" class="page-item"><a class="page-link">...</a></li>
+					<li class="page-item"
+							[ngClass]="{'disabled': page>=totalPages}">
+					<a class="page-link" routerLink="." (click)="onNextPage()"
+						aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-3" *ngIf="totalPages > 1">
+				<small>Page</small>&nbsp;<input type="number" class="page-control form-control" [value]="page" (input)="onGotoPage($event.target.value)" />&nbsp;/&nbsp;{{totalPages}}
+			</div>
+		</div>
+
+	</div>
+	
+</div>

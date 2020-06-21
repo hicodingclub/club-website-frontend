@@ -5,7 +5,7 @@ import { MfileComponent } from '../../../files/mfile/mfile.component';
 export class MfileEditCustComponent extends MfileComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 21:00:12 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jun 25 2020 13:37:40 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

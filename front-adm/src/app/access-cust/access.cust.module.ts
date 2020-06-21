@@ -22,7 +22,7 @@ import { AccessCoreModule } from '../access/access.core.module';
 })
 export class AccessCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 24 2020 21:00:13 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jun 25 2020 13:37:41 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

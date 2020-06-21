@@ -1,0 +1,44 @@
+<div class="container">
+    <div *ngIf="!loading" >
+        <div *ngIf="requestValid">
+            <div class="d-flex flex-column align-items-center ">
+                <div class="h3 my-3">Welcome back, {{name}}!</div>
+                <div>
+                    <app-generalinfo-detail-widget-info [searchObj]="{'tag': conformationType}" [disableActionButtions]="true" [style]="{
+                      'card': {'background-color': 'transparent', 'color': '#00274c', 'font-size': '1rem'},
+                      'card-header': {'background-color': 'transparent'}
+                    }">
+                    </app-generalinfo-detail-widget-info>
+                </div>
+    
+                <form (ngSubmit)="onSubmit()" #confirmForm="ngForm">
+                    <div class="form-check-inline mr-3">
+                        <input class="form-check-input" type="radio" name="userSelection" value="Yes" [(ngModel)]="userSelection"
+                            required
+                            #EditSelection="ngModel">
+                        <label class="form-check-label">
+                            <b>Yes</b>
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="userSelection" value="No" [(ngModel)]="userSelection"
+                            required
+                            #EditSelection="ngModel">
+                        <label class="form-check-label">
+                            <b>No</b>
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-center my-5">
+                        <button type="submit" class="btn btn-success my-1" [disabled]="!confirmForm.form.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="!requestValid" class="d-flex justify-content-center my-5">
+            <div>Invalid Request.</div>
+        </div>
+    </div>
+    <div class='d-flex justify-content-center my-5' *ngIf="loading">
+        <div class="loader"></div>
+     </div>
+</div>

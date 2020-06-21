@@ -8,6 +8,13 @@ import { SpenrollmentEditComponent } from './spenrollment/spenrollment-edit/spen
 
 
 
+
+
+
+
+
+
+
 import { AuthGuard } from '@hicoder/angular-auth';
 
 
@@ -18,6 +25,15 @@ export const spenrollmentRoutingCorePath = [
     
     
     {path: 'new', component: SpenrollmentEditComponent},
+    
+    
+];
+
+export const confirmationRoutingCorePath = [
+    
+    
+    
+    
     
     
 ];

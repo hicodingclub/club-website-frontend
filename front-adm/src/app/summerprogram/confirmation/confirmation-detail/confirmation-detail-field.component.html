@@ -1,0 +1,21 @@
+
+
+		<div *ngIf="detail && showFields.includes('name')">
+                    {{detail['name']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('email')">
+                    {{detail['email']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('type')">
+                    {{detail['type']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('enrollment')">
+               	  <a routerLink="."  (click)="onDisplayRefClicked('enrollment', detail['enrollment'], $event)">
+	            	{{detail['enrollment']?detail['enrollment']['value']:""}}
+	              </a>
+		</div>
+		<div *ngIf="detail && showFields.includes('confirmed')">
+                    {{detail['confirmed']}}
+		</div>
+		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+		</div>

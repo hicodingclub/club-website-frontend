@@ -8,7 +8,9 @@ const itemCamelName = 'sign Up';
 
 export { ViewType };
 
+import { ViewChild } from '@angular/core';
 
+import { ElementRef } from '@angular/core';
 
 
 export class SpenrollmentComponent extends MddsBaseComponent implements OnInit {
@@ -76,6 +78,7 @@ export class SpenrollmentComponent extends MddsBaseComponent implements OnInit {
 
 
 
+    @ViewChild('SummerprogramModal', {static: true}) public focusEl: ElementRef;
 
     constructor(
       
