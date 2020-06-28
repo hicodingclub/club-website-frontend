@@ -49,8 +49,12 @@ export class AlertDetailComponent extends AlertDetailCustComponent implements On
           this.stringFields.push('description');
           this.stringFields.push('linkName');
           this.stringFields.push('linkURL');
-          this.numberFields = ['order', ];
-          this.textareaFields = ['description', ];
+          this.numberFields = [
+            'order',
+          ];
+          this.textareaFields = [
+            'description',
+          ];
   }
 
   ngOnInit() {

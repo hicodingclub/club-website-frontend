@@ -5,7 +5,7 @@ import { PageComponent } from '../../../publicinfo/page/page.component';
 export class PageEditCustComponent extends PageComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Thu Jun 25 2020 13:37:43 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jun 28 2020 13:16:09 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

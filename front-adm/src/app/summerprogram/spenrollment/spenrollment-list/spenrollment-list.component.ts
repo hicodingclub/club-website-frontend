@@ -49,12 +49,21 @@ export class SpenrollmentListComponent extends SpenrollmentListCustComponent imp
             'status': 'Status',
             'createdAt': 'Created at',
           };
-          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
+          this.enums['status'] = [
+            'processing',
+            'paid',
+            'confirmed',
+            'cancelled',
+          ];
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('status');
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['grade', ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
 
           this.listViewFilter = 'table';
           this.setListSort('createdAt', 'Created at', 'desc');

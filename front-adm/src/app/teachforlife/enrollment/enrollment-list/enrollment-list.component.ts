@@ -51,13 +51,24 @@ export class EnrollmentListComponent extends EnrollmentListCustComponent impleme
             'tutor': 'Tutor',
             'createdAt': 'Created at',
           };
-          this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
+          this.enums['status'] = [
+            'processing',
+            'paid',
+            'confirmed',
+            'cancelled',
+          ];
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('status');
-          this.referenceFields = ['tutor', ];
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['grade', ];
+          this.referenceFields = [
+            'tutor',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
 
           this.listViewFilter = 'list';
 

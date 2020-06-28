@@ -62,8 +62,15 @@ export class ConfirmationEditComponent extends ConfirmationEditCustComponent imp
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('type');
-          this.referenceFields = ['enrollment', ];
-          this.numberFields = ['confirmed', ];
+          this.referenceFields = [
+            'enrollment',
+          ];
+          this.numberFields = [
+            'confirmed',
+          ];
+          this.ownSearchStringFields = [
+            'type',
+          ];
 
           
           const detail = {};

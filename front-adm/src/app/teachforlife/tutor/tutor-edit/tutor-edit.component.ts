@@ -147,9 +147,17 @@ export class TutorEditComponent extends TutorEditCustComponent implements OnInit
           this.stringFields.push('acceptGrade');
           this.stringFields.push('availableTime');
           this.stringFields.push('specificSubjects');
-          this.numberFields = ['grade', ];
-          this.arrayFields = [['subjectTags', 'SchemaString'],];
-          this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
+          this.numberFields = [
+            'grade',
+          ];
+          this.arrayFields = [
+            ['subjectTags', 'SchemaString'],
+          ];
+          this.textareaFields = [
+            'introduction',
+            'availableTime',
+            'specificSubjects',
+          ];
           this.editHintFields = {
             'subjectTags': [],
           };

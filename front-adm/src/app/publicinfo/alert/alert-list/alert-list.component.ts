@@ -47,7 +47,9 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
             'order': 'Order',
           };
           this.stringFields.push('name');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
 
           this.listViewFilter = 'table';
           this.setListSort('order', 'Order', 'asc');

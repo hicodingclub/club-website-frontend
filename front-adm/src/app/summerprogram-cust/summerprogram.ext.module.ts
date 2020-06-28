@@ -29,7 +29,7 @@ import { MraNgbDateFormatterService } from '../summerprogram/summerprogram.direc
 })
 export class SummerprogramExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Thu Jun 25 2020 13:37:45 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jun 28 2020 13:16:11 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

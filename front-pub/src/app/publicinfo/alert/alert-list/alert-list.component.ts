@@ -53,8 +53,12 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
           this.stringFields.push('description');
           this.stringFields.push('linkName');
           this.stringFields.push('linkURL');
-          this.numberFields = ['order', ];
-          this.textareaFields = ['description', ];
+          this.numberFields = [
+            'order',
+          ];
+          this.textareaFields = [
+            'description',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');

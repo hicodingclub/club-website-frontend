@@ -64,10 +64,18 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
           this.stringFields.push('email');
           this.stringFields.push('phoneNumber');
           this.stringFields.push('notes');
-          this.referenceFields = ['tutor', ];
-          this.numberFields = ['grade', ];
-          this.viewHiddenFields = ['tutor', ];
-          this.textareaFields = ['notes', ];
+          this.referenceFields = [
+            'tutor',
+          ];
+          this.numberFields = [
+            'grade',
+          ];
+          this.viewHiddenFields = [
+            'tutor',
+          ];
+          this.textareaFields = [
+            'notes',
+          ];
 
           
           const detail = {};

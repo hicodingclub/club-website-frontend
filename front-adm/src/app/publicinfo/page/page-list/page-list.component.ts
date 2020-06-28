@@ -53,7 +53,10 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
           };
           this.stringFields.push('description');
           this.stringFields.push('tag');
-          this.dateFields = ['createdAt', 'updatedAt', ];
+          this.dateFields = [
+            'createdAt',
+            'updatedAt',
+          ];
 
           this.listViewFilter = 'table';
           this.setListSort('updatedAt', 'Updated at', 'desc');

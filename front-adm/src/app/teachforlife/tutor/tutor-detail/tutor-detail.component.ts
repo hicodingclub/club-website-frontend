@@ -57,9 +57,17 @@ export class TutorDetailComponent extends TutorDetailCustComponent implements On
           this.stringFields.push('acceptGrade');
           this.stringFields.push('availableTime');
           this.stringFields.push('specificSubjects');
-          this.numberFields = ['grade', ];
-          this.arrayFields = [['subjectTags', 'SchemaString'],];
-          this.textareaFields = ['introduction', 'availableTime', 'specificSubjects', ];
+          this.numberFields = [
+            'grade',
+          ];
+          this.arrayFields = [
+            ['subjectTags', 'SchemaString'],
+          ];
+          this.textareaFields = [
+            'introduction',
+            'availableTime',
+            'specificSubjects',
+          ];
   }
 
   ngOnInit() {

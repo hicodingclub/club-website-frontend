@@ -38,9 +38,18 @@ export class ConfirmationDetailFieldComponent extends ConfirmationComponent
           this.stringFields.push('name');
           this.stringFields.push('email');
           this.stringFields.push('type');
-          this.referenceFields = ['enrollment', ];
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['confirmed', ];
+          this.referenceFields = [
+            'enrollment',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'confirmed',
+          ];
+          this.ownSearchStringFields = [
+            'type',
+          ];
     }
 
     ngOnInit() {

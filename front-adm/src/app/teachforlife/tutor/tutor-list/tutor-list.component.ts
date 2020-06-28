@@ -50,8 +50,12 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
           this.stringFields.push('name');
           this.stringFields.push('introduction');
           this.stringFields.push('photo');
-          this.arrayFields = [['subjectTags', 'SchemaString'],];
-          this.textareaFields = ['introduction', ];
+          this.arrayFields = [
+            ['subjectTags', 'SchemaString'],
+          ];
+          this.textareaFields = [
+            'introduction',
+          ];
           this.editHintFields = {
             'subjectTags': [],
           };
