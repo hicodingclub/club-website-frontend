@@ -39,7 +39,8 @@ export class TutorListComponent extends TutorListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                tutorService, injector, router, route, location, ViewType.LIST);
+                tutorService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

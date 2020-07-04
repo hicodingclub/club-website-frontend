@@ -11,7 +11,7 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('enrollment')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('enrollment', detail['enrollment'], $event)">
-	            	{{detail['enrollment']?detail['enrollment']['value']:""}}
+	            	{{detail['enrollment']?detail['enrollment']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('confirmed')">

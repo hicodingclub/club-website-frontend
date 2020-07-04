@@ -125,7 +125,8 @@ export class TutorEditComponent extends TutorEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                tutorService, injector, router, route, location, ViewType.EDIT);
+                tutorService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

@@ -41,7 +41,8 @@ export class EnrollmentListComponent extends EnrollmentListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                enrollmentService, injector, router, route, location, ViewType.LIST);
+                enrollmentService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

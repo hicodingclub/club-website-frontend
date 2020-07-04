@@ -41,7 +41,8 @@ export class ConfirmationListComponent extends ConfirmationListCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                confirmationService, injector, router, route, location, ViewType.LIST);
+                confirmationService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

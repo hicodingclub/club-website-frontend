@@ -50,7 +50,8 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                enrollmentService, injector, router, route, location, ViewType.EDIT);
+                enrollmentService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

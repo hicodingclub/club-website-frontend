@@ -25,7 +25,8 @@ export class TutorDetailFieldComponent extends TutorComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                tutorService, injector, router, route, location, ViewType.DETAIL);
+                tutorService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',

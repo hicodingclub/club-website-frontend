@@ -23,7 +23,7 @@
 		</div>
 		<div *ngIf="detail && showFields.includes('tutor')">
                	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
-	            	{{detail['tutor']?detail['tutor']['value']:""}}
+	            	{{detail['tutor']?detail['tutor']['valueMedium']:""}}
 	              </a>
 		</div>
 		<div *ngIf="detail && showFields.includes('createdAt')">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}

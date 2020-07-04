@@ -48,7 +48,8 @@ export class AlertEditComponent extends AlertEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                alertService, injector, router, route, location, ViewType.EDIT);
+                alertService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

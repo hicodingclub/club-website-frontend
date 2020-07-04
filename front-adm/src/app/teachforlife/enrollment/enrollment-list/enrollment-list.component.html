@@ -20,16 +20,15 @@
 	<div *ngIf="!options['disableListHead']" class="container search">
 		<div class="row" *ngIf="!options['disableListSearch']">
 			<div class="col">
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="enrollmentTextSearch" 
 						#enrollmentTextSearch [(ngModel)]="searchText"
-						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for name, email, status"> 
-				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
-					<span >
-					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
-				    </span>
+						(search)="$event.target.blur();searchList();"
+						placeholder="Search for name, email, status">
+				  <div *ngIf="searchText" class="input-group-append icon-search-clear">
+						<span >
+							<i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
+						</span>
 				  </div>
 				  <div class="input-group-append">
 				    <button type="button" class="btn btn-outline-secondary" (click)="searchList()"><i class="fas fa-search"></i></button>
@@ -48,9 +47,9 @@
 			    <div class="shadow" *ngIf="moreSearchOpened">
 					<div class="card">
 						<div class="card-body">
-							<div class="d-flex flex-wrap">
+							<div class="d-flex flex-wrap align-items-center">
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="enrollmentEditGrade">
@@ -58,14 +57,15 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
+									<div class="input-group input-group-sm align-items-center">
 										
-									<input type="number" class="form-control" id="enrollmentEditGrade"
-										[(ngModel)]="detail['__mra_grade_from']" name="enrollmentEditGrade"
-										#enrollmentEditGrade="ngModel">
+										<input type="number" class="form-control form-control-sm" id="enrollmentEditGrade"
+											[(ngModel)]="detail['__mra_grade_from']" name="enrollmentEditGrade"
+											#enrollmentEditGrade="ngModel">
 										<span>&nbsp; ~ &nbsp;</span>
-										<input type="number" class="form-control" id="enrollmentEditGrade"
-											[(ngModel)]="detail['__mra_grade_to']" name="enrollmentEditGrade" #enrollmentEditGrade="ngModel">
+										<input type="number" class="form-control form-control-sm" id="enrollmentEditGrade"
+											[(ngModel)]="detail['__mra_grade_to']" name="enrollmentEditGrade"
+											#enrollmentEditGrade="ngModel">
 									</div>
 								</div>
 								<div class="col-1">
@@ -75,7 +75,7 @@
 							</div>
 						</div> 
 
-						<div class="container two-column-search">
+						<div class="container two-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-sm-3">
 									<label for="enrollmentEditTutor">
@@ -83,11 +83,11 @@
 									</label>
 								</div>
 								<div class="col-11 col-sm-8">
-									<div class="input-group">
-										<input class="form-control rounded" id="enrollmentEditTutor"
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-sm rounded" id="enrollmentEditTutor"
 											[ngClass]="{'pointer ref-badge': detail['tutor']['_id']}" (focus)="onRefSelect('tutor')"
 											 
-											[ngModel]="detail['tutor']['value']" name="enrollmentEditTutor" #enrollmentEditTutor="ngModel">
+											[ngModel]="detail['tutor']['valueMedium']" name="enrollmentEditTutor" #enrollmentEditTutor="ngModel">
 									</div>
 									<!-- (focus)="detail['tutor']['_id']?onRefShow('tutor', 'select', detail['tutor']['_id']):onRefSelect('tutor')" -->
 								</div>
@@ -98,7 +98,7 @@
 							</div>
 						</div> 
 
-						<div class="container one-column-search">
+						<div class="container one-column-search small">
 							<div class="row col-gutter align-items-center">
 								<div class="col-12 col-lg-3">
 									<label for="enrollmentEditCreatedAt">
@@ -107,9 +107,9 @@
 								</div>
 								<div class="col-11 col-lg-8">
 									<div class="row">
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">From</span>
-											<input class="form-control" id="enrollmentEditCreatedAt" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="enrollmentEditCreatedAt" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['createdAt']['from']" name="enrollmentEditCreatedAt" ngbDatepicker [minDate]="minDate"
 												#enrollmentEditCreatedAt="ngModel">
 											<div class="input-group-append">
@@ -118,9 +118,9 @@
 												</button>
 											</div>
 										</div>
-										<div class="input-group col-12 col-md-6 align-items-center">
+										<div class="input-group input-group-sm col-12 col-md-6 align-items-center">
 											<span class="small mx-1" style="width:2rem">to</span>
-											<input class="form-control" id="enrollmentEditCreatedAt" placeholder="{{dateFormat}}"
+											<input class="form-control form-control-sm" id="enrollmentEditCreatedAt" placeholder="{{dateFormat}}"
 												[(ngModel)]="detail['createdAt']['to']" name="enrollmentEditCreatedAt" ngbDatepicker [minDate]="minDate"
 												#enrollmentEditCreatedAt="ngModel">
 	
@@ -324,7 +324,7 @@
               <div><label>Tutor:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
-	            	{{detail['tutor']?detail['tutor']['value']:""}}
+	            	{{detail['tutor']?detail['tutor']['valueMedium']:""}}
 	              </a>
               </div>
             </div>
@@ -392,7 +392,7 @@
             <div class=""><label>Tutor:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
-	            	{{detail['tutor']?detail['tutor']['value']:""}}
+	            	{{detail['tutor']?detail['tutor']['valueMedium']:""}}
 	              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
@@ -498,7 +498,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('tutor', detail['tutor'], $event)">
-	            	{{detail['tutor']?detail['tutor']['value']:""}}
+	            	{{detail['tutor']?detail['tutor']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"

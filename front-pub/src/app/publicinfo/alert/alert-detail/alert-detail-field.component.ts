@@ -25,7 +25,8 @@ export class AlertDetailFieldComponent extends AlertComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                alertService, injector, router, route, location, ViewType.DETAIL);
+                alertService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',

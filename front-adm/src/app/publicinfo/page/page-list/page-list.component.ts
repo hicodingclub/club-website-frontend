@@ -43,7 +43,8 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                pageService, injector, router, route, location, ViewType.LIST);
+                pageService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'description': 'Description',

@@ -38,7 +38,8 @@ export class PageDetailComponent extends PageDetailCustComponent implements OnIn
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                pageService, injector, router, route, location, ViewType.DETAIL);
+                pageService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'content': 'Content',

@@ -25,7 +25,8 @@ export class PageDetailFieldComponent extends PageComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                pageService, injector, router, route, location, ViewType.DETAIL);
+                pageService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'content': 'Content',

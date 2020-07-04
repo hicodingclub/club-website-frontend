@@ -50,7 +50,8 @@ export class ConfirmationEditComponent extends ConfirmationEditCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                confirmationService, injector, router, route, location, ViewType.EDIT);
+                confirmationService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

@@ -54,7 +54,8 @@ export class PageEditComponent extends PageEditCustComponent implements OnInit, 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                pageService, injector, router, route, location, ViewType.EDIT);
+                pageService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'description': 'Description',

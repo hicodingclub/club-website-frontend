@@ -48,7 +48,8 @@ export class SpenrollmentEditComponent extends SpenrollmentEditCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                spenrollmentService, injector, router, route, location, ViewType.EDIT);
+                spenrollmentService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',

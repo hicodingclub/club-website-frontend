@@ -35,7 +35,8 @@ export class SpenrollmentDetailComponent extends SpenrollmentDetailCustComponent
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                spenrollmentService, injector, router, route, location, ViewType.DETAIL);
+                spenrollmentService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'name': 'Name',

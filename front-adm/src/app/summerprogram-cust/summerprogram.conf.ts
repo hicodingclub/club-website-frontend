@@ -47,7 +47,7 @@ export const SummerprogramRoutes: Routes = [
 ];
 
 export const summerprogram_server_root_uri: string = '/api/summerprogram';/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 28 2020 13:16:11 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 03 2020 17:46:21 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 

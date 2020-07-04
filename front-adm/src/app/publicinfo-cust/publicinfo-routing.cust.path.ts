@@ -5,7 +5,7 @@ export const PublicinfoRoutingCustPath = [
   // your customization goes here
 ];
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jun 28 2020 13:16:09 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 03 2020 17:46:19 GMT-0700 (Pacific Daylight Time)
 
 
 

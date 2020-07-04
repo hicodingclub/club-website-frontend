@@ -85,9 +85,9 @@
               <input class="form-control rounded" id="EditEnrollment" 
                   [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}"
                   (focus)="onRefSelect('enrollment')" 
-                  [ngModel]="detail['enrollment']['value']" name="EditEnrollment"
+                  [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment"
                   #EditEnrollment="ngModel"> 
-              <div *ngIf="detail['enrollment']['value']" 
+              <div *ngIf="detail['enrollment']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -188,9 +188,9 @@
               <input class="form-control rounded" id="EditEnrollment" 
                   [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}"
                   (focus)="onRefSelect('enrollment')" 
-                  [ngModel]="detail['enrollment']['value']" name="EditEnrollment"
+                  [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment"
                   #EditEnrollment="ngModel"> 
-              <div *ngIf="detail['enrollment']['value']" 
+              <div *ngIf="detail['enrollment']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>

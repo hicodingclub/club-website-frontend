@@ -36,7 +36,8 @@ export class ConfirmationDetailComponent extends ConfirmationDetailCustComponent
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                confirmationService, injector, router, route, location, ViewType.DETAIL);
+                confirmationService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'name': 'Name',

@@ -36,7 +36,8 @@ export class EnrollmentDetailComponent extends EnrollmentDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                enrollmentService, injector, router, route, location, ViewType.DETAIL);
+                enrollmentService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'name': 'Name',

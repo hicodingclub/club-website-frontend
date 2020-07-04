@@ -39,7 +39,8 @@ export class AlertListComponent extends AlertListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                alertService, injector, router, route, location, ViewType.LIST);
+                alertService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',
