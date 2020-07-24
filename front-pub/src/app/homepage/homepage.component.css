@@ -10,11 +10,6 @@ section>img {
     position: relative;
 }
 
-.container-common {
-    font-family: Advent Pro;
-    font-style: normal;
-}
-
 .back-ground-full {
     position: absolute!important;
     left: 50%;
