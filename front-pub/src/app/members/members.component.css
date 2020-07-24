@@ -49,17 +49,6 @@
     height: 100%;
 }
 
-#join {
-    background-color: rgb(56, 109, 189);
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.5rem;
-    margin: 4px 2px;
-    cursor: pointer;
-}
 
 .subtitle {
     text-align: center;
