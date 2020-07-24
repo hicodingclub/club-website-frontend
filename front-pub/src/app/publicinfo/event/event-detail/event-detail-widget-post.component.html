@@ -1,30 +1,22 @@
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-    <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
-</div>
-</div>
-	<div class="card transparent-border">
-		<div class="post-head-picture" *ngIf="fieldHasValue(detail['signaturePicture'])">
-			
-                    <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="true" [aspectRatio]=""></lib-mdds-file-display>
-		</div>
-		<div class="card-body">
-			<h3 class="card-title">
-                    {{detail['title']}}</h3>
-			<h6 class="card-subtitle mb-2 text-muted">
-				
-                    {{detail['author']}} &nbsp;&nbsp;
-				  {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
-			</h6>
-
-			<div class="card-text">
-					
-                    <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
-			</div>
-		</div>
-	</div>
-
-
-
-
+  <div *ngIf="!options['disableActionButtions']">
+    <div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+    </div>
+  </div>
+  <div class="card transparent-border">
+    <div class="post-head-picture" *ngIf="fieldHasValue(detail['signaturePicture'])">
+      <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">
+        {{detail['title']}}</h3>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{detail['author']}} &nbsp;&nbsp; {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
+      </h6>
+      <div class="card-text">
+        <div libMddsRichtextShow="eventDetailContent" [content]="detail['content']"></div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -48,52 +48,54 @@ export const TeachforlifeRoutes: Routes = [
 
 export const teachforlife_server_root_uri: string = '/api/teachforlife';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 17:46:20 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 24 2020 00:50:26 GMT-0700 (Pacific Daylight Time)
 
-import { Routes } from '@angular/router';
-
-import { TeachforlifeComponent } from '../teachforlife/teachforlife.component';
-
+import {
+  Routes
+} from '@angular/router';
+import {
+  TeachforlifeComponent
+} from '../teachforlife/teachforlife.component';
 //Import routing paths
-import { 
+import {
   tutorRoutingCorePath,
   enrollmentRoutingCorePath,
 } from '../teachforlife/teachforlife-routing.core.path';
-
-export const TeachforlifeCoreRoutes: Routes = [
-  { 
-    // Lazy Load: and add to app routing:
-    //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
+export const TeachforlifeCoreRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
+  path: '',
+  // non lazy load config. Include module in app module.
+  // path: 'teachforlife',
+  component: TeachforlifeComponent,
+  children: [{
     path: '',
-    // non lazy load config. Include module in app module.
-    // path: 'teachforlife',
-
-    component: TeachforlifeComponent,
-    children: [
-      {path: '',  redirectTo: 'tutor', pathMatch: 'full'},
-
-      { path: 'tutor',
-        children: tutorRoutingCorePath,
-        data: {mraLevel: 1, item: 'tutor'}
-      },
-      { path: 'enrollment',
-        children: enrollmentRoutingCorePath,
-        data: {mraLevel: 1, item: 'enrollment'}
-      },
-    ]
-  },
-];
-
-import { TeachforlifeRoutingCustPath } from './teachforlife-routing.cust.path';
-
-export const TeachforlifeRoutes: Routes = [
-  {
-    // Lazy Load: and add to app routing:
-    //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
-    path: 'cust',
-    // non lazy load config. Include module in app module.
-    // path: 'teachforlife/cust',
-
-    children: TeachforlifeRoutingCustPath,
-  },
-];**** End of recent updates.<<<*/
+    redirectTo: 'tutor',
+    pathMatch: 'full'
+  }, {
+    path: 'tutor',
+    children: tutorRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'tutor'
+    }
+  }, {
+    path: 'enrollment',
+    children: enrollmentRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'enrollment'
+    }
+  }, ]
+}, ];
+import {
+  TeachforlifeRoutingCustPath
+} from './teachforlife-routing.cust.path';
+export const TeachforlifeRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
+  path: 'cust',
+  // non lazy load config. Include module in app module.
+  // path: 'teachforlife/cust',
+  children: TeachforlifeRoutingCustPath,
+}, ];**** End of recent updates.<<<*/

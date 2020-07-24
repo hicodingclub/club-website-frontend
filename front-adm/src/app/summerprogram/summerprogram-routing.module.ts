@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { SummerprogramRoutes } from '../summerprogram-cust/summerprogram.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  SummerprogramRoutes
+} from '../summerprogram-cust/summerprogram.conf';
 @NgModule({
   imports: [RouterModule.forChild(SummerprogramRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class SummerprogramRoutingModule { }
+export class SummerprogramRoutingModule {}

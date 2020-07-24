@@ -1,38 +1,36 @@
-
-
-		<div *ngIf="detail && showFields.includes('name')">
-                    {{detail['name']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('grade')">
-                    {{detail['grade']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('email')">
-                    {{detail['email']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('phoneNumber')">
-                    {{detail['phoneNumber']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('introduction')">
-                    <div [innerHTML]="detail['introduction']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('photo')">
-                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-		</div>
-		<div *ngIf="detail && showFields.includes('acceptGrade')">
-                    {{detail['acceptGrade']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('availableTime')">
-                    <div [innerHTML]="detail['availableTime']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('specificSubjects')">
-                    <div [innerHTML]="detail['specificSubjects']"></div>
-		</div>
-		<div *ngIf="detail && showFields.includes('subjectTags')">
-                    <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
-                        <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
-                            <div class="badge badge-pill badge-secondary">
-                                {{element}}
-                            </div>
-                        </ng-template>
-                    </div>
-		</div>
+<div *ngIf="detail && showFields.includes('name')">
+  {{detail['name']}}
+</div>
+<div *ngIf="detail && showFields.includes('grade')">
+  {{detail['grade']}}
+</div>
+<div *ngIf="detail && showFields.includes('email')">
+  {{detail['email']}}
+</div>
+<div *ngIf="detail && showFields.includes('phoneNumber')">
+  {{detail['phoneNumber']}}
+</div>
+<div *ngIf="detail && showFields.includes('introduction')">
+  <div [innerHTML]="detail['introduction']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('photo')">
+  <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+</div>
+<div *ngIf="detail && showFields.includes('acceptGrade')">
+  {{detail['acceptGrade']}}
+</div>
+<div *ngIf="detail && showFields.includes('availableTime')">
+  <div [innerHTML]="detail['availableTime']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('specificSubjects')">
+  <div [innerHTML]="detail['specificSubjects']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('subjectTags')">
+  <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
+    <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
+      <div class="badge badge-pill badge-secondary">
+        {{element}}
+      </div>
+    </ng-template>
+  </div>
+</div>

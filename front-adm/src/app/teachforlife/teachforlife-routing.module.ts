@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-import { TeachforlifeRoutes } from '../teachforlife-cust/teachforlife.conf';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  TeachforlifeRoutes
+} from '../teachforlife-cust/teachforlife.conf';
 @NgModule({
   imports: [RouterModule.forChild(TeachforlifeRoutes)],
   exports: [RouterModule],
-  providers: [ ],
-
+  providers: [],
 })
-export class TeachforlifeRoutingModule { }
+export class TeachforlifeRoutingModule {}

@@ -1,16 +1,34 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-
-import { MddsCoreModule } from '@hicoder/angular-core';
-
-import { SummerprogramRoutingCoreModule } from './summerprogram-routing.core.module';
-import { SummerprogramComponent } from './summerprogram.component';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  FormsModule
+} from '@angular/forms';
+import {
+  MddsCoreModule
+} from '@hicoder/angular-core';
+import {
+  SummerprogramRoutingCoreModule
+} from './summerprogram-routing.core.module';
+import {
+  SummerprogramComponent
+} from './summerprogram.component';
 // Import components for each schema
-import { SpenrollmentEditComponent } from './spenrollment/spenrollment-edit/spenrollment-edit.component';
-
+import {
+  SpenrollmentComponent
+} from './spenrollment/spenrollment.component';
+import {
+  SpenrollmentEditComponent
+} from './spenrollment/spenrollment-edit/spenrollment-edit.component';
+import {
+  SpenrollmentEditCustComponent
+} from '../summerprogram-cust/base/spenrollment/spenrollment-edit.cust.component';
+import {
+  ConfirmationComponent
+} from './confirmation/confirmation.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -20,16 +38,18 @@ import { SpenrollmentEditComponent } from './spenrollment/spenrollment-edit/spen
   ],
   declarations: [
     SummerprogramComponent,
+    SpenrollmentComponent,
     SpenrollmentEditComponent,
+    SpenrollmentEditCustComponent,
+    ConfirmationComponent,
   ],
   exports: [
     SummerprogramComponent,
     SpenrollmentEditComponent,
   ],
-  providers: [
-  ],
+  providers: [],
   entryComponents: [
     SpenrollmentEditComponent,
   ]
 })
-export class SummerprogramCoreModule { }
+export class SummerprogramCoreModule {}

@@ -25,32 +25,29 @@ import { FormsModule } from '@angular/forms';
 })
 export class AccessExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 17:46:16 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Jul 24 2020 00:50:22 GMT-0700 (Pacific Daylight Time)
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
-
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  FormsModule
+} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    
-
   ],
-  declarations: [
-  ],
-  exports: [
-  ],
-  providers: [
-
-  ],
-  entryComponents: [
-  ],
+  declarations: [],
+  exports: [],
+  providers: [],
+  entryComponents: [],
 })
-export class AccessExtModule { }
-**** End of recent updates.<<<*/
+export class AccessExtModule {}**** End of recent updates.<<<*/

@@ -1,319 +1,197 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Alert</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('name')">
-				<fieldset class="form-group">
-					<label for="EditName">Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditName" 
-                    required
-                    maxlength="50"
-                    [(ngModel)]="detail['name']" name="EditName"
-                    #EditName="ngModel">
-            <div *ngIf="detail['name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Alert</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('name')">
+            <fieldset class="form-group">
+              <label for="EditName">Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditName" required maxlength="50" [(ngModel)]="detail['name']" name="EditName" #EditName="ngModel">
+                <div *ngIf="detail['name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditName.errors && EditName.errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="EditName.errors && EditName.errors.maxlength">
-                Name must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div class="input-group">
-            <textarea rows="8" class="form-control rounded" id="EditDescription"
-                    required
-                    maxlength="200"
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-            </textarea>
-            <div *ngIf="detail['description']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-              Description is required.
-            </div>
-            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
-                Description must be at most 200 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('linkName')">
-				<fieldset class="form-group">
-					<label for="EditLinkName">Link Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLinkName" 
-                    maxlength="50"
-                    [(ngModel)]="detail['linkName']" name="EditLinkName"
-                    #EditLinkName="ngModel">
-            <div *ngIf="detail['linkName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkName')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLinkName.valid || EditLinkName.pristine || EditLinkName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditLinkName.errors && EditLinkName.errors.maxlength">
-                LinkName must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('linkURL')">
-				<fieldset class="form-group">
-					<label for="EditLinkURL">Link Url</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLinkURL" 
-                    [(ngModel)]="detail['linkURL']" name="EditLinkURL"
-                    #EditLinkURL="ngModel">
-            <div *ngIf="detail['linkURL']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkURL')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLinkURL.valid || EditLinkURL.pristine || EditLinkURL.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('show')">
-				<fieldset class="form-group">
-					<label for="EditShow">Show</label>
-						
-          <div class="form-check"
-              [ngClass]="{'ng-valid': true} "
-            >
-            <div class="form-check-inline">
-              <input type="radio" name="EditShow" 
-                class="form-check-input"
-                id="EditShowYes" [value]="true" 
-                [(ngModel)]="detail['show']"
-                #EditShow="ngModel">
-              <label class="form-check-label">Yes</label>
-            </div>
-            <div class="form-check-inline">
-              <input type="radio" name="EditShow" 
-                class="form-check-input"
-                id="EditShowNo" [value]="false" 
-                [(ngModel)]="detail['show']"
-                #EditShow="ngModel">
-              <label class="form-check-label">No</label>
-            </div>
-            <div *ngIf="detail['show'] == true || detail['show'] == false" 
-              class="form-check-inline" (click)="clearValueFromDetail('show')">
-              <i class="fas fa-times-circle" title="Clear"></i>
-            </div> 
-          </div>
-          <div [hidden]="EditShow.valid || EditShow.pristine"
-           class="alert alert-danger"> 
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('order')">
-				<fieldset class="form-group">
-					<label for="EditOrder">Order</label>
-						
-          <input type="number" class="form-control" id="EditOrder"
-                  required 
-                  [(ngModel)]="detail['order']" name="EditOrder"
-                  #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
-           class="alert alert-danger">
-            <div *ngIf="EditOrder.errors && EditOrder.errors.required">
-              Order is required.
+                </div>
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('name')">
-				<fieldset class="form-group">
-					<label for="EditName">Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditName" 
-                    required
-                    maxlength="50"
-                    [(ngModel)]="detail['name']" name="EditName"
-                    #EditName="ngModel">
-            <div *ngIf="detail['name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditName.errors && EditName.errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="EditName.errors && EditName.errors.maxlength">
-                Name must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('description')">
-				<fieldset class="form-group">
-					<label for="EditDescription">Description</label>
-						
-          <div class="input-group">
-            <textarea rows="8" class="form-control rounded" id="EditDescription"
-                    required
-                    maxlength="200"
-                    [(ngModel)]="detail['description']" name="EditDescription"
-                    #EditDescription="ngModel">
-            </textarea>
-            <div *ngIf="detail['description']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditDescription.errors && EditDescription.errors.required">
-              Description is required.
-            </div>
-            <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength">
-                Description must be at most 200 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('linkName')">
-				<fieldset class="form-group">
-					<label for="EditLinkName">Link Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLinkName" 
-                    maxlength="50"
-                    [(ngModel)]="detail['linkName']" name="EditLinkName"
-                    #EditLinkName="ngModel">
-            <div *ngIf="detail['linkName']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkName')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLinkName.valid || EditLinkName.pristine || EditLinkName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditLinkName.errors && EditLinkName.errors.maxlength">
-                LinkName must be at most 50 characters long.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('linkURL')">
-				<fieldset class="form-group">
-					<label for="EditLinkURL">Link Url</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLinkURL" 
-                    [(ngModel)]="detail['linkURL']" name="EditLinkURL"
-                    #EditLinkURL="ngModel">
-            <div *ngIf="detail['linkURL']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkURL')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditLinkURL.valid || EditLinkURL.pristine || EditLinkURL.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('show')">
-				<fieldset class="form-group">
-					<label for="EditShow">Show</label>
-						
-          <div class="form-check"
-              [ngClass]="{'ng-valid': true} "
-            >
-            <div class="form-check-inline">
-              <input type="radio" name="EditShow" 
-                class="form-check-input"
-                id="EditShowYes" [value]="true" 
-                [(ngModel)]="detail['show']"
-                #EditShow="ngModel">
-              <label class="form-check-label">Yes</label>
-            </div>
-            <div class="form-check-inline">
-              <input type="radio" name="EditShow" 
-                class="form-check-input"
-                id="EditShowNo" [value]="false" 
-                [(ngModel)]="detail['show']"
-                #EditShow="ngModel">
-              <label class="form-check-label">No</label>
-            </div>
-            <div *ngIf="detail['show'] == true || detail['show'] == false" 
-              class="form-check-inline" (click)="clearValueFromDetail('show')">
-              <i class="fas fa-times-circle" title="Clear"></i>
-            </div> 
-          </div>
-          <div [hidden]="EditShow.valid || EditShow.pristine"
-           class="alert alert-danger"> 
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('order')">
-				<fieldset class="form-group">
-					<label for="EditOrder">Order</label>
-						
-          <input type="number" class="form-control" id="EditOrder"
-                  required 
-                  [(ngModel)]="detail['order']" name="EditOrder"
-                  #EditOrder="ngModel">
-          <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber"
-           class="alert alert-danger">
-            <div *ngIf="EditOrder.errors && EditOrder.errors.required">
-              Order is required.
+              <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditName.errors && EditName.errors.required"> Name is required. </div>
+                <div *ngIf="EditName.errors && EditName.errors.maxlength"> Name must be at most 50 characters long. </div>
               </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div class="input-group">
+                <textarea rows="8" class="form-control rounded" id="EditDescription" required maxlength="200" [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+            </textarea>
+                <div *ngIf="detail['description']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.required"> Description is required. </div>
+                <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength"> Description must be at most 200 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('linkName')">
+            <fieldset class="form-group">
+              <label for="EditLinkName">Link Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLinkName" maxlength="50" [(ngModel)]="detail['linkName']" name="EditLinkName" #EditLinkName="ngModel">
+                <div *ngIf="detail['linkName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditLinkName.valid || EditLinkName.pristine || EditLinkName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditLinkName.errors && EditLinkName.errors.maxlength"> LinkName must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('linkURL')">
+            <fieldset class="form-group">
+              <label for="EditLinkURL">Link Url</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLinkURL" [(ngModel)]="detail['linkURL']" name="EditLinkURL" #EditLinkURL="ngModel">
+                <div *ngIf="detail['linkURL']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkURL')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditLinkURL.valid || EditLinkURL.pristine || EditLinkURL.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('show')">
+            <fieldset class="form-group">
+              <label for="EditShow">Show</label>
+              <div class="form-check" [ngClass]="{'ng-valid': true} ">
+                <div class="form-check-inline">
+                  <input type="radio" name="EditShow" class="form-check-input" id="EditShowYes" [value]="true" [(ngModel)]="detail['show']" #EditShow="ngModel">
+                  <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check-inline">
+                  <input type="radio" name="EditShow" class="form-check-input" id="EditShowNo" [value]="false" [(ngModel)]="detail['show']" #EditShow="ngModel">
+                  <label class="form-check-label">No</label>
+                </div>
+                <div *ngIf="detail['show'] == true || detail['show'] == false" class="form-check-inline" (click)="clearValueFromDetail('show')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditShow.valid || EditShow.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('order')">
+            <fieldset class="form-group">
+              <label for="EditOrder">Order</label>
+              <input type="number" class="form-control" id="EditOrder" required [(ngModel)]="detail['order']" name="EditOrder" #EditOrder="ngModel">
+              <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber" class="alert alert-danger">
+                <div *ngIf="EditOrder.errors && EditOrder.errors.required"> Order is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('name')">
+            <fieldset class="form-group">
+              <label for="EditName">Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditName" required maxlength="50" [(ngModel)]="detail['name']" name="EditName" #EditName="ngModel">
+                <div *ngIf="detail['name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditName.errors && EditName.errors.required"> Name is required. </div>
+                <div *ngIf="EditName.errors && EditName.errors.maxlength"> Name must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <div class="input-group">
+                <textarea rows="8" class="form-control rounded" id="EditDescription" required maxlength="200" [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+            </textarea>
+                <div *ngIf="detail['description']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('description')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditDescription.valid || EditDescription.pristine || EditDescription.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditDescription.errors && EditDescription.errors.required"> Description is required. </div>
+                <div *ngIf="EditDescription.errors && EditDescription.errors.maxlength"> Description must be at most 200 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('linkName')">
+            <fieldset class="form-group">
+              <label for="EditLinkName">Link Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLinkName" maxlength="50" [(ngModel)]="detail['linkName']" name="EditLinkName" #EditLinkName="ngModel">
+                <div *ngIf="detail['linkName']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkName')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditLinkName.valid || EditLinkName.pristine || EditLinkName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditLinkName.errors && EditLinkName.errors.maxlength"> LinkName must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('linkURL')">
+            <fieldset class="form-group">
+              <label for="EditLinkURL">Link Url</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditLinkURL" [(ngModel)]="detail['linkURL']" name="EditLinkURL" #EditLinkURL="ngModel">
+                <div *ngIf="detail['linkURL']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('linkURL')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditLinkURL.valid || EditLinkURL.pristine || EditLinkURL.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('show')">
+            <fieldset class="form-group">
+              <label for="EditShow">Show</label>
+              <div class="form-check" [ngClass]="{'ng-valid': true} ">
+                <div class="form-check-inline">
+                  <input type="radio" name="EditShow" class="form-check-input" id="EditShowYes" [value]="true" [(ngModel)]="detail['show']" #EditShow="ngModel">
+                  <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check-inline">
+                  <input type="radio" name="EditShow" class="form-check-input" id="EditShowNo" [value]="false" [(ngModel)]="detail['show']" #EditShow="ngModel">
+                  <label class="form-check-label">No</label>
+                </div>
+                <div *ngIf="detail['show'] == true || detail['show'] == false" class="form-check-inline" (click)="clearValueFromDetail('show')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditShow.valid || EditShow.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('order')">
+            <fieldset class="form-group">
+              <label for="EditOrder">Order</label>
+              <input type="number" class="form-control" id="EditOrder" required [(ngModel)]="detail['order']" name="EditOrder" #EditOrder="ngModel">
+              <div [hidden]="EditOrder.valid || EditOrder.pristine || EditOrder.errors.libMddsMinNumber" class="alert alert-danger">
+                <div *ngIf="EditOrder.errors && EditOrder.errors.required"> Order is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

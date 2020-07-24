@@ -1,227 +1,152 @@
 <div class="edit" *ngIf="detail">
-	<div class="card" style="text-align: left;">
-		<div class="card-body">
-			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Confirmation</h4>
-			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
-				{{options['title']}}
-			</h4>
-			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
-				{{options['subtitle']}}
-			</p>
-			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-				<ng-template [ngIf]="action == 'Edit'">
-					<ng-template [ngIf]="!hiddenFields.includes('name')">
-				<fieldset class="form-group">
-					<label for="EditName">Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditName" 
-                    required
-                    [(ngModel)]="detail['name']" name="EditName"
-                    #EditName="ngModel">
-            <div *ngIf="detail['name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Confirmation</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('name')">
+            <fieldset class="form-group">
+              <label for="EditName">Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditName" required [(ngModel)]="detail['name']" name="EditName" #EditName="ngModel">
+                <div *ngIf="detail['name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
                   <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditName.errors && EditName.errors.required">
-              Name is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('email')">
-				<fieldset class="form-group">
-					<label for="EditEmail">Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditEmail" 
-                    required
-                    [(ngModel)]="detail['email']" name="EditEmail"
-                    #EditEmail="ngModel">
-            <div *ngIf="detail['email']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-              Email is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('type')">
-				<fieldset class="form-group">
-					<label for="EditType">Type</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditType" 
-                    [(ngModel)]="detail['type']" name="EditType"
-                    #EditType="ngModel">
-            <div *ngIf="detail['type']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('type')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditType.valid || EditType.pristine || EditType.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('enrollment')">
-				<fieldset class="form-group">
-					<label for="EditEnrollment">Enrollment</label>
-						
-          <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollment')"><i class="fas fa-list" title="Search"></i></a>  -->
-          <div class="input-group">
-            <!--  [attr.disabled]="true" -->
-              <input class="form-control rounded" id="EditEnrollment" 
-                  [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}"
-                  (focus)="onRefSelect('enrollment')" 
-                  [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment"
-                  #EditEnrollment="ngModel"> 
-              <div *ngIf="detail['enrollment']['valueMedium']" 
-                class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
-                <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
               </div>
-          </div>
-          <div [hidden]="EditEnrollment.valid || EditEnrollment.pristine"
-               class="alert alert-danger"> 
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('confirmed')">
-				<fieldset class="form-group">
-					<label for="EditConfirmed">Confirmed</label>
-						
-          <input type="number" class="form-control" id="EditConfirmed" 
-                  [(ngModel)]="detail['confirmed']" name="EditConfirmed"
-                  #EditConfirmed="ngModel">
-          <div [hidden]="EditConfirmed.valid || EditConfirmed.pristine || EditConfirmed.errors.libMddsMinNumber"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
-					<ng-template [ngIf]="!hiddenFields.includes('name')">
-				<fieldset class="form-group">
-					<label for="EditName">Name</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditName" 
-                    required
-                    [(ngModel)]="detail['name']" name="EditName"
-                    #EditName="ngModel">
-            <div *ngIf="detail['name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditName.errors && EditName.errors.required">
-              Name is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('email')">
-				<fieldset class="form-group">
-					<label for="EditEmail">Email</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditEmail" 
-                    required
-                    [(ngModel)]="detail['email']" name="EditEmail"
-                    #EditEmail="ngModel">
-            <div *ngIf="detail['email']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
-           class="alert alert-danger">
-            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-              Email is required.
-            </div>
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('type')">
-				<fieldset class="form-group">
-					<label for="EditType">Type</label>
-						
-          <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditType" 
-                    [(ngModel)]="detail['type']" name="EditType"
-                    #EditType="ngModel">
-            <div *ngIf="detail['type']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('type')">
-                  <i class="fas fa-times-circle" title="Clear"></i>
-            </div>
-          </div>
-          <div [hidden]="EditType.valid || EditType.pristine || EditType.errors.minlength"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('enrollment')">
-				<fieldset class="form-group">
-					<label for="EditEnrollment">Enrollment</label>
-						
-          <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollment')"><i class="fas fa-list" title="Search"></i></a>  -->
-          <div class="input-group">
-            <!--  [attr.disabled]="true" -->
-              <input class="form-control rounded" id="EditEnrollment" 
-                  [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}"
-                  (focus)="onRefSelect('enrollment')" 
-                  [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment"
-                  #EditEnrollment="ngModel"> 
-              <div *ngIf="detail['enrollment']['valueMedium']" 
-                class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
-                <i class="fas fa-times-circle" title="Clear"></i>
+              <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditName.errors && EditName.errors.required"> Name is required. </div>
               </div>
-          </div>
-          <div [hidden]="EditEnrollment.valid || EditEnrollment.pristine"
-               class="alert alert-danger"> 
-          </div>
-
-				</fieldset>
-					</ng-template>
-					<ng-template [ngIf]="!hiddenFields.includes('confirmed')">
-				<fieldset class="form-group">
-					<label for="EditConfirmed">Confirmed</label>
-						
-          <input type="number" class="form-control" id="EditConfirmed" 
-                  [(ngModel)]="detail['confirmed']" name="EditConfirmed"
-                  #EditConfirmed="ngModel">
-          <div [hidden]="EditConfirmed.valid || EditConfirmed.pristine || EditConfirmed.errors.libMddsMinNumber"
-           class="alert alert-danger">
-          </div>
-
-				</fieldset>
-					</ng-template>
-				</ng-template>
-				<div class="action-buttons-center">
-					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-				</div>
-			</form>
-		</div>
-	</div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('email')">
+            <fieldset class="form-group">
+              <label for="EditEmail">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditEmail" required [(ngModel)]="detail['email']" name="EditEmail" #EditEmail="ngModel">
+                <div *ngIf="detail['email']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditEmail.errors && EditEmail.errors.required"> Email is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('type')">
+            <fieldset class="form-group">
+              <label for="EditType">Type</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditType" [(ngModel)]="detail['type']" name="EditType" #EditType="ngModel">
+                <div *ngIf="detail['type']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('type')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditType.valid || EditType.pristine || EditType.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('enrollment')">
+            <fieldset class="form-group">
+              <label for="EditEnrollment">Enrollment</label>
+              <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollment')"><i class="fas fa-list" title="Search"></i></a>  -->
+              <div class="input-group">
+                <!--  [attr.disabled]="true" -->
+                <input class="form-control rounded" id="EditEnrollment" [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}" (focus)="onRefSelect('enrollment')" [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment" #EditEnrollment="ngModel">
+                <div *ngIf="detail['enrollment']['valueMedium']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditEnrollment.valid || EditEnrollment.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('confirmed')">
+            <fieldset class="form-group">
+              <label for="EditConfirmed">Confirmed</label>
+              <input type="number" class="form-control" id="EditConfirmed" [(ngModel)]="detail['confirmed']" name="EditConfirmed" #EditConfirmed="ngModel">
+              <div [hidden]="EditConfirmed.valid || EditConfirmed.pristine || EditConfirmed.errors.libMddsMinNumber" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('name')">
+            <fieldset class="form-group">
+              <label for="EditName">Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditName" required [(ngModel)]="detail['name']" name="EditName" #EditName="ngModel">
+                <div *ngIf="detail['name']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('name')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditName.errors && EditName.errors.required"> Name is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('email')">
+            <fieldset class="form-group">
+              <label for="EditEmail">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditEmail" required [(ngModel)]="detail['email']" name="EditEmail" #EditEmail="ngModel">
+                <div *ngIf="detail['email']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('email')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditEmail.errors && EditEmail.errors.required"> Email is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('type')">
+            <fieldset class="form-group">
+              <label for="EditType">Type</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditType" [(ngModel)]="detail['type']" name="EditType" #EditType="ngModel">
+                <div *ngIf="detail['type']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('type')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditType.valid || EditType.pristine || EditType.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('enrollment')">
+            <fieldset class="form-group">
+              <label for="EditEnrollment">Enrollment</label>
+              <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('enrollment')"><i class="fas fa-list" title="Search"></i></a>  -->
+              <div class="input-group">
+                <!--  [attr.disabled]="true" -->
+                <input class="form-control rounded" id="EditEnrollment" [ngClass]="{'pointer ref-badge': detail['enrollment']['_id']}" (focus)="onRefSelect('enrollment')" [ngModel]="detail['enrollment']['valueMedium']" name="EditEnrollment" #EditEnrollment="ngModel">
+                <div *ngIf="detail['enrollment']['valueMedium']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('enrollment')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditEnrollment.valid || EditEnrollment.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('confirmed')">
+            <fieldset class="form-group">
+              <label for="EditConfirmed">Confirmed</label>
+              <input type="number" class="form-control" id="EditConfirmed" [(ngModel)]="detail['confirmed']" name="EditConfirmed" #EditConfirmed="ngModel">
+              <div [hidden]="EditConfirmed.valid || EditConfirmed.pristine || EditConfirmed.errors.libMddsMinNumber" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-
 <ng-template summerprogram-ref-select></ng-template>
