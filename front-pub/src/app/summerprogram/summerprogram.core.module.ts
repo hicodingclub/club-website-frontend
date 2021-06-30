@@ -8,9 +8,6 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
-  MddsCoreModule
-} from '@hicoder/angular-core';
-import {
   SummerprogramRoutingCoreModule
 } from './summerprogram-routing.core.module';
 import {
@@ -33,7 +30,6 @@ import {
   imports: [
     CommonModule,
     FormsModule,
-    MddsCoreModule,
     SummerprogramRoutingCoreModule,
   ],
   declarations: [

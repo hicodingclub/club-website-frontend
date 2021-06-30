@@ -36,7 +36,7 @@ export class EventDetailComponent extends EventDetailCustComponent implements On
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public eventService: EventService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -49,10 +49,7 @@ export class EventDetailComponent extends EventDetailCustComponent implements On
       'publishDate': 'Publish Date',
       'content': 'Content',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
+    this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
   }
   ngOnInit() {

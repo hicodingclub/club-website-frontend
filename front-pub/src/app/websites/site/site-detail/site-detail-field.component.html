@@ -1,0 +1,14 @@
+<div *ngIf="detail && showFields.includes('name')">
+  {{detail['name']}}
+</div>
+<div *ngIf="detail && showFields.includes('ready')">{{detail['ready']}}
+</div>
+<div *ngIf="detail && showFields.includes('enabled')">{{detail['enabled']}}
+</div>
+<div *ngIf="detail && showFields.includes('muser_id')">
+  {{detail['muser_id']}}
+</div>
+<div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('updatedAt')"> {{detail['updatedAt']? (detail['updatedAt']['originalValue'] | date:'medium') : ''}}
+</div>

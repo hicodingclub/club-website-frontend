@@ -1,5 +1,5 @@
 <div *ngIf="detail && showFields.includes('signaturePicture')">
-  <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+  <lib-mdds-picture-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
 </div>
 <div *ngIf="detail && showFields.includes('title')">
   {{detail['title']}}

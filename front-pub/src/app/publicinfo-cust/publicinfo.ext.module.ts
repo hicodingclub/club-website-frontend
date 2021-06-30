@@ -29,7 +29,7 @@ import { MraNgbDateFormatterService } from '../publicinfo/publicinfo.directive';
 })
 export class PublicinfoExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 24 2020 00:50:12 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 30 2021 14:20:09 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule
@@ -48,8 +48,9 @@ import {
   NgbDateParserFormatter
 } from '@ng-bootstrap/ng-bootstrap';
 import {
+  MDDS_NGB_DATE_FORMAT,
   MraNgbDateFormatterService
-} from '../publicinfo/publicinfo.directive';
+} from '@hicoder/angular-core';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,6 +61,9 @@ import {
   declarations: [],
   exports: [],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

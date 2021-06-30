@@ -1,46 +1,46 @@
 // Import components for each schema
 import {
-  GeneralinfoListComponent
-} from './generalinfo/generalinfo-list/generalinfo-list.component';
+  GeneralinfoListGeneralComponent
+} from './generalinfo/generalinfo-list/generalinfo-list-general.component';
 import {
   GeneralinfoDetailWidgetInfoComponent
 } from './generalinfo/generalinfo-detail/generalinfo-detail-widget-info.component';
 import {
-  FaqListComponent
-} from './faq/faq-list/faq-list.component';
+  FaqListGeneralComponent
+} from './faq/faq-list/faq-list-general.component';
 import {
-  EventListComponent
-} from './event/event-list/event-list.component';
+  EventListGeneralComponent
+} from './event/event-list/event-list-general.component';
 import {
   EventDetailWidgetPostComponent
 } from './event/event-detail/event-detail-widget-post.component';
 import {
-  KeynoteListComponent
-} from './keynote/keynote-list/keynote-list.component';
+  KeynoteListGeneralComponent
+} from './keynote/keynote-list/keynote-list-general.component';
 import {
-  KeynoteDetailWidgetSlideComponent
-} from './keynote/keynote-detail/keynote-detail-widget-slide.component';
+  KeynoteDetailComponent
+} from './keynote/keynote-detail/keynote-detail.component';
 import {
-  ArticleListComponent
-} from './article/article-list/article-list.component';
+  ArticleListGeneralComponent
+} from './article/article-list/article-list-general.component';
 import {
   ArticleDetailWidgetPostComponent
 } from './article/article-detail/article-detail-widget-post.component';
 import {
-  PageListComponent
-} from './page/page-list/page-list.component';
+  PageListGeneralComponent
+} from './page/page-list/page-list-general.component';
 import {
   PageDetailWidgetPageComponent
 } from './page/page-detail/page-detail-widget-page.component';
 import {
-  AlertListComponent
-} from './alert/alert-list/alert-list.component';
+  AlertListGeneralComponent
+} from './alert/alert-list/alert-list-general.component';
 import {
   AuthGuard
 } from '@hicoder/angular-auth';
 export const generalinfoRoutingCorePath = [{
   path: 'list',
-  component: GeneralinfoListComponent
+  component: GeneralinfoListGeneralComponent
 }, {
   path: 'detail/:id',
   component: GeneralinfoDetailWidgetInfoComponent
@@ -51,7 +51,7 @@ export const generalinfoRoutingCorePath = [{
 }];
 export const faqRoutingCorePath = [{
   path: 'list',
-  component: FaqListComponent
+  component: FaqListGeneralComponent
 }, {
   path: '**',
   redirectTo: 'list',
@@ -59,7 +59,7 @@ export const faqRoutingCorePath = [{
 }];
 export const eventRoutingCorePath = [{
   path: 'list',
-  component: EventListComponent
+  component: EventListGeneralComponent
 }, {
   path: 'detail/:id',
   component: EventDetailWidgetPostComponent
@@ -70,10 +70,10 @@ export const eventRoutingCorePath = [{
 }];
 export const keynoteRoutingCorePath = [{
   path: 'list',
-  component: KeynoteListComponent
+  component: KeynoteListGeneralComponent
 }, {
   path: 'detail/:id',
-  component: KeynoteDetailWidgetSlideComponent
+  component: KeynoteDetailComponent
 }, {
   path: '**',
   redirectTo: 'list',
@@ -81,7 +81,7 @@ export const keynoteRoutingCorePath = [{
 }];
 export const articleRoutingCorePath = [{
   path: 'list',
-  component: ArticleListComponent
+  component: ArticleListGeneralComponent
 }, {
   path: 'detail/:id',
   component: ArticleDetailWidgetPostComponent
@@ -92,7 +92,7 @@ export const articleRoutingCorePath = [{
 }];
 export const pageRoutingCorePath = [{
   path: 'list',
-  component: PageListComponent
+  component: PageListGeneralComponent
 }, {
   path: 'detail/:id',
   component: PageDetailWidgetPageComponent
@@ -103,7 +103,7 @@ export const pageRoutingCorePath = [{
 }];
 export const alertRoutingCorePath = [{
   path: 'list',
-  component: AlertListComponent
+  component: AlertListGeneralComponent
 }, {
   path: '**',
   redirectTo: 'list',

@@ -36,7 +36,7 @@ export class PageDetailComponent extends PageDetailCustComponent implements OnIn
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public pageService: PageService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -45,7 +45,7 @@ export class PageDetailComponent extends PageDetailCustComponent implements OnIn
     this.fieldDisplayNames = {
       'content': 'Content',
     };
-    this.stringFields.push('content');
+    this.stringFields = ['content', ];
   }
   ngOnInit() {
     super.ngOnInit();

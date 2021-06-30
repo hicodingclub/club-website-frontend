@@ -8,14 +8,11 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
-  FileUploadModule
+  FilesModule,
 } from '@hicoder/angular-file';
 import {
-  ActionEmailModule
+  ActionEmailModule,
 } from '@hicoder/angular-action-email';
-import {
-  MddsCoreModule
-} from '@hicoder/angular-core';
 import {
   TeachforlifeRoutingCoreModule
 } from './teachforlife-routing.core.module';
@@ -33,8 +30,26 @@ import {
   TutorListComponent
 } from './tutor/tutor-list/tutor-list.component';
 import {
+  TutorListViewComponent
+} from './tutor/tutor-list/tutor-list-view.component';
+import {
   TutorListCustComponent
 } from '../teachforlife-cust/base/tutor/tutor-list.cust.component';
+import {
+  TutorListGeneralComponent
+} from './tutor/tutor-list/tutor-list-general.component';
+import {
+  TutorListSelectComponent
+} from './tutor/tutor-list/tutor-list-select.component';
+import {
+  TutorListViewWidgetListComponent
+} from './tutor/tutor-list/tutor-list-view-widget-list.component';
+import {
+  TutorListViewWidgetGridComponent
+} from './tutor/tutor-list/tutor-list-view-widget-grid.component';
+import {
+  TutorListViewWidgetTableComponent
+} from './tutor/tutor-list/tutor-list-view-widget-table.component';
 import {
   TutorDetailComponent
 } from './tutor/tutor-detail/tutor-detail.component';
@@ -54,20 +69,19 @@ import {
   EnrollmentEditCustComponent
 } from '../teachforlife-cust/base/enrollment/enrollment-edit.cust.component';
 import {
-  TutorListSelectComponent
-} from './tutor/tutor-list/tutor-list-select.component';
-import {
   TutorDetailPopComponent
 } from './tutor/tutor-detail/tutor-detail-pop.component';
 import {
   TutorDetailSelComponent
 } from './tutor/tutor-detail/tutor-detail-sel.component';
+import {
+  TutorDetailSubComponent
+} from './tutor/tutor-detail/tutor-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MddsCoreModule,
-    FileUploadModule,
+    FilesModule,
     ActionEmailModule,
     TeachforlifeRoutingCoreModule,
   ],
@@ -76,26 +90,33 @@ import {
     TeachforlifeRefSelectDirective,
     TutorComponent,
     TutorListComponent,
+    TutorListViewComponent,
     TutorListCustComponent,
+    TutorListGeneralComponent,
+    TutorListSelectComponent,
+    TutorListViewWidgetListComponent,
+    TutorListViewWidgetGridComponent,
+    TutorListViewWidgetTableComponent,
     TutorDetailCustComponent,
     TutorDetailComponent,
     TutorDetailFieldComponent,
     EnrollmentComponent,
     EnrollmentEditComponent,
     EnrollmentEditCustComponent,
-    TutorListSelectComponent,
     TutorDetailPopComponent,
     TutorDetailSelComponent,
+    TutorDetailSubComponent,
   ],
   exports: [
     TeachforlifeComponent,
-    TutorListComponent,
+    TutorListGeneralComponent,
+    TutorListSelectComponent,
     TutorDetailComponent,
     TutorDetailFieldComponent,
     EnrollmentEditComponent,
-    TutorListSelectComponent,
     TutorDetailPopComponent,
     TutorDetailSelComponent,
+    TutorDetailSubComponent,
   ],
   providers: [],
   entryComponents: [

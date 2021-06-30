@@ -1,0 +1,6 @@
+<div *ngIf="list.length > 0">
+  <ng-template [ngIf]="isShowListView('sld')">
+    <app-keynote-list-view-widget-sld [style]="style" [options]="options" [inputData]="inputData" [viewInputs]="viewInputs" [list]="list" [clickItemAction]="clickItemAction" [clickedId]="clickedId" [checkedItem]="checkedItem" [parentItem]="parentItem" [referenceFieldsMap]="referenceFieldsMap" [listSortOrder]="listSortOrder" [listSortField]="listSortField" [page]="page" [perPage]="perPage" [archivedSearch]="archivedSearch" [enums]="enums" [clickItemAction]="clickItemAction" [cardHasLink]="cardHasLink" [cardHasSelect]="cardHasSelect" [canArchive]="canArchive" [canCheck]="canCheck" [canDelete]="canDelete" [canUpdate]="canUpdate" [includeSubDetail]="includeSubDetail" (uiEvents)="viewUIEvent($event)">
+    </app-keynote-list-view-widget-sld>
+  </ng-template>
+</div>

@@ -23,9 +23,7 @@ import {
   EventService
 } from '../event.service';
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css']
+  template: '',
 })
 export class EventListComponent extends EventListCustComponent implements OnInit {
   public minDate = {
@@ -33,6 +31,27 @@ export class EventListComponent extends EventListCustComponent implements OnInit
     month: 1,
     day: 1
   };
+  public listViewProperties: any = {
+    list: {
+      mobile: true
+    }
+  };
+  // used by association widget for the associated schema
+  public assoCompInstance: any;
+  public assoCompFields: any = [];
+  public assoCompObjects: any = [];
+  public clickItemAction: string = '';
+  public cardHasLink: boolean = true;
+  public cardHasSelect: boolean = false;
+  public includeSubDetail: boolean = true;
+  public canUpdate: boolean = false;
+  public canDelete: boolean = false;
+  public canArchive: boolean = false;
+  public canCheck: boolean = false;
+  public itemMultiSelect: boolean = true;
+  public majorUi: boolean = false;
+  // Do query on NgInit in this base class
+  public queryOnNgInit: boolean = true;
   // @Input() options: any; {disableCatetory: false, disablePagination: false, disbleActionButtons: false
   //                        disableListSearch: false, disableTitle: false, disableRefs: false
   //                        disableListHead: false, disableTitleRow: false}
@@ -53,32 +72,28 @@ export class EventListComponent extends EventListCustComponent implements OnInit
       'author': 'Author',
       'publishDate': 'Publish Date',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
+    this.stringFields = ['signaturePicture', 'title', 'author', ];
     this.dateFields = ['publishDate', ];
-    this.listViewFilter = 'list';
+    this.stringBoxFields = ['title', 'author', ];
+    this.ownSearchFields = ['publishDate', ];
     this.setListSort('publishDate', 'Publish Date', 'desc');
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};
-    this.itemMultiSelect = true;
-    // initialize detail structure for search
-    let detail = {};
-    this.detail = this.formatDetail(detail);
   }
   ngOnInit() {
     super.ngOnInit();
     this.adjustListViewForWindowSize();
-    this.clickItemAction = typeof this.options.clickItemAction === 'undefined' ? this.clickItemAction : this.options.clickItemAction;
-    this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ? this.options.itemMultiSelect : this.itemMultiSelect;
     if (!this.options) {
       this.options = {};
     }
+    const properties = ['clickItemAction', 'cardHasLink', 'cardHasSelect', 'includeSubDetail', 'canUpdate', 'canDelete', 'canArchive', 'canCheck', 'itemMultiSelect', 'majorUi', ];
+    this.applyProperties(this.options, this, properties);
     if (this.options.disableCatetory) {
       this.listCategory1 = {}; // no do query based on category for home view;
       this.listCategory2 = {}; // no do query based on category for home view;
     }
+    this.listViewFilter = this.options.listViewFilter || this.listViewFilter
     // this is to initialize the detail that will be used for search condition selection
     let detail = {};
     if (this.searchObj) {
@@ -93,9 +108,15 @@ export class EventListComponent extends EventListCustComponent implements OnInit
       }
     }
     this.detail = this.formatDetail(detail);
-    this.searchList();
-    // get editHintFields
-    this.searchHintFieldValues();
+    if (this.queryOnNgInit) {
+      this.searchList();
+      // get editHintFields
+      this.searchHintFieldValues();
+    }
+  }
+  viewUIEvent(evt: any) {
+    const thisObject = this;
+    thisObject[evt.type].apply(this, evt.params);
   }
   static getInstance() {
     //used by others to call some common functions

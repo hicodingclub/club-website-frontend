@@ -1,0 +1,64 @@
+<div class="listview">
+  <div class="list-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+    <hr *ngIf="i==0" class="list-devider">
+    <div class="list-card text-left clickable-card" [ngClass]="{'clicked-row': clickedId==detail['_id'],
+                        'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+      <div class="list-info">
+        <div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+          <div class="list-body-fields">
+            <h5>
+              <div class="mr-1 d-inline-block">
+                {{detail['name']}}
+              </div>
+            </h5>
+            <div>
+              <div *ngIf="fieldHasValue(detail['ready'])" class="mr-3 d-inline-flex flex-wrap">
+                <div class="mr-3"><label>Ready:</label></div>
+                <div>{{detail['ready']}}
+                </div>
+              </div>
+              <div *ngIf="fieldHasValue(detail['enabled'])" class="mr-3 d-inline-flex flex-wrap">
+                <div class="mr-3"><label>Enabled:</label></div>
+                <div>{{detail['enabled']}}
+                </div>
+              </div>
+              <div *ngIf="fieldHasValue(detail['projectFile'])" class="mr-3 d-inline-flex flex-wrap">
+                <div class="mr-3"><label>Project File:</label></div>
+                <div>
+                  {{detail['projectFile']}}
+                </div>
+              </div>
+              <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
+                <div class="mr-3"><label>Created at:</label></div>
+                <div> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="card-action-links">
+            <div *ngIf="includeSubDetail" class="read-more mr-5">
+              <span class="pointer" (click)="toggleShowDetailItem(i)">
+                <span *ngIf="!detail.mddsShowDetail">More <i class="fas fa-caret-down" title="More"></i></span>
+                <span *ngIf="detail.mddsShowDetail">Less <i class="fas fa-caret-up" title="Less"></i></span>
+              </span>
+            </div>
+            <div *ngIf="cardHasSelect">
+              <span class="read-more color-success font-size-75 mt-3" (click)="selectItemSelected(i)">Select <i class="far fa-hand-pointer"></i></span>
+            </div>
+          </div>
+          <div *ngIf="includeSubDetail && detail.mddsShowDetail" [@inOutAnimation] class="show-detail">
+            <app-site-detail-sub [inputData]="detail['_id']"></app-site-detail-sub>
+          </div>
+        </div>
+      </div>
+      <div class="card-action-icons">
+        <a *ngIf="canUpdate" class="pointer" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
+        <a *ngIf="canDelete" class="pointer" (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+        <input *ngIf="canCheck" class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)" />
+      </div>
+    </div>
+    <hr class="list-devider">
+  </div>
+</div>

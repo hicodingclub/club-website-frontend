@@ -14,7 +14,7 @@
   <div [innerHTML]="detail['introduction']"></div>
 </div>
 <div *ngIf="detail && showFields.includes('photo')">
-  <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+  <lib-mdds-picture-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
 </div>
 <div *ngIf="detail && showFields.includes('acceptGrade')">
   {{detail['acceptGrade']}}

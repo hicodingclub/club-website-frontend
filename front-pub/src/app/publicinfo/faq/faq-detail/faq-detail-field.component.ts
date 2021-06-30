@@ -38,8 +38,7 @@ implements OnInit {
       'question': 'Question',
       'answer': 'Answer',
     };
-    this.stringFields.push('question');
-    this.stringFields.push('answer');
+    this.stringFields = ['question', 'answer', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

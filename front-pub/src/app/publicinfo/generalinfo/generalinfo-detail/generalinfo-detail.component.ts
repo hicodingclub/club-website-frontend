@@ -36,7 +36,7 @@ export class GeneralinfoDetailComponent extends GeneralinfoDetailCustComponent i
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public generalinfoService: GeneralinfoService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -47,9 +47,7 @@ export class GeneralinfoDetailComponent extends GeneralinfoDetailCustComponent i
       'title': 'Title',
       'description': 'Description',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('description');
+    this.stringFields = ['signaturePicture', 'title', 'description', ];
     this.textareaFields = ['description', ];
   }
   ngOnInit() {

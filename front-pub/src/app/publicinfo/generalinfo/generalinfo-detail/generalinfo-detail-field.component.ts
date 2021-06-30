@@ -39,9 +39,7 @@ implements OnInit {
       'title': 'Title',
       'description': 'Description',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('description');
+    this.stringFields = ['signaturePicture', 'title', 'description', ];
     this.textareaFields = ['description', ];
   }
   ngOnInit() {

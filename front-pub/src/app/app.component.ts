@@ -9,12 +9,16 @@ import { AlertService } from './publicinfo/alert/alert.service';
 })
 export class AppComponent {
   title = 'app';
+  public orgName: string = 'HiCoding Club';
+  public yyyy: number;
 
   public alertItems: any[];
   public showAlert: boolean[];
   public currentUrl: string = '';
 
   constructor(private router: Router, private alertService: AlertService) {
+    this.yyyy = new Date().getFullYear();
+
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (event.urlAfterRedirects) {

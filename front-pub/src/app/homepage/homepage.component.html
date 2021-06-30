@@ -20,7 +20,7 @@
     <section class="row events-section">
         <div class="col d-flex flex-column">
             <div>
-                <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtions]="true" [style]="{
+                <app-generalinfo-detail-widget-info [searchObj]="{'tag': 'events'}" [disableActionButtons]="true" [style]="{
                   'card': {'background-color': 'transparent', 'color': '#00274c'},
                   'card-header': {'background-color': 'transparent'}
                 }">
@@ -29,20 +29,20 @@
             <div class="align-self-center internal_link" routerLink="/publicinfo/event">Read all posts</div>
         </div>
         <div class="col-large">
-            <app-event-list [options]="{disableCatetory: true, disablePagination: true,
+            <app-event-list-general [options]="{disableCatetory: true, disablePagination: true,
                 disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
                 disableListHead: true, disableTitleRow: true}"
                 [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
-            </app-event-list>
+            </app-event-list-general>
         </div>
     </section>
     <section class="slides-section">
-        <app-keynote-list-widget-sld [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-widget-sld>
+        <app-keynote-list-general [searchObj]="{'tag': 'slides'}" [inputData]="['title', 'subtitle', 'description', 'signaturePicture']"></app-keynote-list-general>
     </section>
     <!--
     <section>
         <div>
-          <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtions]="true"></app-keynote-detail-widget-slide>
+          <app-keynote-detail-widget-slide [searchObj]="{'tag': 'mission'}" [disableActionButtons]="true"></app-keynote-detail-widget-slide>
         </div>
     </section>
     -->

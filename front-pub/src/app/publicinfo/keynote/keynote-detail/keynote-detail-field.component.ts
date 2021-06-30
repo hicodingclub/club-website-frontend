@@ -40,10 +40,7 @@ implements OnInit {
       'subtitle': 'Subtitle',
       'description': 'Description',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('subtitle');
-    this.stringFields.push('description');
+    this.stringFields = ['signaturePicture', 'title', 'subtitle', 'description', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

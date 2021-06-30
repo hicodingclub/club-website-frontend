@@ -27,7 +27,6 @@ export class EnrollComponent extends EnrollmentEditComponent implements OnInit {
   private tutorID: string;
 
   constructor(
-    public componentFactoryResolver: ComponentFactoryResolver,
     public enrollmentService: EnrollmentService,
     public injector: Injector,
     public router: Router,
@@ -35,7 +34,6 @@ export class EnrollComponent extends EnrollmentEditComponent implements OnInit {
     public location: Location
   ) {
     super(
-      componentFactoryResolver,
       enrollmentService,
       injector,
       router,

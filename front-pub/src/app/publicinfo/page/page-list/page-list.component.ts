@@ -23,11 +23,36 @@ import {
   PageService
 } from '../page.service';
 @Component({
-  selector: 'app-page-list',
-  templateUrl: './page-list.component.html',
-  styleUrls: ['./page-list.component.css']
+  template: '',
 })
 export class PageListComponent extends PageListCustComponent implements OnInit {
+  public listViewProperties: any = {
+    list: {
+      mobile: true
+    },
+    grid: {
+      mobile: true
+    },
+    table: {
+      mobile: false
+    }
+  };
+  // used by association widget for the associated schema
+  public assoCompInstance: any;
+  public assoCompFields: any = [];
+  public assoCompObjects: any = [];
+  public clickItemAction: string = 'detail';
+  public cardHasLink: boolean = false;
+  public cardHasSelect: boolean = false;
+  public includeSubDetail: boolean = false;
+  public canUpdate: boolean = false;
+  public canDelete: boolean = false;
+  public canArchive: boolean = false;
+  public canCheck: boolean = false;
+  public itemMultiSelect: boolean = true;
+  public majorUi: boolean = false;
+  // Do query on NgInit in this base class
+  public queryOnNgInit: boolean = true;
   // @Input() options: any; {disableCatetory: false, disablePagination: false, disbleActionButtons: false
   //                        disableListSearch: false, disableTitle: false, disableRefs: false
   //                        disableListHead: false, disableTitleRow: false}
@@ -47,31 +72,25 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
       'content': 'Content',
       'tag': 'Tag',
     };
-    this.stringFields.push('description');
-    this.stringFields.push('content');
-    this.stringFields.push('tag');
-    this.listViewFilter = 'list';
+    this.stringFields = ['description', 'content', 'tag', ];
+    this.stringBoxFields = ['description', 'content', 'tag', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};
-    this.clickItemAction = 'detail';
-    this.itemMultiSelect = true;
-    // initialize detail structure for search
-    let detail = {};
-    this.detail = this.formatDetail(detail);
   }
   ngOnInit() {
     super.ngOnInit();
     this.adjustListViewForWindowSize();
-    this.clickItemAction = typeof this.options.clickItemAction === 'undefined' ? this.clickItemAction : this.options.clickItemAction;
-    this.itemMultiSelect = typeof this.options.itemMultiSelect === 'boolean' ? this.options.itemMultiSelect : this.itemMultiSelect;
     if (!this.options) {
       this.options = {};
     }
+    const properties = ['clickItemAction', 'cardHasLink', 'cardHasSelect', 'includeSubDetail', 'canUpdate', 'canDelete', 'canArchive', 'canCheck', 'itemMultiSelect', 'majorUi', ];
+    this.applyProperties(this.options, this, properties);
     if (this.options.disableCatetory) {
       this.listCategory1 = {}; // no do query based on category for home view;
       this.listCategory2 = {}; // no do query based on category for home view;
     }
+    this.listViewFilter = this.options.listViewFilter || this.listViewFilter
     // this is to initialize the detail that will be used for search condition selection
     let detail = {};
     if (this.searchObj) {
@@ -86,9 +105,15 @@ export class PageListComponent extends PageListCustComponent implements OnInit {
       }
     }
     this.detail = this.formatDetail(detail);
-    this.searchList();
-    // get editHintFields
-    this.searchHintFieldValues();
+    if (this.queryOnNgInit) {
+      this.searchList();
+      // get editHintFields
+      this.searchHintFieldValues();
+    }
+  }
+  viewUIEvent(evt: any) {
+    const thisObject = this;
+    thisObject[evt.type].apply(this, evt.params);
   }
   static getInstance() {
     //used by others to call some common functions
