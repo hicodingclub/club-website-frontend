@@ -36,7 +36,7 @@ export class MroleDetailComponent extends MroleDetailCustComponent implements On
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public mroleService: MroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -46,8 +46,7 @@ export class MroleDetailComponent extends MroleDetailCustComponent implements On
       'role': 'Role',
       'description': 'Description',
     };
-    this.stringFields.push('role');
-    this.stringFields.push('description');
+    this.stringFields = ['role', 'description', ];
   }
   ngOnInit() {
     super.ngOnInit();

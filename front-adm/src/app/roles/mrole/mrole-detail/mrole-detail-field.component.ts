@@ -38,8 +38,7 @@ implements OnInit {
       'role': 'Role',
       'description': 'Description',
     };
-    this.stringFields.push('role');
-    this.stringFields.push('description');
+    this.stringFields = ['role', 'description', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

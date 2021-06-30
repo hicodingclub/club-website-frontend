@@ -38,9 +38,12 @@ implements OnInit {
       'module': 'Module',
       'resources': 'Resources',
     };
-    this.stringFields.push('module');
+    this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

@@ -28,14 +28,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {
-  ComponentFactoryResolver
-} from '@angular/core';
-import {
   SummerprogramRefSelectDirective
 } from '../summerprogram.component';
-import {
-  SpenrollmentDetailSelComponent
-} from '../spenrollment/spenrollment-detail/spenrollment-detail-sel.component';
 import {
   SpenrollmentDetailPopComponent
 } from '../spenrollment/spenrollment-detail/spenrollment-detail-pop.component';
@@ -53,6 +47,8 @@ export class ConfirmationComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -60,6 +56,10 @@ export class ConfirmationComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -83,9 +83,11 @@ export class ConfirmationComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -101,7 +103,6 @@ export class ConfirmationComponent extends MddsBaseComponent implements OnInit {
   public selectComponents = {
     'enrollment': {
       'select-type': SpenrollmentListSelectComponent,
-      'select-detail-type': SpenrollmentDetailSelComponent,
       'pop-detail-type': SpenrollmentDetailPopComponent,
       'componentRef': null
     },
@@ -109,16 +110,17 @@ export class ConfirmationComponent extends MddsBaseComponent implements OnInit {
   @ViewChild(SummerprogramRefSelectDirective, {
     static: true
   }) refSelectDirective: SummerprogramRefSelectDirective;
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+  constructor(public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(confirmationService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
-    this.briefFieldsInfo.push(['email', 'Email']);
-    this.briefFieldsInfo.push(['type', 'Type']);
-    this.briefFieldsInfo.push(['enrollment', 'Enrollment']);
-    this.briefFieldsInfo.push(['confirmed', 'Confirmed']);
-    this.briefFieldsInfo.push(['createdAt', 'Created at']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+      ['email', 'Email'],
+      ['type', 'Type'],
+      ['enrollment', 'Enrollment'],
+      ['confirmed', 'Confirmed'],
+      ['createdAt', 'Created at'],
+    ];
     this.referenceFieldsMap = {
       'enrollment': 'spenrollment',
     };

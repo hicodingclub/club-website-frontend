@@ -68,13 +68,7 @@ export class EmailqueueEditComponent extends EmailqueueEditCustComponent impleme
       'replacements': 'Replacements',
       'defaultReplacement': 'Default Replacement',
     };
-    this.stringFields.push('subject');
-    this.stringFields.push('from');
-    this.stringFields.push('to');
-    this.stringFields.push('result');
-    this.stringFields.push('content');
-    this.stringFields.push('replacements');
-    this.stringFields.push('defaultReplacement');
+    this.stringFields = ['subject', 'from', 'to', 'result', 'content', 'replacements', 'defaultReplacement', ];
     this.numberFields = ['number', 'sent', ];
     const detail = {};
     this.detail = this.formatDetail(detail);

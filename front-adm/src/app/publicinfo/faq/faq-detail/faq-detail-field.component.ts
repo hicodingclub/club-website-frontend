@@ -40,8 +40,7 @@ implements OnInit {
       'order': 'Order',
       'enable': 'Enable',
     };
-    this.stringFields.push('question');
-    this.stringFields.push('answer');
+    this.stringFields = ['question', 'answer', ];
     this.numberFields = ['order', ];
   }
   ngOnInit() {

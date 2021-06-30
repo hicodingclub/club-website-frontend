@@ -28,20 +28,14 @@ import {
   ViewChild
 } from '@angular/core';
 import {
-  ComponentFactoryResolver
-} from '@angular/core';
-import {
   FilesRefSelectDirective
 } from '../files.component';
-import {
-  MfilegroupDetailSelComponent
-} from '../mfilegroup/mfilegroup-detail/mfilegroup-detail-sel.component';
 import {
   MfilegroupDetailPopComponent
 } from '../mfilegroup/mfilegroup-detail/mfilegroup-detail-pop.component';
 import {
-  MfilegroupListSelectIndexComponent
-} from '../mfilegroup/mfilegroup-list/mfilegroup-list-select-index.component';
+  MfilegroupListSelectComponent
+} from '../mfilegroup/mfilegroup-list/mfilegroup-list-select.component';
 @Component({
   template: '',
 })
@@ -53,6 +47,8 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -60,6 +56,10 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -83,9 +83,11 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -100,8 +102,7 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   // @Output() outputData;
   public selectComponents = {
     'group': {
-      'select-type': MfilegroupListSelectIndexComponent,
-      'select-detail-type': MfilegroupDetailSelComponent,
+      'select-type': MfilegroupListSelectComponent,
       'pop-detail-type': MfilegroupDetailPopComponent,
       'componentRef': null
     },
@@ -109,18 +110,19 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   @ViewChild(FilesRefSelectDirective, {
     static: true
   }) refSelectDirective: FilesRefSelectDirective;
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+  constructor(public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mfileService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
-    this.briefFieldsInfo.push(['type', 'Type']);
-    this.briefFieldsInfo.push(['group', 'Group']);
-    this.briefFieldsInfo.push(['labels', 'Labels']);
-    this.briefFieldsInfo.push(['size', 'Size']);
-    this.briefFieldsInfo.push(['link', 'Link']);
-    this.briefFieldsInfo.push(['createdAt', 'Created at']);
-    this.briefFieldsInfo.push(['hasThumbnail', 'Has Thumbnail']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+      ['type', 'Type'],
+      ['group', 'Group'],
+      ['labels', 'Labels'],
+      ['size', 'Size'],
+      ['link', 'Link'],
+      ['createdAt', 'Created at'],
+      ['hasThumbnail', 'Has Thumbnail'],
+    ];
     this.referenceFieldsMap = {
       'group': 'mfilegroup',
     };

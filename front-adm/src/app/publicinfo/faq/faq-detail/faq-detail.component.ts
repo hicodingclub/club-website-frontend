@@ -36,7 +36,7 @@ export class FaqDetailComponent extends FaqDetailCustComponent implements OnInit
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public faqService: FaqService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -48,8 +48,7 @@ export class FaqDetailComponent extends FaqDetailCustComponent implements OnInit
       'order': 'Order',
       'enable': 'Enable',
     };
-    this.stringFields.push('question');
-    this.stringFields.push('answer');
+    this.stringFields = ['question', 'answer', ];
     this.numberFields = ['order', ];
   }
   ngOnInit() {

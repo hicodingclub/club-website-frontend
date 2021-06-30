@@ -27,9 +27,6 @@ import {
 import {
   MpermissionService
 } from '../mpermission.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-mpermission-edit',
   templateUrl: './mpermission-edit.component.html',
@@ -56,8 +53,8 @@ export class MpermissionEditComponent extends MpermissionEditCustComponent imple
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, mpermissionService, injector, router, route, location);
+  constructor(public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(mpermissionService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'role': 'Role',
@@ -65,7 +62,7 @@ export class MpermissionEditComponent extends MpermissionEditCustComponent imple
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

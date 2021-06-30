@@ -1,0 +1,85 @@
+<div class="table-wrapper">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th class="pointer" scope="col" (click)="toggleListSort('templateName')"> Template Name <span *ngIf="listSortField === 'templateName'">
+            <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+            <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+          </span>
+        </th>
+        <th class="pointer" scope="col" (click)="toggleListSort('fromEmail')"> From Email <span *ngIf="listSortField === 'fromEmail'">
+            <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+            <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+          </span>
+        </th>
+        <th class="pointer" scope="col" (click)="toggleListSort('subject')"> Subject <span *ngIf="listSortField === 'subject'">
+            <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+            <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+          </span>
+        </th>
+        <th class="pointer" scope="col" (click)="toggleListSort('tag')"> Tag <span *ngIf="listSortField === 'tag'">
+            <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+            <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+          </span>
+        </th>
+        <th *ngIf="includeSubDetail"></th>
+        <th *ngIf="canDelete || canArchive || canUpdate || canCheck || cardHasLink || cardHasSelect" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+        <tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
+                            'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+          <td scope="row" (click)="clickOneItem(i)" class="mt-3" [ngClass]="{'pointer read-more link': clickItemAction === 'detail' || false,
+                                'pointer': clickItemAction === 'select'}">
+            {{(page-1)*perPage+i+1}}
+          </td>
+          <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
+            <div class="">
+              {{detail['templateName']}}
+            </div>
+          </td>
+          <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
+            <div class="">
+              {{detail['fromEmail']}}
+            </div>
+          </td>
+          <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
+            <div class="">
+              {{detail['subject']}}
+            </div>
+          </td>
+          <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
+            <div class="">
+              {{detail['tag']}}
+            </div>
+          </td>
+          <td *ngIf="includeSubDetail || cardHasLink || cardHasSelect">
+            <div *ngIf="cardHasSelect" class="read-more font-size-75 my-1" (click)="selectItemSelected(i)">Select <i class="far fa-hand-pointer"></i></div>
+            <div *ngIf="includeSubDetail" class="pointer read-more mt-2" (click)="toggleShowDetailItem(i)">
+              <span *ngIf="!detail.mddsShowDetail">More <i class="fas fa-caret-down" title="More"></i></span>
+              <span *ngIf="detail.mddsShowDetail">Less <i class="fas fa-caret-up" title="Less"></i></span>
+            </div>
+          </td>
+          <td *ngIf="canDelete || canArchive || canUpdate || canCheck">
+            <div class="d-flex flex-wrap justify-content-start align-items-center">
+              <a *ngIf="canUpdate" class="pointer" queryParamsHandling="preserve" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
+              <a *ngIf="canDelete" class="pointer" (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+              <a *ngIf="canArchive" class="pointer" (click)="onArchive(detail['_id'], i, archivedSearch)">
+                <i *ngIf="!archivedSearch" class="fa fa-archive" title="Archive"></i>
+                <i *ngIf="archivedSearch" class="fas fa-trash-restore" title="Unarchive"></i>
+              </a>
+              <input *ngIf="canCheck" class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)" />
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="includeSubDetail && detail.mddsShowDetail">
+          <td colspan="7">
+            <app-emailtemplate-detail-sub [inputData]="detail['_id']"></app-emailtemplate-detail-sub>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

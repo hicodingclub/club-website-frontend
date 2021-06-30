@@ -27,9 +27,6 @@ import {
 import {
   EnrollmentService
 } from '../enrollment.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-enrollment-edit',
   templateUrl: './enrollment-edit.component.html',
@@ -56,8 +53,8 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, enrollmentService, injector, router, route, location);
+  constructor(public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(enrollmentService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'name': 'Name',
@@ -70,12 +67,7 @@ export class EnrollmentEditComponent extends EnrollmentEditCustComponent impleme
       'tutor': 'Tutor',
     };
     this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('phoneNumber');
-    this.stringFields.push('status');
-    this.stringFields.push('notes');
-    this.stringFields.push('adminNotes');
+    this.stringFields = ['name', 'email', 'phoneNumber', 'status', 'notes', 'adminNotes', ];
     this.referenceFields = ['tutor', ];
     this.numberFields = ['grade', ];
     this.textareaFields = ['notes', 'adminNotes', ];

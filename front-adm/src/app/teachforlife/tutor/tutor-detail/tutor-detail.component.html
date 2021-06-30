@@ -1,21 +1,21 @@
 <div class="detail" *ngIf="detail">
-  <div *ngIf="!options['disableActionButtions']">
-    <div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" [routerLink]="[listRouterLink]" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
       <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
       <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-      <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-      <a *ngIf="!options['disableActionArchive']" routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
+      <button *ngIf="!options['disableActionDelete']" class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</button>
+      <button *ngIf="!options['disableActionArchive']" class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
         <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
         <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
-      </a>
+      </button>
     </div>
   </div>
   <div class="card text-left transparent-border ">
     <div class="grid-fields">
       <div class="card-header grid-head">
         <div class="grid-head-picture">
-          <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+          <lib-mdds-picture-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
         </div>
         <div class="ml-1">
           <h5>
@@ -27,61 +27,61 @@
       </div>
       <div class="card-body">
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Grade:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['grade'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Grade:</label></div>
+            <div>
               {{detail['grade']}}</div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Email:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['email'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Email:</label></div>
+            <div>
               {{detail['email']}}</div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Phone Number:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['phoneNumber'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Phone Number:</label></div>
+            <div>
               {{detail['phoneNumber']}}</div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Introduction:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['introduction'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Introduction:</label></div>
+            <div>
               <div [innerHTML]="detail['introduction']"></div>
             </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Open to Grade:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['acceptGrade'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Open to Grade:</label></div>
+            <div>
               {{detail['acceptGrade']}}</div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Available Time:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['availableTime'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Available Time:</label></div>
+            <div>
               <div [innerHTML]="detail['availableTime']"></div>
             </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Tutoring Subjects:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['specificSubjects'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Tutoring Subjects:</label></div>
+            <div>
               <div [innerHTML]="detail['specificSubjects']"></div>
             </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
-            <div><label>Subject Tags:</label></div>
-            <div class="ml-3">
+          <div *ngIf="fieldHasValue(detail['subjectTags'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+            <div class="mr-2"><label>Subject Tags:</label></div>
+            <div>
               <div *ngIf="detail['subjectTags'] && detail['subjectTags']['selection']">
                 <ng-template ngFor let-element [ngForOf]="detail['subjectTags']['selection']" let-idx="index">
                   <div class="badge badge-pill badge-secondary">

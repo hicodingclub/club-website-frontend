@@ -3,3 +3,11 @@
   border-radius: 0rem;
   height: 100%;
 }
+
+.component-main-card-body {}
+
+@media screen and (max-width: 576px) {
+  .component-main-card-body {
+    padding: 0rem;
+  }
+}

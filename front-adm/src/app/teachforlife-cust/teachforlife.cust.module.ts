@@ -22,7 +22,7 @@ import { TeachforlifeCoreModule } from '../teachforlife/teachforlife.core.module
 })
 export class TeachforlifeCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 24 2020 00:50:26 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 30 2021 10:23:36 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

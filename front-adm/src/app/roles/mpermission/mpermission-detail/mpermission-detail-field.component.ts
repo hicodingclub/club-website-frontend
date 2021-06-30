@@ -32,7 +32,7 @@ implements OnInit {
   // @Input() showFieldsStr: string;
   showFields: string[];
   constructor(public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, mpermissionService, injector, router, route, location);
+    super(mpermissionService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'role': 'Role',
@@ -40,7 +40,7 @@ implements OnInit {
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

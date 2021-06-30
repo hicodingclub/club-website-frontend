@@ -38,7 +38,7 @@ implements OnInit {
       'name': 'Name',
       'createdAt': 'Created at',
     };
-    this.stringFields.push('name');
+    this.stringFields = ['name', ];
     this.dateFields = ['createdAt', ];
   }
   ngOnInit() {

@@ -62,8 +62,7 @@ export class FaqEditComponent extends FaqEditCustComponent implements OnInit, Af
       'order': 'Order',
       'enable': 'Enable',
     };
-    this.stringFields.push('question');
-    this.stringFields.push('answer');
+    this.stringFields = ['question', 'answer', ];
     this.numberFields = ['order', ];
     const detail = {};
     this.detail = this.formatDetail(detail);

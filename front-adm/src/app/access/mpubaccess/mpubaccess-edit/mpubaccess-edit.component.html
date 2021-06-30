@@ -96,6 +96,10 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('group')">
@@ -184,11 +188,11 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>

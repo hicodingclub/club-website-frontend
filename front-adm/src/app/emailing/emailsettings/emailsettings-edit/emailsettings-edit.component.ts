@@ -59,7 +59,7 @@ export class EmailsettingsEditComponent extends EmailsettingsEditCustComponent i
     this.fieldDisplayNames = {
       'defaultSender': 'Default Sender Email Address',
     };
-    this.stringFields.push('defaultSender');
+    this.stringFields = ['defaultSender', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

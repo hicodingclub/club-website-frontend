@@ -36,7 +36,7 @@ export class SpenrollmentDetailComponent extends SpenrollmentDetailCustComponent
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public spenrollmentService: SpenrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -53,12 +53,7 @@ export class SpenrollmentDetailComponent extends SpenrollmentDetailCustComponent
       'createdAt': 'Created at',
     };
     this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('phoneNumber');
-    this.stringFields.push('status');
-    this.stringFields.push('notes');
-    this.stringFields.push('adminNotes');
+    this.stringFields = ['name', 'email', 'phoneNumber', 'status', 'notes', 'adminNotes', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['grade', ];
     this.textareaFields = ['notes', 'adminNotes', ];

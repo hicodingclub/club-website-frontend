@@ -20,10 +20,14 @@
                 </div>
               </div>
               <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> DefaultSender is required. </div>
+                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> Default Sender Email Address is required. </div>
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('settingName')">
@@ -36,7 +40,7 @@
                 </div>
               </div>
               <div [hidden]="EditSettingName.valid || EditSettingName.pristine || EditSettingName.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditSettingName.errors && EditSettingName.errors.required"> SettingName is required. </div>
+                <div *ngIf="EditSettingName.errors && EditSettingName.errors.required"> Setting Name is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -51,15 +55,15 @@
                 </div>
               </div>
               <div [hidden]="EditDefaultSender.valid || EditDefaultSender.pristine || EditDefaultSender.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> DefaultSender is required. </div>
+                <div *ngIf="EditDefaultSender.errors && EditDefaultSender.errors.required"> Default Sender Email Address is required. </div>
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>

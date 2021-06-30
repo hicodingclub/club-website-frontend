@@ -22,7 +22,7 @@ import { PublicinfoCoreModule } from '../publicinfo/publicinfo.core.module';
 })
 export class PublicinfoCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 24 2020 00:50:24 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 30 2021 10:23:35 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

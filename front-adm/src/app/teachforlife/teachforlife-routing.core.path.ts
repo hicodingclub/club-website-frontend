@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  TutorListComponent
-} from './tutor/tutor-list/tutor-list.component';
+  TutorListGeneralComponent
+} from './tutor/tutor-list/tutor-list-general.component';
 import {
   TutorDetailComponent
 } from './tutor/tutor-detail/tutor-detail.component';
@@ -9,8 +9,8 @@ import {
   TutorEditComponent
 } from './tutor/tutor-edit/tutor-edit.component';
 import {
-  EnrollmentListComponent
-} from './enrollment/enrollment-list/enrollment-list.component';
+  EnrollmentListGeneralComponent
+} from './enrollment/enrollment-list/enrollment-list-general.component';
 import {
   EnrollmentDetailComponent
 } from './enrollment/enrollment-detail/enrollment-detail.component';
@@ -37,7 +37,7 @@ const tutorDetailPath = [{
 }, ];
 export const tutorRoutingCorePath = [{
   path: 'list',
-  component: TutorListComponent,
+  component: TutorListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -59,7 +59,7 @@ export const tutorRoutingCorePath = [{
 }];
 export const enrollmentRoutingCorePath = [{
   path: 'list',
-  component: EnrollmentListComponent,
+  component: EnrollmentListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

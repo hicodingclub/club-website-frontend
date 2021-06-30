@@ -25,9 +25,6 @@ import {
 import {
   MaccountroleService
 } from '../maccountrole.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-maccountrole-detail',
   templateUrl: './maccountrole-detail.component.html',
@@ -39,11 +36,11 @@ export class MaccountroleDetailComponent extends MaccountroleDetailCustComponent
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public maccountroleService: MaccountroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, maccountroleService, injector, router, route, location);
+  constructor(public maccountroleService: MaccountroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(maccountroleService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'account': 'Account',
@@ -51,7 +48,10 @@ export class MaccountroleDetailComponent extends MaccountroleDetailCustComponent
     };
     this.referenceFields = ['account', ];
     this.arrayFields = [
-      ['role', 'ObjectId'],
+      ['role', 'ObjectId', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.referenceFieldsMap['role'] = 'mrole';
     this.referenceFieldsReverseMap['mrole'] = 'role';

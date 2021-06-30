@@ -60,8 +60,7 @@ export class MroleEditComponent extends MroleEditCustComponent implements OnInit
       'role': 'Role',
       'description': 'Description',
     };
-    this.stringFields.push('role');
-    this.stringFields.push('description');
+    this.stringFields = ['role', 'description', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

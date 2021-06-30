@@ -25,9 +25,6 @@ import {
 import {
   MpermissionService
 } from '../mpermission.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-mpermission-detail',
   templateUrl: './mpermission-detail.component.html',
@@ -39,11 +36,11 @@ export class MpermissionDetailComponent extends MpermissionDetailCustComponent i
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, mpermissionService, injector, router, route, location);
+  constructor(public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(mpermissionService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'role': 'Role',
@@ -51,7 +48,7 @@ export class MpermissionDetailComponent extends MpermissionDetailCustComponent i
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

@@ -9,17 +9,15 @@ import {
 } from '@angular/forms';
 import {
   NgbModule,
-  NgbDateParserFormatter
+  NgbDateParserFormatter,
 } from '@ng-bootstrap/ng-bootstrap';
 import {
-  MraNgbDateFormatterService
-} from './summerprogram.directive';
-import {
-  ActionEmailModule
-} from '@hicoder/angular-action-email';
-import {
-  MddsCoreModule
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService,
 } from '@hicoder/angular-core';
+import {
+  ActionEmailModule,
+} from '@hicoder/angular-action-email';
 import {
   SummerprogramRoutingCoreModule
 } from './summerprogram-routing.core.module';
@@ -37,8 +35,26 @@ import {
   SpenrollmentListComponent
 } from './spenrollment/spenrollment-list/spenrollment-list.component';
 import {
+  SpenrollmentListViewComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-view.component';
+import {
   SpenrollmentListCustComponent
 } from '../summerprogram-cust/base/spenrollment/spenrollment-list.cust.component';
+import {
+  SpenrollmentListGeneralComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-general.component';
+import {
+  SpenrollmentListSelectComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-select.component';
+import {
+  SpenrollmentListViewWidgetListComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-view-widget-list.component';
+import {
+  SpenrollmentListViewWidgetGridComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-view-widget-grid.component';
+import {
+  SpenrollmentListViewWidgetTableComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-view-widget-table.component';
 import {
   SpenrollmentDetailComponent
 } from './spenrollment/spenrollment-detail/spenrollment-detail.component';
@@ -61,8 +77,26 @@ import {
   ConfirmationListComponent
 } from './confirmation/confirmation-list/confirmation-list.component';
 import {
+  ConfirmationListViewComponent
+} from './confirmation/confirmation-list/confirmation-list-view.component';
+import {
   ConfirmationListCustComponent
 } from '../summerprogram-cust/base/confirmation/confirmation-list.cust.component';
+import {
+  ConfirmationListGeneralComponent
+} from './confirmation/confirmation-list/confirmation-list-general.component';
+import {
+  ConfirmationListSubComponent
+} from './confirmation/confirmation-list/confirmation-list-sub.component';
+import {
+  ConfirmationListViewWidgetListComponent
+} from './confirmation/confirmation-list/confirmation-list-view-widget-list.component';
+import {
+  ConfirmationListViewWidgetGridComponent
+} from './confirmation/confirmation-list/confirmation-list-view-widget-grid.component';
+import {
+  ConfirmationListViewWidgetTableComponent
+} from './confirmation/confirmation-list/confirmation-list-view-widget-table.component';
 import {
   ConfirmationDetailComponent
 } from './confirmation/confirmation-detail/confirmation-detail.component';
@@ -79,26 +113,19 @@ import {
   ConfirmationEditCustComponent
 } from '../summerprogram-cust/base/confirmation/confirmation-edit.cust.component';
 import {
-  SpenrollmentListSelectComponent
-} from './spenrollment/spenrollment-list/spenrollment-list-select.component';
-import {
   SpenrollmentDetailPopComponent
 } from './spenrollment/spenrollment-detail/spenrollment-detail-pop.component';
 import {
   SpenrollmentDetailSelComponent
 } from './spenrollment/spenrollment-detail/spenrollment-detail-sel.component';
 import {
-  ConfirmationListSubComponent
-} from './confirmation/confirmation-list/confirmation-list-sub.component';
-import {
-  ConfirmationDetailSubComponent
-} from './confirmation/confirmation-detail/confirmation-detail-sub.component';
+  SpenrollmentDetailSubComponent
+} from './spenrollment/spenrollment-detail/spenrollment-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgbModule,
-    MddsCoreModule,
     ActionEmailModule,
     SummerprogramRoutingCoreModule,
   ],
@@ -107,7 +134,13 @@ import {
     SummerprogramRefSelectDirective,
     SpenrollmentComponent,
     SpenrollmentListComponent,
+    SpenrollmentListViewComponent,
     SpenrollmentListCustComponent,
+    SpenrollmentListGeneralComponent,
+    SpenrollmentListSelectComponent,
+    SpenrollmentListViewWidgetListComponent,
+    SpenrollmentListViewWidgetGridComponent,
+    SpenrollmentListViewWidgetTableComponent,
     SpenrollmentDetailCustComponent,
     SpenrollmentDetailComponent,
     SpenrollmentDetailFieldComponent,
@@ -115,35 +148,42 @@ import {
     SpenrollmentEditCustComponent,
     ConfirmationComponent,
     ConfirmationListComponent,
+    ConfirmationListViewComponent,
     ConfirmationListCustComponent,
+    ConfirmationListGeneralComponent,
+    ConfirmationListSubComponent,
+    ConfirmationListViewWidgetListComponent,
+    ConfirmationListViewWidgetGridComponent,
+    ConfirmationListViewWidgetTableComponent,
     ConfirmationDetailCustComponent,
     ConfirmationDetailComponent,
     ConfirmationDetailFieldComponent,
     ConfirmationEditComponent,
     ConfirmationEditCustComponent,
-    SpenrollmentListSelectComponent,
     SpenrollmentDetailPopComponent,
     SpenrollmentDetailSelComponent,
-    ConfirmationListSubComponent,
-    ConfirmationDetailSubComponent,
+    SpenrollmentDetailSubComponent,
   ],
   exports: [
     SummerprogramComponent,
-    SpenrollmentListComponent,
+    SpenrollmentListGeneralComponent,
+    SpenrollmentListSelectComponent,
     SpenrollmentDetailComponent,
     SpenrollmentDetailFieldComponent,
     SpenrollmentEditComponent,
-    ConfirmationListComponent,
+    ConfirmationListGeneralComponent,
+    ConfirmationListSubComponent,
     ConfirmationDetailComponent,
     ConfirmationDetailFieldComponent,
     ConfirmationEditComponent,
-    SpenrollmentListSelectComponent,
     SpenrollmentDetailPopComponent,
     SpenrollmentDetailSelComponent,
-    ConfirmationListSubComponent,
-    ConfirmationDetailSubComponent,
+    SpenrollmentDetailSubComponent,
   ],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

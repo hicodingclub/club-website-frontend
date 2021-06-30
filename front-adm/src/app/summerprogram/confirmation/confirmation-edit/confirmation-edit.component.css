@@ -1,6 +1,12 @@
 .edit {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 992px) {
+  .edit {
+    width: 75%;
+  }
 }
 
 fieldset>.form-control,
@@ -121,6 +127,16 @@ fieldset>.form-control,
   margin-left: 1rem;
 }
 
+.icon-clear-badge-light {
+  cursor: pointer;
+  margin-left: 1rem;
+  opacity: 0.7;
+}
+
+.icon-clear-badge-light:hover {
+  opacity: 1;
+}
+
 .icon-clear-badge-ontop {
   cursor: pointer;
   position: absolute;
@@ -157,10 +173,16 @@ fieldset>.form-control,
 }
 
 .new-card {
-  width: 400px;
+  width: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 576px) {
+  .new-card {
+    width: 90%;
+  }
 }
 
 .badge-group {

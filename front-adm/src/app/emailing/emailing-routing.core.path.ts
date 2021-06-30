@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  EmailtemplateListComponent
-} from './emailtemplate/emailtemplate-list/emailtemplate-list.component';
+  EmailtemplateListGeneralComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-general.component';
 import {
   EmailtemplateDetailComponent
 } from './emailtemplate/emailtemplate-detail/emailtemplate-detail.component';
@@ -9,8 +9,8 @@ import {
   EmailtemplateEditComponent
 } from './emailtemplate/emailtemplate-edit/emailtemplate-edit.component';
 import {
-  EmailsettingsListComponent
-} from './emailsettings/emailsettings-list/emailsettings-list.component';
+  EmailsettingsListGeneralComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-general.component';
 import {
   EmailsettingsDetailComponent
 } from './emailsettings/emailsettings-detail/emailsettings-detail.component';
@@ -18,8 +18,8 @@ import {
   EmailsettingsEditComponent
 } from './emailsettings/emailsettings-edit/emailsettings-edit.component';
 import {
-  EmailqueueListComponent
-} from './emailqueue/emailqueue-list/emailqueue-list.component';
+  EmailqueueListGeneralComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-general.component';
 import {
   EmailqueueDetailComponent
 } from './emailqueue/emailqueue-detail/emailqueue-detail.component';
@@ -31,7 +31,7 @@ import {
 } from '@hicoder/angular-auth';
 export const emailtemplateRoutingCorePath = [{
   path: 'list',
-  component: EmailtemplateListComponent,
+  component: EmailtemplateListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -52,7 +52,7 @@ export const emailtemplateRoutingCorePath = [{
 }];
 export const emailsettingsRoutingCorePath = [{
   path: 'list',
-  component: EmailsettingsListComponent,
+  component: EmailsettingsListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -69,7 +69,7 @@ export const emailsettingsRoutingCorePath = [{
 }];
 export const emailqueueRoutingCorePath = [{
   path: 'list',
-  component: EmailqueueListComponent,
+  component: EmailqueueListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

@@ -28,14 +28,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {
-  ComponentFactoryResolver
-} from '@angular/core';
-import {
   TeachforlifeRefSelectDirective
 } from '../teachforlife.component';
-import {
-  TutorDetailSelComponent
-} from '../tutor/tutor-detail/tutor-detail-sel.component';
 import {
   TutorDetailPopComponent
 } from '../tutor/tutor-detail/tutor-detail-pop.component';
@@ -53,6 +47,8 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -60,6 +56,10 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -83,9 +83,11 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -101,7 +103,6 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
   public selectComponents = {
     'tutor': {
       'select-type': TutorListSelectComponent,
-      'select-detail-type': TutorDetailSelComponent,
       'pop-detail-type': TutorDetailPopComponent,
       'componentRef': null
     },
@@ -109,16 +110,17 @@ export class EnrollmentComponent extends MddsBaseComponent implements OnInit {
   @ViewChild(TeachforlifeRefSelectDirective, {
     static: true
   }) refSelectDirective: TeachforlifeRefSelectDirective;
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+  constructor(public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(enrollmentService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
-    this.briefFieldsInfo.push(['email', 'Email']);
-    this.briefFieldsInfo.push(['grade', 'Grade']);
-    this.briefFieldsInfo.push(['status', 'Status']);
-    this.briefFieldsInfo.push(['tutor', 'Tutor']);
-    this.briefFieldsInfo.push(['createdAt', 'Created at']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+      ['email', 'Email'],
+      ['grade', 'Grade'],
+      ['status', 'Status'],
+      ['tutor', 'Tutor'],
+      ['createdAt', 'Created at'],
+    ];
     this.referenceFieldsMap = {
       'tutor': 'tutor',
     };

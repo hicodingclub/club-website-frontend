@@ -36,7 +36,7 @@ export class MaccountDetailComponent extends MaccountDetailCustComponent impleme
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public maccountService: MaccountService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -53,13 +53,7 @@ export class MaccountDetailComponent extends MaccountDetailCustComponent impleme
       'status': 'Status',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-    this.stringFields.push('username');
-    this.stringFields.push('email');
-    this.stringFields.push('phone');
-    this.stringFields.push('firstname');
-    this.stringFields.push('lastname');
-    this.stringFields.push('regtype');
-    this.stringFields.push('status');
+    this.stringFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'regtype', 'status', ];
     this.dateFields = ['since', ];
   }
   ngOnInit() {

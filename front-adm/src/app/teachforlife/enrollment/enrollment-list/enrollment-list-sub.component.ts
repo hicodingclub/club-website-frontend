@@ -22,24 +22,36 @@ import {
 @Component({
   selector: 'app-enrollment-list-sub',
   templateUrl: './enrollment-list-sub.component.html',
-  styleUrls: ['./enrollment-list.component.css']
+  styleUrls: ['./enrollment-list.component.css', './enrollment-list-sub.component.css']
 })
 export class EnrollmentListSubComponent extends EnrollmentListComponent implements OnInit {
+  public clickItemAction: string = 'detail';
+  public cardHasLink: boolean = false;
+  public cardHasSelect: boolean = false;
+  public includeSubDetail: boolean = true;
+  public canUpdate: boolean = true;
+  public canDelete: boolean = false;
+  public canArchive: boolean = false;
+  public canCheck: boolean = false;
+  public itemMultiSelect: boolean = true;
+  public majorUi: boolean = true;
   public parentSchema;
   public parentItemId;
   constructor(public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, enrollmentService, injector, router, route, location);
-    this.listCategory1 = {}; // no do query based on category for sub view;
-    this.listCategory2 = {}; // no do query based on category for sub view;
+    super(enrollmentService, injector, router, route, location);
+    this.listViews = ['list', 'grid', 'table', ];
+    this.listViewFilter = 'list';
   }
   ngOnInit() {
-    this.clickItemAction = ''; // don't go to details or select by clicking the card/row.
-    this.adjustListViewForWindowSize();
+    this.queryOnNgInit = false; // don't do query on the super class.
+    super.ngOnInit();
+    this.listCategory1 = {}; // no do query based on category;
+    this.listCategory2 = {}; // no do query based on category;
     let ref = this.getParentRouteRefField();
     this.parentSchema = this.referenceFieldsReverseMap[ref];
     this.parentItemId = this.getParentRouteItemId();
     let id = this.parentItemId;
-    this.detail = {};
+    // this is to initialize the detail that will be used for search condition selection
     this.parentData = {};
     if (this.arrayFields.some(x => x[0] == ref)) {
       this.parentData[ref] = {

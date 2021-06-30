@@ -27,9 +27,6 @@ import {
 import {
   ConfirmationService
 } from '../confirmation.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-confirmation-edit',
   templateUrl: './confirmation-edit.component.html',
@@ -56,8 +53,8 @@ export class ConfirmationEditComponent extends ConfirmationEditCustComponent imp
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, confirmationService, injector, router, route, location);
+  constructor(public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(confirmationService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'name': 'Name',
@@ -66,12 +63,9 @@ export class ConfirmationEditComponent extends ConfirmationEditCustComponent imp
       'enrollment': 'Enrollment',
       'confirmed': 'Confirmed',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('type');
+    this.stringFields = ['name', 'email', 'type', ];
     this.referenceFields = ['enrollment', ];
     this.numberFields = ['confirmed', ];
-    this.ownSearchStringFields = ['type', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

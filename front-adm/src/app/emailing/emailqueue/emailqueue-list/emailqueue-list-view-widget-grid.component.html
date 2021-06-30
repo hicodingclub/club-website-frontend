@@ -1,0 +1,59 @@
+<div class="gridview">
+  <div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+    <div class="card text-left clickable-card h-100" [ngClass]="{'clicked-row': clickedId==detail['_id'],
+                        'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+      <div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+        <div class="card-header grid-head">
+          <div>
+            <h5>
+              <div class="mr-1 d-inline-block">
+                {{detail['subject']}}
+              </div>
+            </h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngIf="fieldHasValue(detail['processed'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Processed:</label></div>
+            <div>{{detail['processed']}} </div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['number'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Number:</label></div>
+            <div>
+              {{detail['number']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['sent'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Sent:</label></div>
+            <div>
+              {{detail['sent']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Created at:</label></div>
+            <div> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-action-links ml-3">
+        <div *ngIf="includeSubDetail" class="read-more mr-5">
+          <span class="pointer" (click)="toggleShowDetailItem(i)">
+            <span *ngIf="!detail.mddsShowDetail">More <i class="fas fa-caret-down" title="More"></i></span>
+            <span *ngIf="detail.mddsShowDetail">Less <i class="fas fa-caret-up" title="Less"></i></span>
+          </span>
+        </div>
+        <div *ngIf="cardHasSelect">
+          <span class="read-more color-success font-size-75 mt-3" (click)="selectItemSelected(i)">Select <i class="far fa-hand-pointer"></i></span>
+        </div>
+      </div>
+      <div *ngIf="includeSubDetail && detail.mddsShowDetail" class="show-detail mx-1">
+        <app-emailqueue-detail-sub [inputData]="detail['_id']"></app-emailqueue-detail-sub>
+      </div>
+      <div class="card-action-icons-container">
+        <div class="card-action-icons">
+          <a *ngIf="canUpdate" [routerLink]="['.']" queryParamsHandling="preserve" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i aria-hidden="true" class="grid-block"></i>
+  <i aria-hidden="true" class="grid-block"></i>
+</div>

@@ -63,11 +63,7 @@ export class ArticleEditComponent extends ArticleEditCustComponent implements On
       'content': 'Content',
       'signaturePicture': 'Signature Picture',
     };
-    this.stringFields.push('category');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
-    this.stringFields.push('signaturePicture');
+    this.stringFields = ['category', 'title', 'author', 'content', 'signaturePicture', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

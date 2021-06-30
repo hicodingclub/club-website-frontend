@@ -45,13 +45,7 @@ implements OnInit {
       'status': 'Status',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-    this.stringFields.push('username');
-    this.stringFields.push('email');
-    this.stringFields.push('phone');
-    this.stringFields.push('firstname');
-    this.stringFields.push('lastname');
-    this.stringFields.push('regtype');
-    this.stringFields.push('status');
+    this.stringFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'regtype', 'status', ];
     this.dateFields = ['since', ];
   }
   ngOnInit() {

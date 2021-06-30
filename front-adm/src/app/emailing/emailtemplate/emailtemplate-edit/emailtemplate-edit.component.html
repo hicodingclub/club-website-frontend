@@ -20,7 +20,7 @@
                 </div>
               </div>
               <div [hidden]="EditTemplateName.valid || EditTemplateName.pristine || EditTemplateName.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required"> TemplateName is required. </div>
+                <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required"> Template Name is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -75,6 +75,10 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('templateName')">
@@ -87,7 +91,7 @@
                 </div>
               </div>
               <div [hidden]="EditTemplateName.valid || EditTemplateName.pristine || EditTemplateName.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required"> TemplateName is required. </div>
+                <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required"> Template Name is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -143,11 +147,11 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>

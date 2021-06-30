@@ -88,7 +88,7 @@
                             'ng-invalid': !detail['photo']}">
                 <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;" required [(ngModel)]="detail['photo']" name="EditPhoto" #EditPhoto="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['photo']" class="icon-clear" (click)="clearValueFromDetail('photo')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -109,7 +109,7 @@
                 </div>
               </div>
               <div [hidden]="EditAcceptGrade.valid || EditAcceptGrade.pristine || EditAcceptGrade.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditAcceptGrade.errors && EditAcceptGrade.errors.required"> AcceptGrade is required. </div>
+                <div *ngIf="EditAcceptGrade.errors && EditAcceptGrade.errors.required"> Open to Grade is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -124,7 +124,7 @@
                 </div>
               </div>
               <div [hidden]="EditAvailableTime.valid || EditAvailableTime.pristine || EditAvailableTime.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditAvailableTime.errors && EditAvailableTime.errors.required"> AvailableTime is required. </div>
+                <div *ngIf="EditAvailableTime.errors && EditAvailableTime.errors.required"> Available Time is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div [hidden]="EditSpecificSubjects.valid || EditSpecificSubjects.pristine || EditSpecificSubjects.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditSpecificSubjects.errors && EditSpecificSubjects.errors.required"> SpecificSubjects is required. </div>
+                <div *ngIf="EditSpecificSubjects.errors && EditSpecificSubjects.errors.required"> Tutoring Subjects is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -188,10 +188,14 @@
                 <input type="checkbox" name="EditSubjectTagsSelection" style="display:none" id="EditSubjectTagsSelection" [(ngModel)]="detail['subjectTags']['selection'].length" #EditSubjectTagsSelection="ngModel">
               </div>
               <div [hidden]="EditSubjectTags.valid || EditSubjectTags.pristine" class="alert alert-danger">
-                <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required"> SubjectTags is required. </div>
+                <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required"> Subject Tags is required. </div>
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('name')">
@@ -272,7 +276,7 @@
                             'ng-invalid': !detail['photo']}">
                 <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;" required [(ngModel)]="detail['photo']" name="EditPhoto" #EditPhoto="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['photo']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['photo']" class="icon-clear" (click)="clearValueFromDetail('photo')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -294,7 +298,7 @@
                 </div>
               </div>
               <div [hidden]="EditAcceptGrade.valid || EditAcceptGrade.pristine || EditAcceptGrade.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditAcceptGrade.errors && EditAcceptGrade.errors.required"> AcceptGrade is required. </div>
+                <div *ngIf="EditAcceptGrade.errors && EditAcceptGrade.errors.required"> Open to Grade is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -309,7 +313,7 @@
                 </div>
               </div>
               <div [hidden]="EditAvailableTime.valid || EditAvailableTime.pristine || EditAvailableTime.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditAvailableTime.errors && EditAvailableTime.errors.required"> AvailableTime is required. </div>
+                <div *ngIf="EditAvailableTime.errors && EditAvailableTime.errors.required"> Available Time is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -324,7 +328,7 @@
                 </div>
               </div>
               <div [hidden]="EditSpecificSubjects.valid || EditSpecificSubjects.pristine || EditSpecificSubjects.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditSpecificSubjects.errors && EditSpecificSubjects.errors.required"> SpecificSubjects is required. </div>
+                <div *ngIf="EditSpecificSubjects.errors && EditSpecificSubjects.errors.required"> Tutoring Subjects is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -373,15 +377,15 @@
                 <input type="checkbox" name="EditSubjectTagsSelection" style="display:none" id="EditSubjectTagsSelection" [(ngModel)]="detail['subjectTags']['selection'].length" #EditSubjectTagsSelection="ngModel">
               </div>
               <div [hidden]="EditSubjectTags.valid || EditSubjectTags.pristine" class="alert alert-danger">
-                <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required"> SubjectTags is required. </div>
+                <div *ngIf="EditSubjectTags.errors && EditSubjectTags.errors.required"> Subject Tags is required. </div>
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>

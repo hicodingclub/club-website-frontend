@@ -36,7 +36,7 @@ export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent imp
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public mpubmoduleService: MpubmoduleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -46,9 +46,12 @@ export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent imp
       'module': 'Module',
       'resources': 'Resources',
     };
-    this.stringFields.push('module');
+    this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

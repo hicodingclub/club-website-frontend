@@ -22,13 +22,13 @@ import {
 @Component({
   selector: 'app-mpubaccess-detail-sub',
   templateUrl: './mpubaccess-detail-sub.component.html',
-  styleUrls: ['./mpubaccess-detail.component.css']
+  styleUrls: ['./mpubaccess-detail.component.css', './mpubaccess-detail-sub.component.css']
 })
 export class MpubaccessDetailSubComponent extends MpubaccessDetailComponent
 implements OnInit {
   // @Input() inputData;
   constructor(public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, mpubaccessService, injector, router, route, location);
+    super(mpubaccessService, injector, router, route, location);
   }
   ngOnInit() {
     if (!this.id) this.id = this.inputData;

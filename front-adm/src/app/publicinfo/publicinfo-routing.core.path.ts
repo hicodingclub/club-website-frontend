@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  EventListComponent
-} from './event/event-list/event-list.component';
+  EventListGeneralComponent
+} from './event/event-list/event-list-general.component';
 import {
   EventDetailWidgetPostComponent
 } from './event/event-detail/event-detail-widget-post.component';
@@ -9,8 +9,8 @@ import {
   EventEditComponent
 } from './event/event-edit/event-edit.component';
 import {
-  ArticleListComponent
-} from './article/article-list/article-list.component';
+  ArticleListGeneralComponent
+} from './article/article-list/article-list-general.component';
 import {
   ArticleDetailWidgetPostComponent
 } from './article/article-detail/article-detail-widget-post.component';
@@ -18,8 +18,8 @@ import {
   ArticleEditComponent
 } from './article/article-edit/article-edit.component';
 import {
-  FaqListComponent
-} from './faq/faq-list/faq-list.component';
+  FaqListGeneralComponent
+} from './faq/faq-list/faq-list-general.component';
 import {
   FaqDetailComponent
 } from './faq/faq-detail/faq-detail.component';
@@ -27,8 +27,8 @@ import {
   FaqEditComponent
 } from './faq/faq-edit/faq-edit.component';
 import {
-  GeneralinfoListComponent
-} from './generalinfo/generalinfo-list/generalinfo-list.component';
+  GeneralinfoListGeneralComponent
+} from './generalinfo/generalinfo-list/generalinfo-list-general.component';
 import {
   GeneralinfoDetailWidgetInfoComponent
 } from './generalinfo/generalinfo-detail/generalinfo-detail-widget-info.component';
@@ -36,8 +36,8 @@ import {
   GeneralinfoEditComponent
 } from './generalinfo/generalinfo-edit/generalinfo-edit.component';
 import {
-  KeynoteListComponent
-} from './keynote/keynote-list/keynote-list.component';
+  KeynoteListGeneralComponent
+} from './keynote/keynote-list/keynote-list-general.component';
 import {
   KeynoteDetailWidgetSlideComponent
 } from './keynote/keynote-detail/keynote-detail-widget-slide.component';
@@ -45,8 +45,8 @@ import {
   KeynoteEditComponent
 } from './keynote/keynote-edit/keynote-edit.component';
 import {
-  PageListComponent
-} from './page/page-list/page-list.component';
+  PageListGeneralComponent
+} from './page/page-list/page-list-general.component';
 import {
   PageDetailWidgetPageComponent
 } from './page/page-detail/page-detail-widget-page.component';
@@ -54,8 +54,8 @@ import {
   PageEditComponent
 } from './page/page-edit/page-edit.component';
 import {
-  AlertListComponent
-} from './alert/alert-list/alert-list.component';
+  AlertListGeneralComponent
+} from './alert/alert-list/alert-list-general.component';
 import {
   AlertDetailComponent
 } from './alert/alert-detail/alert-detail.component';
@@ -67,7 +67,7 @@ import {
 } from '@hicoder/angular-auth';
 export const eventRoutingCorePath = [{
   path: 'list',
-  component: EventListComponent,
+  component: EventListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -88,7 +88,7 @@ export const eventRoutingCorePath = [{
 }];
 export const articleRoutingCorePath = [{
   path: 'list',
-  component: ArticleListComponent,
+  component: ArticleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -109,7 +109,7 @@ export const articleRoutingCorePath = [{
 }];
 export const faqRoutingCorePath = [{
   path: 'list',
-  component: FaqListComponent,
+  component: FaqListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -130,7 +130,7 @@ export const faqRoutingCorePath = [{
 }];
 export const generalinfoRoutingCorePath = [{
   path: 'list',
-  component: GeneralinfoListComponent,
+  component: GeneralinfoListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -151,7 +151,7 @@ export const generalinfoRoutingCorePath = [{
 }];
 export const keynoteRoutingCorePath = [{
   path: 'list',
-  component: KeynoteListComponent,
+  component: KeynoteListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -172,7 +172,7 @@ export const keynoteRoutingCorePath = [{
 }];
 export const pageRoutingCorePath = [{
   path: 'list',
-  component: PageListComponent,
+  component: PageListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -193,7 +193,7 @@ export const pageRoutingCorePath = [{
 }];
 export const alertRoutingCorePath = [{
   path: 'list',
-  component: AlertListComponent,
+  component: AlertListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

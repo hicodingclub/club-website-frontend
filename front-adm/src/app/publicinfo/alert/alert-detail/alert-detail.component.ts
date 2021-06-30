@@ -36,7 +36,7 @@ export class AlertDetailComponent extends AlertDetailCustComponent implements On
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public alertService: AlertService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -50,10 +50,7 @@ export class AlertDetailComponent extends AlertDetailCustComponent implements On
       'show': 'Show',
       'order': 'Order',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('description');
-    this.stringFields.push('linkName');
-    this.stringFields.push('linkURL');
+    this.stringFields = ['name', 'description', 'linkName', 'linkURL', ];
     this.numberFields = ['order', ];
     this.textareaFields = ['description', ];
   }

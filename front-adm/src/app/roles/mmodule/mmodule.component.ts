@@ -41,6 +41,8 @@ export class MmoduleComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -48,6 +50,10 @@ export class MmoduleComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -71,9 +77,11 @@ export class MmoduleComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -92,9 +100,10 @@ export class MmoduleComponent extends MddsBaseComponent implements OnInit {
   constructor(public mmoduleService: MmoduleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mmoduleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['resources', 'Resources']);
+    this.briefFieldsInfo = [
+      ['module', 'Module'],
+      ['resources', 'Resources'],
+    ];
     this.requiredFields = ['module', ];
     this.schemaName = 'mmodule';
     this.modulePath = 'roles';

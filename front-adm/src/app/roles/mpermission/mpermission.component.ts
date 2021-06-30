@@ -28,23 +28,14 @@ import {
   ViewChild
 } from '@angular/core';
 import {
-  ComponentFactoryResolver
-} from '@angular/core';
-import {
   RolesRefSelectDirective
 } from '../roles.component';
-import {
-  MroleDetailSelComponent
-} from '../mrole/mrole-detail/mrole-detail-sel.component';
 import {
   MroleDetailPopComponent
 } from '../mrole/mrole-detail/mrole-detail-pop.component';
 import {
   MroleListSelectComponent
 } from '../mrole/mrole-list/mrole-list-select.component';
-import {
-  MmoduleDetailSelComponent
-} from '../mmodule/mmodule-detail/mmodule-detail-sel.component';
 import {
   MmoduleDetailPopComponent
 } from '../mmodule/mmodule-detail/mmodule-detail-pop.component';
@@ -62,6 +53,8 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -69,6 +62,10 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -92,9 +89,11 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -110,13 +109,11 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
   public selectComponents = {
     'role': {
       'select-type': MroleListSelectComponent,
-      'select-detail-type': MroleDetailSelComponent,
       'pop-detail-type': MroleDetailPopComponent,
       'componentRef': null
     },
     'module': {
       'select-type': MmoduleListSelectComponent,
-      'select-detail-type': MmoduleDetailSelComponent,
       'pop-detail-type': MmoduleDetailPopComponent,
       'componentRef': null
     },
@@ -124,13 +121,14 @@ export class MpermissionComponent extends MddsBaseComponent implements OnInit {
   @ViewChild(RolesRefSelectDirective, {
     static: true
   }) refSelectDirective: RolesRefSelectDirective;
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+  constructor(public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mpermissionService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['role', 'Role']);
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+    this.briefFieldsInfo = [
+      ['role', 'Role'],
+      ['module', 'Module'],
+      ['modulePermission', 'Module Permission'],
+    ];
     this.referenceFieldsMap = {
       'role': 'mrole',
       'module': 'mmodule',

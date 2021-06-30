@@ -59,7 +59,7 @@ export class MfilegroupEditComponent extends MfilegroupEditCustComponent impleme
     this.fieldDisplayNames = {
       'name': 'Name',
     };
-    this.stringFields.push('name');
+    this.stringFields = ['name', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

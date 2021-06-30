@@ -37,7 +37,7 @@ implements OnInit {
     this.fieldDisplayNames = {
       'content': 'Content',
     };
-    this.stringFields.push('content');
+    this.stringFields = ['content', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

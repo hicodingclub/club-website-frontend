@@ -9,17 +9,15 @@ import {
 } from '@angular/forms';
 import {
   NgbModule,
-  NgbDateParserFormatter
+  NgbDateParserFormatter,
 } from '@ng-bootstrap/ng-bootstrap';
 import {
-  MraNgbDateFormatterService
-} from './emailing.directive';
-import {
-  MddsRichtextEditorModule
-} from '@hicoder/angular-richtext';
-import {
-  MddsCoreModule
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService,
 } from '@hicoder/angular-core';
+import {
+  MddsRichtextEditorModule,
+} from '@hicoder/angular-richtext';
 import {
   EmailingRoutingCoreModule
 } from './emailing-routing.core.module';
@@ -34,8 +32,23 @@ import {
   EmailtemplateListComponent
 } from './emailtemplate/emailtemplate-list/emailtemplate-list.component';
 import {
+  EmailtemplateListViewComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-view.component';
+import {
   EmailtemplateListCustComponent
 } from '../emailing-cust/base/emailtemplate/emailtemplate-list.cust.component';
+import {
+  EmailtemplateListGeneralComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-general.component';
+import {
+  EmailtemplateListViewWidgetListComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-view-widget-list.component';
+import {
+  EmailtemplateListViewWidgetGridComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-view-widget-grid.component';
+import {
+  EmailtemplateListViewWidgetTableComponent
+} from './emailtemplate/emailtemplate-list/emailtemplate-list-view-widget-table.component';
 import {
   EmailtemplateDetailComponent
 } from './emailtemplate/emailtemplate-detail/emailtemplate-detail.component';
@@ -58,8 +71,23 @@ import {
   EmailsettingsListComponent
 } from './emailsettings/emailsettings-list/emailsettings-list.component';
 import {
+  EmailsettingsListViewComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-view.component';
+import {
   EmailsettingsListCustComponent
 } from '../emailing-cust/base/emailsettings/emailsettings-list.cust.component';
+import {
+  EmailsettingsListGeneralComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-general.component';
+import {
+  EmailsettingsListViewWidgetListComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-view-widget-list.component';
+import {
+  EmailsettingsListViewWidgetGridComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-view-widget-grid.component';
+import {
+  EmailsettingsListViewWidgetTableComponent
+} from './emailsettings/emailsettings-list/emailsettings-list-view-widget-table.component';
 import {
   EmailsettingsDetailComponent
 } from './emailsettings/emailsettings-detail/emailsettings-detail.component';
@@ -82,8 +110,23 @@ import {
   EmailqueueListComponent
 } from './emailqueue/emailqueue-list/emailqueue-list.component';
 import {
+  EmailqueueListViewComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-view.component';
+import {
   EmailqueueListCustComponent
 } from '../emailing-cust/base/emailqueue/emailqueue-list.cust.component';
+import {
+  EmailqueueListGeneralComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-general.component';
+import {
+  EmailqueueListViewWidgetListComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-view-widget-list.component';
+import {
+  EmailqueueListViewWidgetGridComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-view-widget-grid.component';
+import {
+  EmailqueueListViewWidgetTableComponent
+} from './emailqueue/emailqueue-list/emailqueue-list-view-widget-table.component';
 import {
   EmailqueueDetailComponent
 } from './emailqueue/emailqueue-detail/emailqueue-detail.component';
@@ -99,12 +142,17 @@ import {
 import {
   EmailqueueEditCustComponent
 } from '../emailing-cust/base/emailqueue/emailqueue-edit.cust.component';
+import {
+  EmailtemplateDetailSubComponent
+} from './emailtemplate/emailtemplate-detail/emailtemplate-detail-sub.component';
+import {
+  EmailqueueDetailSubComponent
+} from './emailqueue/emailqueue-detail/emailqueue-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgbModule,
-    MddsCoreModule,
     MddsRichtextEditorModule,
     EmailingRoutingCoreModule,
   ],
@@ -112,7 +160,12 @@ import {
     EmailingComponent,
     EmailtemplateComponent,
     EmailtemplateListComponent,
+    EmailtemplateListViewComponent,
     EmailtemplateListCustComponent,
+    EmailtemplateListGeneralComponent,
+    EmailtemplateListViewWidgetListComponent,
+    EmailtemplateListViewWidgetGridComponent,
+    EmailtemplateListViewWidgetTableComponent,
     EmailtemplateDetailCustComponent,
     EmailtemplateDetailComponent,
     EmailtemplateDetailFieldComponent,
@@ -120,7 +173,12 @@ import {
     EmailtemplateEditCustComponent,
     EmailsettingsComponent,
     EmailsettingsListComponent,
+    EmailsettingsListViewComponent,
     EmailsettingsListCustComponent,
+    EmailsettingsListGeneralComponent,
+    EmailsettingsListViewWidgetListComponent,
+    EmailsettingsListViewWidgetGridComponent,
+    EmailsettingsListViewWidgetTableComponent,
     EmailsettingsDetailCustComponent,
     EmailsettingsDetailComponent,
     EmailsettingsDetailFieldComponent,
@@ -128,29 +186,41 @@ import {
     EmailsettingsEditCustComponent,
     EmailqueueComponent,
     EmailqueueListComponent,
+    EmailqueueListViewComponent,
     EmailqueueListCustComponent,
+    EmailqueueListGeneralComponent,
+    EmailqueueListViewWidgetListComponent,
+    EmailqueueListViewWidgetGridComponent,
+    EmailqueueListViewWidgetTableComponent,
     EmailqueueDetailCustComponent,
     EmailqueueDetailComponent,
     EmailqueueDetailFieldComponent,
     EmailqueueEditComponent,
     EmailqueueEditCustComponent,
+    EmailtemplateDetailSubComponent,
+    EmailqueueDetailSubComponent,
   ],
   exports: [
     EmailingComponent,
-    EmailtemplateListComponent,
+    EmailtemplateListGeneralComponent,
     EmailtemplateDetailComponent,
     EmailtemplateDetailFieldComponent,
     EmailtemplateEditComponent,
-    EmailsettingsListComponent,
+    EmailsettingsListGeneralComponent,
     EmailsettingsDetailComponent,
     EmailsettingsDetailFieldComponent,
     EmailsettingsEditComponent,
-    EmailqueueListComponent,
+    EmailqueueListGeneralComponent,
     EmailqueueDetailComponent,
     EmailqueueDetailFieldComponent,
     EmailqueueEditComponent,
+    EmailtemplateDetailSubComponent,
+    EmailqueueDetailSubComponent,
   ],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

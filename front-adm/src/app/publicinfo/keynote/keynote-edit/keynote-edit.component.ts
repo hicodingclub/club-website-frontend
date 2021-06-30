@@ -63,11 +63,7 @@ export class KeynoteEditComponent extends KeynoteEditCustComponent implements On
       'signaturePicture': 'Signature Picture',
       'tag': 'Tag',
     };
-    this.stringFields.push('title');
-    this.stringFields.push('subtitle');
-    this.stringFields.push('description');
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('tag');
+    this.stringFields = ['title', 'subtitle', 'description', 'signaturePicture', 'tag', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

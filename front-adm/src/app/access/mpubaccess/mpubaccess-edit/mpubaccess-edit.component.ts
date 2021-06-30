@@ -27,9 +27,6 @@ import {
 import {
   MpubaccessService
 } from '../mpubaccess.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-mpubaccess-edit',
   templateUrl: './mpubaccess-edit.component.html',
@@ -56,8 +53,8 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, mpubaccessService, injector, router, route, location);
+  constructor(public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(mpubaccessService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'group': 'Group',
@@ -65,7 +62,7 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['group', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

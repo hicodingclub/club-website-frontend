@@ -32,7 +32,7 @@ implements OnInit {
   // @Input() showFieldsStr: string;
   showFields: string[];
   constructor(public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, confirmationService, injector, router, route, location);
+    super(confirmationService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'name': 'Name',
@@ -42,13 +42,10 @@ implements OnInit {
       'confirmed': 'Confirmed',
       'createdAt': 'Created at',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('type');
+    this.stringFields = ['name', 'email', 'type', ];
     this.referenceFields = ['enrollment', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['confirmed', ];
-    this.ownSearchStringFields = ['type', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

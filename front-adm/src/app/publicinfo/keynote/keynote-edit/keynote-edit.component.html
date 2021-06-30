@@ -56,7 +56,7 @@
               <div class="form-check" [ngClass]="{'ng-valid': true} ">
                 <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -80,6 +80,10 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('title')">
@@ -128,7 +132,7 @@
               <div class="form-check" [ngClass]="{'ng-valid': true} ">
                 <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -152,11 +156,11 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>

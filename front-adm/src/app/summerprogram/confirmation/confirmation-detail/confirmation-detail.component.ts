@@ -25,9 +25,6 @@ import {
 import {
   ConfirmationService
 } from '../confirmation.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-confirmation-detail',
   templateUrl: './confirmation-detail.component.html',
@@ -39,11 +36,11 @@ export class ConfirmationDetailComponent extends ConfirmationDetailCustComponent
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, confirmationService, injector, router, route, location);
+  constructor(public confirmationService: ConfirmationService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(confirmationService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'name': 'Name',
@@ -53,13 +50,10 @@ export class ConfirmationDetailComponent extends ConfirmationDetailCustComponent
       'confirmed': 'Confirmed',
       'createdAt': 'Created at',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('type');
+    this.stringFields = ['name', 'email', 'type', ];
     this.referenceFields = ['enrollment', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['confirmed', ];
-    this.ownSearchStringFields = ['type', ];
   }
   ngOnInit() {
     super.ngOnInit();

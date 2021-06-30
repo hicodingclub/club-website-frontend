@@ -38,8 +38,7 @@ implements OnInit {
       'group': 'Group',
       'description': 'Description',
     };
-    this.stringFields.push('group');
-    this.stringFields.push('description');
+    this.stringFields = ['group', 'description', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

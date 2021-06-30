@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  MroleListComponent
-} from './mrole/mrole-list/mrole-list.component';
+  MroleListGeneralComponent
+} from './mrole/mrole-list/mrole-list-general.component';
 import {
   MroleDetailComponent
 } from './mrole/mrole-detail/mrole-detail.component';
@@ -9,8 +9,8 @@ import {
   MroleEditComponent
 } from './mrole/mrole-edit/mrole-edit.component';
 import {
-  MmoduleListComponent
-} from './mmodule/mmodule-list/mmodule-list.component';
+  MmoduleListGeneralComponent
+} from './mmodule/mmodule-list/mmodule-list-general.component';
 import {
   MmoduleDetailComponent
 } from './mmodule/mmodule-detail/mmodule-detail.component';
@@ -18,8 +18,8 @@ import {
   MmoduleEditComponent
 } from './mmodule/mmodule-edit/mmodule-edit.component';
 import {
-  MpermissionListComponent
-} from './mpermission/mpermission-list/mpermission-list.component';
+  MpermissionListGeneralComponent
+} from './mpermission/mpermission-list/mpermission-list-general.component';
 import {
   MpermissionDetailComponent
 } from './mpermission/mpermission-detail/mpermission-detail.component';
@@ -30,8 +30,8 @@ import {
   MpermissionListSubComponent
 } from './mpermission/mpermission-list/mpermission-list-sub.component';
 import {
-  MaccountListComponent
-} from './maccount/maccount-list/maccount-list.component';
+  MaccountListGeneralComponent
+} from './maccount/maccount-list/maccount-list-general.component';
 import {
   MaccountDetailComponent
 } from './maccount/maccount-detail/maccount-detail.component';
@@ -39,8 +39,8 @@ import {
   MaccountEditComponent
 } from './maccount/maccount-edit/maccount-edit.component';
 import {
-  MaccountroleListComponent
-} from './maccountrole/maccountrole-list/maccountrole-list.component';
+  MaccountroleListGeneralComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-general.component';
 import {
   MaccountroleDetailComponent
 } from './maccountrole/maccountrole-detail/maccountrole-detail.component';
@@ -94,7 +94,7 @@ const maccountDetailPath = [{
 }, ];
 export const mroleRoutingCorePath = [{
   path: 'list',
-  component: MroleListComponent,
+  component: MroleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -116,7 +116,7 @@ export const mroleRoutingCorePath = [{
 }];
 export const mmoduleRoutingCorePath = [{
   path: 'list',
-  component: MmoduleListComponent,
+  component: MmoduleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -138,7 +138,7 @@ export const mmoduleRoutingCorePath = [{
 }];
 export const mpermissionRoutingCorePath = [{
   path: 'list',
-  component: MpermissionListComponent,
+  component: MpermissionListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -159,7 +159,7 @@ export const mpermissionRoutingCorePath = [{
 }];
 export const maccountRoutingCorePath = [{
   path: 'list',
-  component: MaccountListComponent,
+  component: MaccountListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -181,7 +181,7 @@ export const maccountRoutingCorePath = [{
 }];
 export const maccountroleRoutingCorePath = [{
   path: 'list',
-  component: MaccountroleListComponent,
+  component: MaccountroleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

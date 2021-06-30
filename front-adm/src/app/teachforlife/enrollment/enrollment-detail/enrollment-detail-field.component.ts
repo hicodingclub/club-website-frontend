@@ -32,7 +32,7 @@ implements OnInit {
   // @Input() showFieldsStr: string;
   showFields: string[];
   constructor(public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, enrollmentService, injector, router, route, location);
+    super(enrollmentService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'name': 'Name',
@@ -46,12 +46,7 @@ implements OnInit {
       'createdAt': 'Created at',
     };
     this.enums['status'] = ['processing', 'paid', 'confirmed', 'cancelled', ];
-    this.stringFields.push('name');
-    this.stringFields.push('email');
-    this.stringFields.push('phoneNumber');
-    this.stringFields.push('status');
-    this.stringFields.push('notes');
-    this.stringFields.push('adminNotes');
+    this.stringFields = ['name', 'email', 'phoneNumber', 'status', 'notes', 'adminNotes', ];
     this.referenceFields = ['tutor', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['grade', ];

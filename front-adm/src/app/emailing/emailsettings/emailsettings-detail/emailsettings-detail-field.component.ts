@@ -38,8 +38,7 @@ implements OnInit {
       'settingName': 'Setting Name',
       'defaultSender': 'Default Sender Email Address',
     };
-    this.stringFields.push('settingName');
-    this.stringFields.push('defaultSender');
+    this.stringFields = ['settingName', 'defaultSender', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

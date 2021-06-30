@@ -1,21 +1,22 @@
 <div class="detail" *ngIf="detail">
-  <div *ngIf="!options['disableActionButtions']">
-    <div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" [routerLink]="[listRouterLink]" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
       <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
       <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
-      <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
-      <a *ngIf="!options['disableActionArchive']" routerLink="." class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
+      <button *ngIf="!options['disableActionDelete']" class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</button>
+      <button *ngIf="!options['disableActionArchive']" class="btn btn-outline-primary" (click)="onArchive(detail['_id'], null, detail['archived'])">
         <ng-template [ngIf]="!detail['archived']">Archive</ng-template>
         <ng-template [ngIf]="detail['archived']">Unarchive</ng-template>
-      </a>
+      </button>
+      <button *ngIf="!options['disableActionPrint']" class="btn btn-outline-primary" (click)="onPrint()">Print </button>
     </div>
   </div>
   <div class="card text-left transparent-border " [ngStyle]="style['card']">
     <div class="grid-fields">
       <div class="card-header grid-head" [ngStyle]="style['card-header']">
         <div *ngIf="fieldHasValue(detail['signaturePicture'])" class="grid-head-picture">
-          <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+          <lib-mdds-picture-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
         </div>
         <div class="ml-1">
           <h2>

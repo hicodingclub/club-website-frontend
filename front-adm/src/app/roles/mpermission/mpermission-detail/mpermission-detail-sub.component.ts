@@ -22,13 +22,13 @@ import {
 @Component({
   selector: 'app-mpermission-detail-sub',
   templateUrl: './mpermission-detail-sub.component.html',
-  styleUrls: ['./mpermission-detail.component.css']
+  styleUrls: ['./mpermission-detail.component.css', './mpermission-detail-sub.component.css']
 })
 export class MpermissionDetailSubComponent extends MpermissionDetailComponent
 implements OnInit {
   // @Input() inputData;
   constructor(public mpermissionService: MpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, mpermissionService, injector, router, route, location);
+    super(mpermissionService, injector, router, route, location);
   }
   ngOnInit() {
     if (!this.id) this.id = this.inputData;

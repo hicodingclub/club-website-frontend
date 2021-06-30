@@ -36,7 +36,7 @@ export class MfilegroupDetailComponent extends MfilegroupDetailCustComponent imp
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public mfilegroupService: MfilegroupService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -46,7 +46,7 @@ export class MfilegroupDetailComponent extends MfilegroupDetailCustComponent imp
       'name': 'Name',
       'createdAt': 'Created at',
     };
-    this.stringFields.push('name');
+    this.stringFields = ['name', ];
     this.dateFields = ['createdAt', ];
   }
   ngOnInit() {

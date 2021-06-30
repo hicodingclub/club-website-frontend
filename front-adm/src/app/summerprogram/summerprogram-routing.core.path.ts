@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  SpenrollmentListComponent
-} from './spenrollment/spenrollment-list/spenrollment-list.component';
+  SpenrollmentListGeneralComponent
+} from './spenrollment/spenrollment-list/spenrollment-list-general.component';
 import {
   SpenrollmentDetailComponent
 } from './spenrollment/spenrollment-detail/spenrollment-detail.component';
@@ -9,8 +9,8 @@ import {
   SpenrollmentEditComponent
 } from './spenrollment/spenrollment-edit/spenrollment-edit.component';
 import {
-  ConfirmationListComponent
-} from './confirmation/confirmation-list/confirmation-list.component';
+  ConfirmationListGeneralComponent
+} from './confirmation/confirmation-list/confirmation-list-general.component';
 import {
   ConfirmationDetailComponent
 } from './confirmation/confirmation-detail/confirmation-detail.component';
@@ -37,7 +37,7 @@ const spenrollmentDetailPath = [{
 }, ];
 export const spenrollmentRoutingCorePath = [{
   path: 'list',
-  component: SpenrollmentListComponent,
+  component: SpenrollmentListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -59,7 +59,7 @@ export const spenrollmentRoutingCorePath = [{
 }];
 export const confirmationRoutingCorePath = [{
   path: 'list',
-  component: ConfirmationListComponent,
+  component: ConfirmationListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

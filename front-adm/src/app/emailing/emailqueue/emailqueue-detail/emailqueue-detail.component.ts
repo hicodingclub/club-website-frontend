@@ -36,7 +36,7 @@ export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent imp
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public emailqueueService: EmailqueueService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -56,13 +56,7 @@ export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent imp
       'replacements': 'Replacements',
       'defaultReplacement': 'Default Replacement',
     };
-    this.stringFields.push('subject');
-    this.stringFields.push('from');
-    this.stringFields.push('to');
-    this.stringFields.push('result');
-    this.stringFields.push('content');
-    this.stringFields.push('replacements');
-    this.stringFields.push('defaultReplacement');
+    this.stringFields = ['subject', 'from', 'to', 'result', 'content', 'replacements', 'defaultReplacement', ];
     this.dateFields = ['createdAt', 'updatedAt', ];
     this.numberFields = ['number', 'sent', ];
   }

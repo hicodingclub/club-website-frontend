@@ -25,9 +25,6 @@ import {
 import {
   MpubaccessService
 } from '../mpubaccess.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-mpubaccess-detail',
   templateUrl: './mpubaccess-detail.component.html',
@@ -39,11 +36,11 @@ export class MpubaccessDetailComponent extends MpubaccessDetailCustComponent imp
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, mpubaccessService, injector, router, route, location);
+  constructor(public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(mpubaccessService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'group': 'Group',
@@ -51,7 +48,7 @@ export class MpubaccessDetailComponent extends MpubaccessDetailCustComponent imp
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['group', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

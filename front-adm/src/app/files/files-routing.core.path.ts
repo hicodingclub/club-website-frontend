@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  MfileListComponent
-} from './mfile/mfile-list/mfile-list.component';
+  MfileListGeneralComponent
+} from './mfile/mfile-list/mfile-list-general.component';
 import {
   MfileEditComponent
 } from './mfile/mfile-edit/mfile-edit.component';
@@ -9,8 +9,8 @@ import {
   MfileListSubComponent
 } from './mfile/mfile-list/mfile-list-sub.component';
 import {
-  MfilegroupListComponent
-} from './mfilegroup/mfilegroup-list/mfilegroup-list.component';
+  MfilegroupListGeneralComponent
+} from './mfilegroup/mfilegroup-list/mfilegroup-list-general.component';
 import {
   MfilegroupDetailComponent
 } from './mfilegroup/mfilegroup-detail/mfilegroup-detail.component';
@@ -34,7 +34,7 @@ const mfilegroupDetailPath = [{
 }, ];
 export const mfileRoutingCorePath = [{
   path: 'list',
-  component: MfileListComponent,
+  component: MfileListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'edit/:id',
@@ -47,7 +47,7 @@ export const mfileRoutingCorePath = [{
 }];
 export const mfilegroupRoutingCorePath = [{
   path: 'list',
-  component: MfilegroupListComponent,
+  component: MfilegroupListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

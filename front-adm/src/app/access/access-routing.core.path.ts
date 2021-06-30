@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  MusergroupListComponent
-} from './musergroup/musergroup-list/musergroup-list.component';
+  MusergroupListGeneralComponent
+} from './musergroup/musergroup-list/musergroup-list-general.component';
 import {
   MusergroupDetailComponent
 } from './musergroup/musergroup-detail/musergroup-detail.component';
@@ -9,8 +9,8 @@ import {
   MusergroupEditComponent
 } from './musergroup/musergroup-edit/musergroup-edit.component';
 import {
-  MpubmoduleListComponent
-} from './mpubmodule/mpubmodule-list/mpubmodule-list.component';
+  MpubmoduleListGeneralComponent
+} from './mpubmodule/mpubmodule-list/mpubmodule-list-general.component';
 import {
   MpubmoduleDetailComponent
 } from './mpubmodule/mpubmodule-detail/mpubmodule-detail.component';
@@ -18,8 +18,8 @@ import {
   MpubmoduleEditComponent
 } from './mpubmodule/mpubmodule-edit/mpubmodule-edit.component';
 import {
-  MpubaccessListComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list.component';
+  MpubaccessListGeneralComponent
+} from './mpubaccess/mpubaccess-list/mpubaccess-list-general.component';
 import {
   MpubaccessDetailComponent
 } from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
@@ -54,7 +54,7 @@ const mpubmoduleDetailPath = [{
 }, ];
 export const musergroupRoutingCorePath = [{
   path: 'list',
-  component: MusergroupListComponent,
+  component: MusergroupListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -76,7 +76,7 @@ export const musergroupRoutingCorePath = [{
 }];
 export const mpubmoduleRoutingCorePath = [{
   path: 'list',
-  component: MpubmoduleListComponent,
+  component: MpubmoduleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -98,7 +98,7 @@ export const mpubmoduleRoutingCorePath = [{
 }];
 export const mpubaccessRoutingCorePath = [{
   path: 'list',
-  component: MpubaccessListComponent,
+  component: MpubaccessListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

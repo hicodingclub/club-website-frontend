@@ -64,10 +64,7 @@ export class AlertEditComponent extends AlertEditCustComponent implements OnInit
       'show': 'Show',
       'order': 'Order',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('description');
-    this.stringFields.push('linkName');
-    this.stringFields.push('linkURL');
+    this.stringFields = ['name', 'description', 'linkName', 'linkURL', ];
     this.numberFields = ['order', ];
     this.textareaFields = ['description', ];
     const detail = {};

@@ -36,7 +36,7 @@ export class KeynoteDetailComponent extends KeynoteDetailCustComponent implement
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public keynoteService: KeynoteService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -48,10 +48,7 @@ export class KeynoteDetailComponent extends KeynoteDetailCustComponent implement
       'subtitle': 'Subtitle',
       'description': 'Description',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('subtitle');
-    this.stringFields.push('description');
+    this.stringFields = ['signaturePicture', 'title', 'subtitle', 'description', ];
   }
   ngOnInit() {
     super.ngOnInit();

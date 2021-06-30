@@ -67,14 +67,7 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
       'password': 'Password',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
-    this.stringFields.push('username');
-    this.stringFields.push('email');
-    this.stringFields.push('phone');
-    this.stringFields.push('firstname');
-    this.stringFields.push('lastname');
-    this.stringFields.push('regtype');
-    this.stringFields.push('status');
-    this.stringFields.push('password');
+    this.stringFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'regtype', 'status', 'password', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

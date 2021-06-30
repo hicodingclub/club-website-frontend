@@ -22,13 +22,13 @@ import {
 @Component({
   selector: 'app-enrollment-detail-sub',
   templateUrl: './enrollment-detail-sub.component.html',
-  styleUrls: ['./enrollment-detail.component.css']
+  styleUrls: ['./enrollment-detail.component.css', './enrollment-detail-sub.component.css']
 })
 export class EnrollmentDetailSubComponent extends EnrollmentDetailComponent
 implements OnInit {
   // @Input() inputData;
   constructor(public enrollmentService: EnrollmentService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, enrollmentService, injector, router, route, location);
+    super(enrollmentService, injector, router, route, location);
   }
   ngOnInit() {
     if (!this.id) this.id = this.inputData;

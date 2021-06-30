@@ -27,9 +27,6 @@ import {
 import {
   MaccountroleService
 } from '../maccountrole.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-maccountrole-edit',
   templateUrl: './maccountrole-edit.component.html',
@@ -56,8 +53,8 @@ export class MaccountroleEditComponent extends MaccountroleEditCustComponent imp
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public maccountroleService: MaccountroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, maccountroleService, injector, router, route, location);
+  constructor(public maccountroleService: MaccountroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(maccountroleService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'account': 'Account',
@@ -65,7 +62,10 @@ export class MaccountroleEditComponent extends MaccountroleEditCustComponent imp
     };
     this.referenceFields = ['account', ];
     this.arrayFields = [
-      ['role', 'ObjectId'],
+      ['role', 'ObjectId', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.referenceFieldsMap['role'] = 'mrole';
     this.referenceFieldsReverseMap['mrole'] = 'role';

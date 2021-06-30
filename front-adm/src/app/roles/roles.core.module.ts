@@ -9,17 +9,15 @@ import {
 } from '@angular/forms';
 import {
   NgbModule,
-  NgbDateParserFormatter
+  NgbDateParserFormatter,
 } from '@ng-bootstrap/ng-bootstrap';
 import {
-  MraNgbDateFormatterService
-} from './roles.directive';
-import {
-  ActionEmailModule
-} from '@hicoder/angular-action-email';
-import {
-  MddsCoreModule
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService,
 } from '@hicoder/angular-core';
+import {
+  ActionEmailModule,
+} from '@hicoder/angular-action-email';
 import {
   RolesRoutingCoreModule
 } from './roles-routing.core.module';
@@ -37,8 +35,26 @@ import {
   MroleListComponent
 } from './mrole/mrole-list/mrole-list.component';
 import {
+  MroleListViewComponent
+} from './mrole/mrole-list/mrole-list-view.component';
+import {
   MroleListCustComponent
 } from '../roles-cust/base/mrole/mrole-list.cust.component';
+import {
+  MroleListGeneralComponent
+} from './mrole/mrole-list/mrole-list-general.component';
+import {
+  MroleListSelectComponent
+} from './mrole/mrole-list/mrole-list-select.component';
+import {
+  MroleListViewWidgetListComponent
+} from './mrole/mrole-list/mrole-list-view-widget-list.component';
+import {
+  MroleListViewWidgetGridComponent
+} from './mrole/mrole-list/mrole-list-view-widget-grid.component';
+import {
+  MroleListViewWidgetTableComponent
+} from './mrole/mrole-list/mrole-list-view-widget-table.component';
 import {
   MroleDetailComponent
 } from './mrole/mrole-detail/mrole-detail.component';
@@ -61,8 +77,26 @@ import {
   MmoduleListComponent
 } from './mmodule/mmodule-list/mmodule-list.component';
 import {
+  MmoduleListViewComponent
+} from './mmodule/mmodule-list/mmodule-list-view.component';
+import {
   MmoduleListCustComponent
 } from '../roles-cust/base/mmodule/mmodule-list.cust.component';
+import {
+  MmoduleListGeneralComponent
+} from './mmodule/mmodule-list/mmodule-list-general.component';
+import {
+  MmoduleListSelectComponent
+} from './mmodule/mmodule-list/mmodule-list-select.component';
+import {
+  MmoduleListViewWidgetListComponent
+} from './mmodule/mmodule-list/mmodule-list-view-widget-list.component';
+import {
+  MmoduleListViewWidgetGridComponent
+} from './mmodule/mmodule-list/mmodule-list-view-widget-grid.component';
+import {
+  MmoduleListViewWidgetTableComponent
+} from './mmodule/mmodule-list/mmodule-list-view-widget-table.component';
 import {
   MmoduleDetailComponent
 } from './mmodule/mmodule-detail/mmodule-detail.component';
@@ -85,8 +119,26 @@ import {
   MpermissionListComponent
 } from './mpermission/mpermission-list/mpermission-list.component';
 import {
+  MpermissionListViewComponent
+} from './mpermission/mpermission-list/mpermission-list-view.component';
+import {
   MpermissionListCustComponent
 } from '../roles-cust/base/mpermission/mpermission-list.cust.component';
+import {
+  MpermissionListGeneralComponent
+} from './mpermission/mpermission-list/mpermission-list-general.component';
+import {
+  MpermissionListSubComponent
+} from './mpermission/mpermission-list/mpermission-list-sub.component';
+import {
+  MpermissionListViewWidgetListComponent
+} from './mpermission/mpermission-list/mpermission-list-view-widget-list.component';
+import {
+  MpermissionListViewWidgetGridComponent
+} from './mpermission/mpermission-list/mpermission-list-view-widget-grid.component';
+import {
+  MpermissionListViewWidgetTableComponent
+} from './mpermission/mpermission-list/mpermission-list-view-widget-table.component';
 import {
   MpermissionDetailComponent
 } from './mpermission/mpermission-detail/mpermission-detail.component';
@@ -109,8 +161,26 @@ import {
   MaccountListComponent
 } from './maccount/maccount-list/maccount-list.component';
 import {
+  MaccountListViewComponent
+} from './maccount/maccount-list/maccount-list-view.component';
+import {
   MaccountListCustComponent
 } from '../roles-cust/base/maccount/maccount-list.cust.component';
+import {
+  MaccountListGeneralComponent
+} from './maccount/maccount-list/maccount-list-general.component';
+import {
+  MaccountListSelectComponent
+} from './maccount/maccount-list/maccount-list-select.component';
+import {
+  MaccountListViewWidgetListComponent
+} from './maccount/maccount-list/maccount-list-view-widget-list.component';
+import {
+  MaccountListViewWidgetGridComponent
+} from './maccount/maccount-list/maccount-list-view-widget-grid.component';
+import {
+  MaccountListViewWidgetTableComponent
+} from './maccount/maccount-list/maccount-list-view-widget-table.component';
 import {
   MaccountDetailComponent
 } from './maccount/maccount-detail/maccount-detail.component';
@@ -133,8 +203,26 @@ import {
   MaccountroleListComponent
 } from './maccountrole/maccountrole-list/maccountrole-list.component';
 import {
+  MaccountroleListViewComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-view.component';
+import {
   MaccountroleListCustComponent
 } from '../roles-cust/base/maccountrole/maccountrole-list.cust.component';
+import {
+  MaccountroleListGeneralComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-general.component';
+import {
+  MaccountroleListSubComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-sub.component';
+import {
+  MaccountroleListViewWidgetListComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-view-widget-list.component';
+import {
+  MaccountroleListViewWidgetGridComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-view-widget-grid.component';
+import {
+  MaccountroleListViewWidgetTableComponent
+} from './maccountrole/maccountrole-list/maccountrole-list-view-widget-table.component';
 import {
   MaccountroleDetailComponent
 } from './maccountrole/maccountrole-detail/maccountrole-detail.component';
@@ -151,17 +239,11 @@ import {
   MaccountroleEditCustComponent
 } from '../roles-cust/base/maccountrole/maccountrole-edit.cust.component';
 import {
-  MroleListSelectComponent
-} from './mrole/mrole-list/mrole-list-select.component';
-import {
   MroleDetailPopComponent
 } from './mrole/mrole-detail/mrole-detail-pop.component';
 import {
   MroleDetailSelComponent
 } from './mrole/mrole-detail/mrole-detail-sel.component';
-import {
-  MmoduleListSelectComponent
-} from './mmodule/mmodule-list/mmodule-list-select.component';
 import {
   MmoduleDetailPopComponent
 } from './mmodule/mmodule-detail/mmodule-detail-pop.component';
@@ -169,32 +251,19 @@ import {
   MmoduleDetailSelComponent
 } from './mmodule/mmodule-detail/mmodule-detail-sel.component';
 import {
-  MaccountListSelectComponent
-} from './maccount/maccount-list/maccount-list-select.component';
-import {
   MaccountDetailPopComponent
 } from './maccount/maccount-detail/maccount-detail-pop.component';
 import {
   MaccountDetailSelComponent
 } from './maccount/maccount-detail/maccount-detail-sel.component';
 import {
-  MpermissionListSubComponent
-} from './mpermission/mpermission-list/mpermission-list-sub.component';
-import {
   MpermissionDetailSubComponent
 } from './mpermission/mpermission-detail/mpermission-detail-sub.component';
-import {
-  MaccountroleListSubComponent
-} from './maccountrole/maccountrole-list/maccountrole-list-sub.component';
-import {
-  MaccountroleDetailSubComponent
-} from './maccountrole/maccountrole-detail/maccountrole-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgbModule,
-    MddsCoreModule,
     ActionEmailModule,
     RolesRoutingCoreModule,
   ],
@@ -203,7 +272,13 @@ import {
     RolesRefSelectDirective,
     MroleComponent,
     MroleListComponent,
+    MroleListViewComponent,
     MroleListCustComponent,
+    MroleListGeneralComponent,
+    MroleListSelectComponent,
+    MroleListViewWidgetListComponent,
+    MroleListViewWidgetGridComponent,
+    MroleListViewWidgetTableComponent,
     MroleDetailCustComponent,
     MroleDetailComponent,
     MroleDetailFieldComponent,
@@ -211,7 +286,13 @@ import {
     MroleEditCustComponent,
     MmoduleComponent,
     MmoduleListComponent,
+    MmoduleListViewComponent,
     MmoduleListCustComponent,
+    MmoduleListGeneralComponent,
+    MmoduleListSelectComponent,
+    MmoduleListViewWidgetListComponent,
+    MmoduleListViewWidgetGridComponent,
+    MmoduleListViewWidgetTableComponent,
     MmoduleDetailCustComponent,
     MmoduleDetailComponent,
     MmoduleDetailFieldComponent,
@@ -219,7 +300,13 @@ import {
     MmoduleEditCustComponent,
     MpermissionComponent,
     MpermissionListComponent,
+    MpermissionListViewComponent,
     MpermissionListCustComponent,
+    MpermissionListGeneralComponent,
+    MpermissionListSubComponent,
+    MpermissionListViewWidgetListComponent,
+    MpermissionListViewWidgetGridComponent,
+    MpermissionListViewWidgetTableComponent,
     MpermissionDetailCustComponent,
     MpermissionDetailComponent,
     MpermissionDetailFieldComponent,
@@ -227,7 +314,13 @@ import {
     MpermissionEditCustComponent,
     MaccountComponent,
     MaccountListComponent,
+    MaccountListViewComponent,
     MaccountListCustComponent,
+    MaccountListGeneralComponent,
+    MaccountListSelectComponent,
+    MaccountListViewWidgetListComponent,
+    MaccountListViewWidgetGridComponent,
+    MaccountListViewWidgetTableComponent,
     MaccountDetailCustComponent,
     MaccountDetailComponent,
     MaccountDetailFieldComponent,
@@ -235,63 +328,65 @@ import {
     MaccountEditCustComponent,
     MaccountroleComponent,
     MaccountroleListComponent,
+    MaccountroleListViewComponent,
     MaccountroleListCustComponent,
+    MaccountroleListGeneralComponent,
+    MaccountroleListSubComponent,
+    MaccountroleListViewWidgetListComponent,
+    MaccountroleListViewWidgetGridComponent,
+    MaccountroleListViewWidgetTableComponent,
     MaccountroleDetailCustComponent,
     MaccountroleDetailComponent,
     MaccountroleDetailFieldComponent,
     MaccountroleEditComponent,
     MaccountroleEditCustComponent,
-    MroleListSelectComponent,
     MroleDetailPopComponent,
     MroleDetailSelComponent,
-    MmoduleListSelectComponent,
     MmoduleDetailPopComponent,
     MmoduleDetailSelComponent,
-    MaccountListSelectComponent,
     MaccountDetailPopComponent,
     MaccountDetailSelComponent,
-    MpermissionListSubComponent,
     MpermissionDetailSubComponent,
-    MaccountroleListSubComponent,
-    MaccountroleDetailSubComponent,
   ],
   exports: [
     RolesComponent,
-    MroleListComponent,
+    MroleListGeneralComponent,
+    MroleListSelectComponent,
     MroleDetailComponent,
     MroleDetailFieldComponent,
     MroleEditComponent,
-    MmoduleListComponent,
+    MmoduleListGeneralComponent,
+    MmoduleListSelectComponent,
     MmoduleDetailComponent,
     MmoduleDetailFieldComponent,
     MmoduleEditComponent,
-    MpermissionListComponent,
+    MpermissionListGeneralComponent,
+    MpermissionListSubComponent,
     MpermissionDetailComponent,
     MpermissionDetailFieldComponent,
     MpermissionEditComponent,
-    MaccountListComponent,
+    MaccountListGeneralComponent,
+    MaccountListSelectComponent,
     MaccountDetailComponent,
     MaccountDetailFieldComponent,
     MaccountEditComponent,
-    MaccountroleListComponent,
+    MaccountroleListGeneralComponent,
+    MaccountroleListSubComponent,
     MaccountroleDetailComponent,
     MaccountroleDetailFieldComponent,
     MaccountroleEditComponent,
-    MroleListSelectComponent,
     MroleDetailPopComponent,
     MroleDetailSelComponent,
-    MmoduleListSelectComponent,
     MmoduleDetailPopComponent,
     MmoduleDetailSelComponent,
-    MaccountListSelectComponent,
     MaccountDetailPopComponent,
     MaccountDetailSelComponent,
-    MpermissionListSubComponent,
     MpermissionDetailSubComponent,
-    MaccountroleListSubComponent,
-    MaccountroleDetailSubComponent,
   ],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

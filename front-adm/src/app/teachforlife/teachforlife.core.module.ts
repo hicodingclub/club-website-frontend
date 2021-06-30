@@ -8,24 +8,20 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
+  MddsCoreModule,
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService,
+} from '@hicoder/angular-core';
+import {
   NgbModule,
-  NgbDateParserFormatter
+  NgbDateParserFormatter,
 } from '@ng-bootstrap/ng-bootstrap';
 import {
-  MraNgbDateFormatterService
-} from './teachforlife.directive';
-import {
-  DirectiveTeachforlifeArrayRequired
-} from './teachforlife.directive';
-import {
-  FileUploadModule
+  FilesModule,
 } from '@hicoder/angular-file';
 import {
-  ActionEmailModule
+  ActionEmailModule,
 } from '@hicoder/angular-action-email';
-import {
-  MddsCoreModule
-} from '@hicoder/angular-core';
 import {
   TeachforlifeRoutingCoreModule
 } from './teachforlife-routing.core.module';
@@ -43,8 +39,26 @@ import {
   TutorListComponent
 } from './tutor/tutor-list/tutor-list.component';
 import {
+  TutorListViewComponent
+} from './tutor/tutor-list/tutor-list-view.component';
+import {
   TutorListCustComponent
 } from '../teachforlife-cust/base/tutor/tutor-list.cust.component';
+import {
+  TutorListGeneralComponent
+} from './tutor/tutor-list/tutor-list-general.component';
+import {
+  TutorListSelectComponent
+} from './tutor/tutor-list/tutor-list-select.component';
+import {
+  TutorListViewWidgetListComponent
+} from './tutor/tutor-list/tutor-list-view-widget-list.component';
+import {
+  TutorListViewWidgetGridComponent
+} from './tutor/tutor-list/tutor-list-view-widget-grid.component';
+import {
+  TutorListViewWidgetTableComponent
+} from './tutor/tutor-list/tutor-list-view-widget-table.component';
 import {
   TutorDetailComponent
 } from './tutor/tutor-detail/tutor-detail.component';
@@ -67,8 +81,26 @@ import {
   EnrollmentListComponent
 } from './enrollment/enrollment-list/enrollment-list.component';
 import {
+  EnrollmentListViewComponent
+} from './enrollment/enrollment-list/enrollment-list-view.component';
+import {
   EnrollmentListCustComponent
 } from '../teachforlife-cust/base/enrollment/enrollment-list.cust.component';
+import {
+  EnrollmentListGeneralComponent
+} from './enrollment/enrollment-list/enrollment-list-general.component';
+import {
+  EnrollmentListSubComponent
+} from './enrollment/enrollment-list/enrollment-list-sub.component';
+import {
+  EnrollmentListViewWidgetListComponent
+} from './enrollment/enrollment-list/enrollment-list-view-widget-list.component';
+import {
+  EnrollmentListViewWidgetGridComponent
+} from './enrollment/enrollment-list/enrollment-list-view-widget-grid.component';
+import {
+  EnrollmentListViewWidgetTableComponent
+} from './enrollment/enrollment-list/enrollment-list-view-widget-table.component';
 import {
   EnrollmentDetailComponent
 } from './enrollment/enrollment-detail/enrollment-detail.component';
@@ -85,17 +117,14 @@ import {
   EnrollmentEditCustComponent
 } from '../teachforlife-cust/base/enrollment/enrollment-edit.cust.component';
 import {
-  TutorListSelectComponent
-} from './tutor/tutor-list/tutor-list-select.component';
-import {
   TutorDetailPopComponent
 } from './tutor/tutor-detail/tutor-detail-pop.component';
 import {
   TutorDetailSelComponent
 } from './tutor/tutor-detail/tutor-detail-sel.component';
 import {
-  EnrollmentListSubComponent
-} from './enrollment/enrollment-list/enrollment-list-sub.component';
+  TutorDetailSubComponent
+} from './tutor/tutor-detail/tutor-detail-sub.component';
 import {
   EnrollmentDetailSubComponent
 } from './enrollment/enrollment-detail/enrollment-detail-sub.component';
@@ -109,9 +138,9 @@ import {
   imports: [
     CommonModule,
     FormsModule,
-    NgbModule,
     MddsCoreModule,
-    FileUploadModule,
+    NgbModule,
+    FilesModule,
     ActionEmailModule,
     TeachforlifeRoutingCoreModule,
   ],
@@ -120,7 +149,13 @@ import {
     TeachforlifeRefSelectDirective,
     TutorComponent,
     TutorListComponent,
+    TutorListViewComponent,
     TutorListCustComponent,
+    TutorListGeneralComponent,
+    TutorListSelectComponent,
+    TutorListViewWidgetListComponent,
+    TutorListViewWidgetGridComponent,
+    TutorListViewWidgetTableComponent,
     TutorDetailCustComponent,
     TutorDetailComponent,
     TutorDetailFieldComponent,
@@ -128,41 +163,48 @@ import {
     TutorEditCustComponent,
     EnrollmentComponent,
     EnrollmentListComponent,
+    EnrollmentListViewComponent,
     EnrollmentListCustComponent,
+    EnrollmentListGeneralComponent,
+    EnrollmentListSubComponent,
+    EnrollmentListViewWidgetListComponent,
+    EnrollmentListViewWidgetGridComponent,
+    EnrollmentListViewWidgetTableComponent,
     EnrollmentDetailCustComponent,
     EnrollmentDetailComponent,
     EnrollmentDetailFieldComponent,
     EnrollmentEditComponent,
     EnrollmentEditCustComponent,
-    TutorListSelectComponent,
     TutorDetailPopComponent,
     TutorDetailSelComponent,
-    EnrollmentListSubComponent,
+    TutorDetailSubComponent,
     EnrollmentDetailSubComponent,
     TeachforlifeTutorDirectiveEmail,
     TeachforlifeTutorDirectivePhoneNumber,
-    DirectiveTeachforlifeArrayRequired,
   ],
   exports: [
     TeachforlifeComponent,
-    TutorListComponent,
+    TutorListGeneralComponent,
+    TutorListSelectComponent,
     TutorDetailComponent,
     TutorDetailFieldComponent,
     TutorEditComponent,
-    EnrollmentListComponent,
+    EnrollmentListGeneralComponent,
+    EnrollmentListSubComponent,
     EnrollmentDetailComponent,
     EnrollmentDetailFieldComponent,
     EnrollmentEditComponent,
-    TutorListSelectComponent,
     TutorDetailPopComponent,
     TutorDetailSelComponent,
-    EnrollmentListSubComponent,
+    TutorDetailSubComponent,
     EnrollmentDetailSubComponent,
     TeachforlifeTutorDirectiveEmail,
     TeachforlifeTutorDirectivePhoneNumber,
-    DirectiveTeachforlifeArrayRequired,
   ],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

@@ -36,7 +36,7 @@ export class ArticleDetailComponent extends ArticleDetailCustComponent implement
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public articleService: ArticleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -49,10 +49,7 @@ export class ArticleDetailComponent extends ArticleDetailCustComponent implement
       'publishDate': 'Publish Date',
       'content': 'Content',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
+    this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
   }
   ngOnInit() {

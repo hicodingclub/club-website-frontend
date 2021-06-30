@@ -36,7 +36,7 @@ export class MusergroupDetailComponent extends MusergroupDetailCustComponent imp
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public musergroupService: MusergroupService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -46,8 +46,7 @@ export class MusergroupDetailComponent extends MusergroupDetailCustComponent imp
       'group': 'Group',
       'description': 'Description',
     };
-    this.stringFields.push('group');
-    this.stringFields.push('description');
+    this.stringFields = ['group', 'description', ];
   }
   ngOnInit() {
     super.ngOnInit();

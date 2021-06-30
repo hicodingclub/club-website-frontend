@@ -28,23 +28,14 @@ import {
   ViewChild
 } from '@angular/core';
 import {
-  ComponentFactoryResolver
-} from '@angular/core';
-import {
   AccessRefSelectDirective
 } from '../access.component';
-import {
-  MusergroupDetailSelComponent
-} from '../musergroup/musergroup-detail/musergroup-detail-sel.component';
 import {
   MusergroupDetailPopComponent
 } from '../musergroup/musergroup-detail/musergroup-detail-pop.component';
 import {
   MusergroupListSelectComponent
 } from '../musergroup/musergroup-list/musergroup-list-select.component';
-import {
-  MpubmoduleDetailSelComponent
-} from '../mpubmodule/mpubmodule-detail/mpubmodule-detail-sel.component';
 import {
   MpubmoduleDetailPopComponent
 } from '../mpubmodule/mpubmodule-detail/mpubmodule-detail-pop.component';
@@ -62,6 +53,8 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
   public options: any; // {} uiOptions
   @Input()
   public searchObj: any;
+  @Input()
+  public snackbarMessages: any = {}; // keys: edit, create, list, detail, delete, deleteMany TODO: archive, unarchive
   // *** list component
   @Input()
   public inputData: any;
@@ -69,6 +62,10 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
   public queryParams: any; // {listSortField: 'a', listSortOrder: 'asc' / 'desc', perPage: 6}
   @Input()
   public categoryBy: string; //field name whose value is used as category
+  @Input()
+  public listViews: string[] = [];
+  @Input()
+  public viewInputs: any = {};
   // list-asso component
   @Input('asso') public associationField: string;
   // list select component
@@ -92,9 +89,11 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
   // @Input() 
   // public id:string;
   @Input()
-  public disableActionButtions: boolean;
+  public disableActionButtons: boolean;
   @Output()
   public eventEmitter: EventEmitter < any > = new EventEmitter();
+  @Input()
+  public listRouterLink: string = '../../list'; // router link from detail to list
   // detail sub component
   // @Input() inputData;
   // detail show field component
@@ -110,13 +109,11 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
   public selectComponents = {
     'group': {
       'select-type': MusergroupListSelectComponent,
-      'select-detail-type': MusergroupDetailSelComponent,
       'pop-detail-type': MusergroupDetailPopComponent,
       'componentRef': null
     },
     'module': {
       'select-type': MpubmoduleListSelectComponent,
-      'select-detail-type': MpubmoduleDetailSelComponent,
       'pop-detail-type': MpubmoduleDetailPopComponent,
       'componentRef': null
     },
@@ -124,13 +121,14 @@ export class MpubaccessComponent extends MddsBaseComponent implements OnInit {
   @ViewChild(AccessRefSelectDirective, {
     static: true
   }) refSelectDirective: AccessRefSelectDirective;
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+  constructor(public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mpubaccessService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['group', 'Group']);
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+    this.briefFieldsInfo = [
+      ['group', 'Group'],
+      ['module', 'Module'],
+      ['modulePermission', 'Module Permission'],
+    ];
     this.referenceFieldsMap = {
       'group': 'musergroup',
       'module': 'mpubmodule',

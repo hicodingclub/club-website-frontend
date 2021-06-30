@@ -1,0 +1,60 @@
+<div class="gridview">
+  <div class="grid-block" *ngFor="let detail of list;  let i = index; let list_index = index;">
+    <div class="card text-left clickable-card h-100" [ngClass]="{'clicked-row': clickedId==detail['_id'],
+                        'selected-row': clickItemAction === 'select' && checkedItem[i]}">
+      <div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
+        <div class="card-header grid-head">
+          <div>
+            <h5>
+              <div class="mr-1 d-inline-block">
+                {{detail['email']}}
+              </div>
+            </h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngIf="fieldHasValue(detail['name'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Name:</label></div>
+            <div>
+              {{detail['name']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['type'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Type:</label></div>
+            <div>
+              {{detail['type']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['enrollment'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Enrollment:</label></div>
+            <div>
+              <a routerLink="." (click)="onDisplayRefClicked('enrollment', detail['enrollment'], $event)">
+                {{detail['enrollment']?detail['enrollment']['valueMedium']:""}}
+              </a></div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['confirmed'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Confirmed:</label></div>
+            <div>
+              {{detail['confirmed']}}</div>
+          </div>
+          <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
+            <div class="mr-3"><label>Created at:</label></div>
+            <div> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-action-links ml-3">
+        <div *ngIf="cardHasSelect">
+          <span class="read-more color-success font-size-75 mt-3" (click)="selectItemSelected(i)">Select <i class="far fa-hand-pointer"></i></span>
+        </div>
+      </div>
+      <div class="card-action-icons-container">
+        <div class="card-action-icons">
+          <a *ngIf="canUpdate" [routerLink]="['.']" queryParamsHandling="preserve" (click)="onEdit(detail._id)"><i class="fas fa-edit" title="Edit"></i></a>
+          <a *ngIf="canDelete" routerLink="." (click)="onDelete(detail['_id'], i)"><i class="fas fa-trash-alt" title="Delete"></i></a>
+          <input *ngIf="canCheck" class="list-check-box" type="checkbox" [ngModel]="checkedItem[i]" (click)="selectOneItem(i)" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <i aria-hidden="true" class="grid-block"></i>
+  <i aria-hidden="true" class="grid-block"></i>
+</div>

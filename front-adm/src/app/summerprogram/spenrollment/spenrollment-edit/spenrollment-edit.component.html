@@ -48,7 +48,7 @@
                 </div>
               </div>
               <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> PhoneNumber is required. </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> Phone Number is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -116,6 +116,10 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
         <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
           <ng-template [ngIf]="!hiddenFields.includes('name')">
@@ -156,7 +160,7 @@
                 </div>
               </div>
               <div [hidden]="EditPhoneNumber.valid || EditPhoneNumber.pristine || EditPhoneNumber.errors.minlength" class="alert alert-danger">
-                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> PhoneNumber is required. </div>
+                <div *ngIf="EditPhoneNumber.errors && EditPhoneNumber.errors.required"> Phone Number is required. </div>
               </div>
             </fieldset>
           </ng-template>
@@ -226,11 +230,11 @@
               </div>
             </fieldset>
           </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
         </ng-template>
-        <div class="action-buttons-center">
-          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
-          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
-        </div>
       </form>
     </div>
   </div>
