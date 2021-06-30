@@ -1,9 +1,16 @@
 
+<div class="mt-4 mb-4 d-flex">
+
+
+</div>
 
 
 <ul *ngIf="listCategory1.listCategoryField" class="nav nav-pills category-nav">
 	<li *ngFor="let ele of categoryDisplays; let idx = index;" class="nav-item" >
-		<a class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" [queryParamsHandling]="'preserve'" (click)="categorySelected(idx)">{{ele}}</a>
+		<a *ngIf=" listCategory1.showEmptyCategory || (!listCategory1.showEmptyCategory && categoriesCounts[idx] > 0)"
+			class="nav-link" [ngClass]="{'active': idx === selectedCategory }" [routerLink]="['.']" queryParamsHandling="preserve" (click)="categorySelected(idx)">
+				{{ele}} <span *ngIf="listCategory1.showCategoryCounts">({{categoriesCounts[idx]}})</span>
+		</a>
 	</li>
 </ul>
 
@@ -13,12 +20,11 @@
 		<div class="row">
 			<div class="col-9">
 
-
 			    <div class="input-group">
 	              <input type="search" class="form-control border border-secondary" id="muserTextSearch" 
 						#muserTextSearch [(ngModel)]="searchText"
-						(keyup.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for username, email, phone, status"> 
+						(keydown.enter)="$event.target.blur();searchList();false"
+					    placeholder="Search for username, email, phone, firstname, lastname, status"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -29,7 +35,6 @@
 				  </div>
 				</div>
 			
-
 				<div class="text-center">
                     <span  class="pointer" (click)="toggleMoreSearch()">
                         <span class="refine-search-text">Refine Search &nbsp;</span>
@@ -90,10 +95,12 @@
       
  
 
-						  <div class="action-buttons" style="margin-top: 10px;">
-								<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
-								<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
-						  </div>
+
+
+							<div class="action-buttons" style="margin-top: 10px;">
+									<button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
+									<button type="button" class="btn btn-success" (click)="searchList()">Search</button>
+							</div>
 						</div>
 					</div>
 		        </div>
@@ -104,9 +111,8 @@
 					</span>
 				</div>
 		    
-			
 
-		    </div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col">
@@ -114,6 +120,7 @@
 					<lib-mdds-action-email *ngIf="emailFields.length > 0" [emailFields]="emailFields" (componentEvents)="onActionBaseEvent($event)"></lib-mdds-action-email>
 
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
+					
 					
 				</div>
 			</div>
@@ -137,6 +144,10 @@
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('email', 'Email', 'desc')">Email<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('phone', 'Phone', 'asc')">Phone<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('phone', 'Phone', 'desc')">Phone<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstname', 'Firstname', 'asc')">Firstname<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstname', 'Firstname', 'desc')">Firstname<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastname', 'Lastname', 'asc')">Lastname<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastname', 'Lastname', 'desc')">Lastname<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('since', 'Since', 'asc')">Since<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('since', 'Since', 'desc')">Since<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'asc')">Status<i class="fas fa-arrow-up"></i></a>
@@ -219,37 +230,51 @@
 				[ngClass]="{'clicked-row': clickedId==detail['_id']}" >
 				<div class="list-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
-      <div class="list-body-fields ml-1 d-inline-block">
+      <div class="list-body-fields">
         <h5>
           <div class="mr-1 d-inline-block">
-                            
+            
                     {{detail['username']}}
 
           </div>
         </h5>
         <div *ngIf="detail['email']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Email:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['email']}}
 
           </div>
         </div>
         <div *ngIf="detail['phone']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Phone:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['phone']}}
+
+          </div>
+        </div>
+        <div *ngIf="detail['firstname']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Firstname:</label></div>
+          <div class="ml-3">
+                    {{detail['firstname']}}
+
+          </div>
+        </div>
+        <div *ngIf="detail['lastname']" class="mr-3 d-inline-flex flex-wrap">
+          <div><label>Lastname:</label></div>
+          <div class="ml-3">
+                    {{detail['lastname']}}
 
           </div>
         </div>
         <div *ngIf="detail['since']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Since:</label></div>
-          <div class="ml-3">                  {{detail['since']?detail['since']['value']:""}}
+          <div class="ml-3">  {{detail['since']?detail['since']['value']:""}}
 
           </div>
         </div>
         <div *ngIf="detail['status']" class="mr-3 d-inline-flex flex-wrap">
           <div><label>Status:</label></div>
-          <div class="ml-3">                
+          <div class="ml-3">
                     {{detail['status']}}
 
           </div>
@@ -257,9 +282,8 @@
       </div>
 
 				</div>
-				<div class="card-action-icons d-inline-block">
+				<div class="card-action-icons">
 					    <a [routerLink]="['../password', detail['_id'] ]" ><i class="fas fa-key" title="Change Password"></i></a>
-
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
 					
@@ -279,10 +303,10 @@
 				<div class="grid-fields pointer" (click)="onDetailLinkClicked(detail['_id'])" >
 
       <div class="card-header grid-head">
-        <div class="ml-1 d-inline-block">
+        <div>
           <h5>
             <div class="mr-1 d-inline-block">
-                              
+              
                     {{detail['username']}}
 
             </div>
@@ -292,24 +316,36 @@
       <div class="card-body">
           <div *ngIf="detail['email']" class="d-flex flex-wrap">
             <div class=""><label>Email:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['email']}}
 </div>
           </div>
           <div *ngIf="detail['phone']" class="d-flex flex-wrap">
             <div class=""><label>Phone:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['phone']}}
+</div>
+          </div>
+          <div *ngIf="detail['firstname']" class="d-flex flex-wrap">
+            <div class=""><label>Firstname:</label></div>
+            <div class="ml-3">
+                    {{detail['firstname']}}
+</div>
+          </div>
+          <div *ngIf="detail['lastname']" class="d-flex flex-wrap">
+            <div class=""><label>Lastname:</label></div>
+            <div class="ml-3">
+                    {{detail['lastname']}}
 </div>
           </div>
           <div *ngIf="detail['since']" class="d-flex flex-wrap">
             <div class=""><label>Since:</label></div>
-            <div class="ml-3">                  {{detail['since']?detail['since']['value']:""}}
+            <div class="ml-3">  {{detail['since']?detail['since']['value']:""}}
 </div>
           </div>
           <div *ngIf="detail['status']" class="d-flex flex-wrap">
             <div class=""><label>Status:</label></div>
-            <div class="ml-3">                
+            <div class="ml-3">
                     {{detail['status']}}
 </div>
           </div>
@@ -317,8 +353,9 @@
 
 				</div>
 				<div class="card-action-icons">
-					
+					    <a [routerLink]="['../password', detail['_id'] ]" ><i class="fas fa-key" title="Change Password"></i></a>
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 					
 					
 					
@@ -354,6 +391,20 @@
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('firstname', 'Firstname')">
+					Firstname
+					<span *ngIf="listSortField === 'firstname'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
+				<th class="pointer" scope="col" (click)="toggleListSort('lastname', 'Lastname')">
+					Lastname
+					<span *ngIf="listSortField === 'lastname'">
+						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+					</span>
+				</th>
 				<th class="pointer" scope="col" (click)="toggleListSort('since', 'Since')">
 					Since
 					<span *ngIf="listSortField === 'since'">
@@ -367,7 +418,7 @@
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:3.8rem;"></th>
+				</th><th scope="col" style="width:5.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
@@ -377,33 +428,44 @@
 	            </td>
 
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['username']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['email']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
                     {{detail['phone']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                  {{detail['since']?detail['since']['value']:""}}
+	            	
+                    {{detail['firstname']}}
 
 	            </td>
 	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
-	            	                
+	            	
+                    {{detail['lastname']}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	  {{detail['since']?detail['since']['value']:""}}
+
+	            </td>
+	            <td (click)="onDetailLinkClicked(detail['_id'])"  class="pointer">
+	            	
                     {{detail['status']}}
 
 	            </td>
 	            <td>
-					
+					    <a [routerLink]="['../password', detail['_id'] ]" ><i class="fas fa-key" title="Change Password"></i></a>
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
 					
+	            	
 	            	
 					
 					

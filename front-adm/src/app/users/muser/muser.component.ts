@@ -8,15 +8,10 @@ const itemCamelName = 'user';
 
 export { ViewType };
 
-
-
 @Component({
   template: '',
 })
 export class MuserComponent extends MddsBaseComponent {
-
-
-
     constructor(
       
       public muserService: MuserService,
@@ -27,13 +22,15 @@ export class MuserComponent extends MddsBaseComponent {
 
         super(muserService, injector, router, route, location);
         this.setItemNames(itemCamelName);
+
         
         this.briefFieldsInfo = [];
-        this.briefFieldsInfo.push(['username', 'Username']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);this.briefFieldsInfo.push(['since', 'Since']);this.briefFieldsInfo.push(['status', 'Status']);
+        this.briefFieldsInfo.push(['username', 'Username']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);this.briefFieldsInfo.push(['firstname', 'Firstname']);this.briefFieldsInfo.push(['lastname', 'Lastname']);this.briefFieldsInfo.push(['since', 'Since']);this.briefFieldsInfo.push(['status', 'Status']);
 
 
 
         this.emailFields = [['Email','email'],];
+        this.requiredFields = ['username','email','password',];
 
 
         this.schemaName = 'muser';

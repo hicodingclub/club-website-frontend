@@ -2,10 +2,14 @@
 
 import { MuserListComponent } from './muser/muser-list/muser-list.component';
 import { MuserDetailComponent } from './muser/muser-detail/muser-detail.component';
+
 import { MuserEditComponent } from './muser/muser-edit/muser-edit.component';
 import { MuserPassComponent } from './muser/muser-edit/muser-pass.component';
 
 import { AuthGuard } from '@hicoder/angular-auth';
+
+
+
 
 export const muserRoutingPath = [
     {path: 'list', component: MuserListComponent, canActivate: [AuthGuard]},

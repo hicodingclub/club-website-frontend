@@ -20,7 +20,7 @@ export class MuserDetailComponent extends MuserComponent implements OnInit, Afte
   @Input()
   public searchObj:any;
   @Input()
-  public disableActionButtions:boolean;
+  public disableActionButtons:boolean;
   @Input()
   public style: any; // {}
   @Input()
@@ -44,6 +44,9 @@ export class MuserDetailComponent extends MuserComponent implements OnInit, Afte
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
+          this.stringFields.push('photo');
           this.stringFields.push('status');
 
 

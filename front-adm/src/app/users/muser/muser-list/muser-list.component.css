@@ -55,22 +55,25 @@ tr th:first-child{
   height: 100%;
 }
 .grid-head {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.04);
 }
 .grid-head-picture, .list-head-picture {
-  width: 3rem;
-  height: 3rem;
-  background-color: #f1f1f1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 6rem;
+  height: 6rem;
+
+  margin-right: 0.5rem;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 500px) {
-  .grid-head-picture, .list-head-picture {
-    width: 6rem;
-    height: 6rem;
-    background-color: #f1f1f1;
+  .list-head-picture {
+    flex-basis: 8rem;
+    height: 8rem;
   }
 }
 
@@ -99,7 +102,7 @@ tr th:first-child{
 }
 
 .list-fields {
-  display: inline-flex;
+  display: flex;
   align-items: flex-start;
 
   min-width: 300px;
@@ -132,7 +135,7 @@ tr th:first-child{
   bottom: 0px;
   right: 0.5rem;
 
-  width: 100px;
+  width: 10rem;
   margin-left: auto;
 }
 
@@ -427,9 +430,12 @@ div.badge-click:hover {
 }
 
 .slide-image {
+  /*
   left: 50%;
   transform: translate(-50%, 0);
   position: relative;
+  */
+  width: 100%;
 }
 
 .asso-link {
@@ -453,3 +459,68 @@ div.badge-click:hover {
 .list-check-box {
   zoom: 1.35;
 }
+
+/*Start Archive Slider*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 10px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*End Archive Slider*/

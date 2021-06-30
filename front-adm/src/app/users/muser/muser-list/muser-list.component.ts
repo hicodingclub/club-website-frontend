@@ -27,7 +27,7 @@ export class MuserListComponent extends MuserComponent implements OnInit {
   
 
   constructor(
-
+      
       public muserService: MuserService,
       public injector: Injector,
       public router: Router,
@@ -42,19 +42,14 @@ export class MuserListComponent extends MuserComponent implements OnInit {
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
           this.stringFields.push('status');
-
-
           this.dateFields = ['since', ];
-
-
-
-
-
-
-
           this.listViewFilter = 'list';
 
+          this.stringBoxFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'status'];
+          this.ownSearchFields = ['since'];
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
           this.listCategory2 = listCategories[1] || {};
@@ -66,7 +61,7 @@ export class MuserListComponent extends MuserComponent implements OnInit {
       // this is to initialize the detail that will be used for search condition selection
       const detail = this.searchObj || {};
       this.detail = this.formatDetail(detail);
-      this.populateList();
+      this.searchList();
   }
 
   static getInstance() {

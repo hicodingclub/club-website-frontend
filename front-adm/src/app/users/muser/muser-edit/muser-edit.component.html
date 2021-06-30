@@ -14,6 +14,7 @@
         <fieldset class="form-group">
           <label for="EditUsername">Username</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditUsername" 
@@ -48,11 +49,11 @@
         <fieldset class="form-group">
           <label for="EditEmail">Email</label>
           
+          
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditEmail"
+            <input type="text" class="form-control rounded" id="EditEmail" 
                     required
-                    
                     
                     
                  
@@ -67,9 +68,10 @@
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
 
-           <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-            Email is required.
-            </div>
+            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
+              Email is required.
+              </div>
+ 
 
           </div>
         
@@ -81,6 +83,7 @@
 
         <fieldset class="form-group">
           <label for="EditPhone">Phone</label>
+          
           
 
           <div class="input-group">
@@ -108,10 +111,81 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('firstname')">
+
+        <fieldset class="form-group">
+          <label for="EditFirstname">Firstname</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditFirstname" 
+                    
+                    
+                    maxlength="100"
+                 
+                    [(ngModel)]="detail['firstname']" name="EditFirstname"
+                    #EditFirstname="ngModel">
+            <div *ngIf="detail['firstname']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('firstname')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
+                Firstname must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('lastname')">
+
+        <fieldset class="form-group">
+          <label for="EditLastname">Lastname</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditLastname" 
+                    
+                    
+                    maxlength="100"
+                 
+                    [(ngModel)]="detail['lastname']" name="EditLastname"
+                    #EditLastname="ngModel">
+            <div *ngIf="detail['lastname']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('lastname')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
+                Lastname must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
 <div *ngIf="!hiddenFields.includes('status')">
 
         <fieldset class="form-group">
           <label for="EditStatus">Status</label>
+          
           
 
           <div class="form-check"
@@ -177,6 +251,7 @@
         <fieldset class="form-group">
           <label for="EditUsername">Username</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditUsername" 
@@ -211,6 +286,7 @@
         <fieldset class="form-group">
           <label for="EditEmail">Email</label>
           
+          
 
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
@@ -229,10 +305,10 @@
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
 
+            <div *ngIf="EditEmail.errors && EditEmail.errors.required">
+              Email is required.
+              </div>
  
-           <div *ngIf="EditEmail.errors && EditEmail.errors.required">
-            Email is required.
-            </div>
 
           </div>
         
@@ -244,6 +320,7 @@
 
         <fieldset class="form-group">
           <label for="EditPhone">Phone</label>
+          
           
 
           <div class="input-group">
@@ -275,6 +352,7 @@
 
         <fieldset class="form-group">
           <label for="EditStatus">Status</label>
+          
           
 
           <div class="form-check"
@@ -332,10 +410,81 @@
 
     
 </div>
+<div *ngIf="!hiddenFields.includes('firstname')">
+
+        <fieldset class="form-group">
+          <label for="EditFirstname">Firstname</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditFirstname" 
+                    
+                    
+                    maxlength="100"
+                 
+                    [(ngModel)]="detail['firstname']" name="EditFirstname"
+                    #EditFirstname="ngModel">
+            <div *ngIf="detail['firstname']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('firstname')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
+                Firstname must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('lastname')">
+
+        <fieldset class="form-group">
+          <label for="EditLastname">Lastname</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditLastname" 
+                    
+                    
+                    maxlength="100"
+                 
+                    [(ngModel)]="detail['lastname']" name="EditLastname"
+                    #EditLastname="ngModel">
+            <div *ngIf="detail['lastname']" 
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('lastname')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
+                Lastname must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
 <div *ngIf="!hiddenFields.includes('password')">
 
         <fieldset class="form-group">
           <label for="EditPassword">Password</label>
+          
           
 
           <div class="input-group">
@@ -357,13 +506,12 @@
 
             <div *ngIf="EditPassword.errors && EditPassword.errors.required">
               Password is required.
-            </div>
+              </div>
  
 
           </div>
         
         </fieldset>
-
         <fieldset class="form-group">
           <label for="muserEditConfirmPassword">Confirm Password</label>
 
