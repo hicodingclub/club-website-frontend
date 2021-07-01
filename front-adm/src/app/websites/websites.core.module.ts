@@ -14,6 +14,7 @@ import {
 import {
   MDDS_NGB_DATE_FORMAT,
   MraNgbDateFormatterService,
+  MddsCoreModule,
 } from '@hicoder/angular-core';
 import {
   WebsitesRoutingCoreModule
@@ -69,6 +70,7 @@ import {
     CommonModule,
     FormsModule,
     NgbModule,
+    MddsCoreModule,
     WebsitesRoutingCoreModule,
   ],
   declarations: [

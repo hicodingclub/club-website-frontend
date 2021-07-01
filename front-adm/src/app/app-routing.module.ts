@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },
   { path: 'teachforlife', loadChildren: () => import('./teachforlife/teachforlife.module').then(m => m.TeachforlifeModule) },
   { path: 'summerprogram', loadChildren: () => import('./summerprogram/summerprogram.module').then(m => m.SummerprogramModule) },
-
+  { path: 'websites', loadChildren: () => import('./websites/websites.module').then(m => m.WebsitesModule) },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
