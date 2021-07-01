@@ -27,6 +27,7 @@
                                 <h4 class="text-center">Step 1: Choose your website name.</h4>
                                 <p>Your website name will show in your website link. You can NOT change your website
                                     name once chosen.</p>
+                                <p>You can use your login username as your website name.</p>
                                 <p>Your website link will be looking like this:</p>
                                 <p class="text-center">https://hicodingclub.org/sites/<b
                                         style="color: red;">{{name}}</b></p>
@@ -41,10 +42,10 @@
                                                         digits, no space:</div>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control rounded" id="EditName"
-                                                            required [(ngModel)]="name" name="EditName" maxlength="20"
+                                                            required [(ngModel)]="name" name="EditName" maxlength="20" pattern="[a-zA-Z0-9_]*"
                                                             (focus)="onEnterName()" minlength="5" #EditName="ngModel">
                                                     </div>
-                                                    <div [hidden]="EditName.valid || EditName.pristine || EditName.errors.minlength"
+                                                    <div [hidden]="EditName.valid || EditName.pristine"
                                                         class="alert alert-danger">
                                                         <div *ngIf="EditName.errors && EditName.errors.required">
                                                             Website name is required.
@@ -52,13 +53,11 @@
                                                         <div *ngIf="EditName.errors && EditName.errors.maxlength">
                                                             Max length is 20 characters.
                                                         </div>
-                                                    </div>
-                                                    <div [hidden]="EditName.valid || EditName.pristine || !EditName.errors.minlength"
-                                                        class="alert alert-danger">
                                                         <div *ngIf="EditName.errors && EditName.errors.minlength">
-                                                            <div>
-                                                                Min length is 5 characters.
-                                                            </div>
+                                                            Min length is 5 characters.
+                                                        </div>
+                                                        <div *ngIf="EditName.errors && EditName.errors.pattern">
+                                                            Only letters, digits, and underscore are allowed
                                                         </div>
                                                     </div>
                                                 </fieldset>
@@ -94,11 +93,14 @@
                                 <h4 class="text-center">Step 2: Upload Project File</h4>
                                 <p>Upload your Angluar project zip file. If you develop with stackblitz, you can download from stackblitz directly and upload here.
                                 </p>
+                                <div *ngIf="site"><b>Current file:</b> 
+                                    <a class="ml-3" href="{{site.projectFile}}">{{oldProjectFile}}</a>
+                                </div>
+
                                 <p><b style="color: red;">IMPORTANT:</b> file must be in .zip format.</p>
 
                                 <lib-mdds-files-upload
                                     [accept]="['application/zip', '.zip']"
-                                    [downloadUrl]="site? site.projectFile:''"
                                     (downloadUrlChange)="fileUploaded($event)"
                                     >
                                 </lib-mdds-files-upload>
@@ -121,6 +123,9 @@
                             </div>
                             <div class="tab-pane" [ngClass]="{active: step == 3}" role="tabpanel" id="step3">
                                 <h4 class="text-center">Step 3: Generate Site Link</h4>
+                                <p>
+                                    We will check your uploaded project files and build for you. We might have to fix build errors and do some modifications to your source code. Once we complete the site generation, we will notify you via email. Thanks for your patience.
+                                </p>
                                 <ul class="list-inline pull-right">
                                     <li>
                                         <button class="btn btn-outline-success m-2" (click)="goToStep(2)">

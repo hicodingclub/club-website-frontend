@@ -7,7 +7,7 @@ export const WebsitesRoutingCustPath = [
   { path: 'sites', component: MySitesComponent },
   { path: 'build', component: SiteUploadComponent },
 ];/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 26 2020 18:12:13 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jul 01 2021 02:43:59 GMT-0700 (Pacific Daylight Time)
 
 // Path under websites/cust/
 export const WebsitesRoutingCustPath = [

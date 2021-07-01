@@ -15,6 +15,7 @@ export class SiteUploadComponent implements OnInit {
   public name: string = "your_website_name";
 
   public site: any;
+  public oldProjectFile: string;
   public newProjectFile: string;
   public step: number = 1;
   public finishedStep: number = 1;
@@ -26,6 +27,10 @@ export class SiteUploadComponent implements OnInit {
       (result: any) => {
         if (result && result.items && result.items.length > 0) {
           this.site = result.items[0];
+          if (this.site.projectFile) {
+            let arr = this.site.projectFile.split("/");
+            this.oldProjectFile = arr[arr.length - 1];
+          }
           this.name = this.site.name;
           this.step = 2;
         } else {
@@ -44,8 +49,8 @@ export class SiteUploadComponent implements OnInit {
   onEnterName() {
     this.errorMsg = "";
   }
-  fileUploaded(uploaded: string[]) {
-    this.newProjectFile = uploaded[0];
+  fileUploaded(uploaded: string) {
+    this.newProjectFile = uploaded;
   }
 
   goToStep(step: number) {
@@ -125,14 +130,17 @@ export class SiteUploadComponent implements OnInit {
           // site projectFile has been set in step 2
       this.siteSvc.updateOne(this.site['_id'], this.site).subscribe(
       (result) => {
+        this.newProjectFile = ''; // reset because the file has been uploaded.
         this.generating = true;
         this.generateSite();
       },
       (error) => {
         onServiceError(error);
       });
+    } else if (!this.site.ready) {
+      this.generating = true;
+      // this.generateSite();
     }
-    this.newProjectFile = '';
   }
   generateSite() {
     this.siteSvc.callZInterface('put', 'generate', {}).subscribe(
