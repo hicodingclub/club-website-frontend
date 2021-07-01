@@ -29,7 +29,20 @@
           <ng-template [ngIf]="!hiddenFields.includes('ready')">
             <fieldset class="form-group">
               <label for="EditReady">Ready</label><span><i data-toggle="tooltip" title="Indicate if the site is ready to be enabled." class="far fa-question-circle"></i></span>
-              <div>{{detail['ready']}}
+              <div class="form-check" [ngClass]="{'ng-valid': true} ">
+                <div class="form-check-inline">
+                  <input type="radio" name="EditReady" class="form-check-input" id="EditReadyYes" [value]="true" [(ngModel)]="detail['ready']" #EditReady="ngModel">
+                  <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check-inline">
+                  <input type="radio" name="EditReady" class="form-check-input" id="EditReadyNo" [value]="false" [(ngModel)]="detail['ready']" #EditReady="ngModel">
+                  <label class="form-check-label">No</label>
+                </div>
+                <div *ngIf="detail['ready'] == true || detail['ready'] == false" class="form-check-inline" (click)="clearValueFromDetail('ready')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditReady.valid || EditReady.pristine" class="alert alert-danger">
               </div>
             </fieldset>
           </ng-template>

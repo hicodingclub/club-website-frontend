@@ -42,7 +42,7 @@
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
             <div class="">
-              {{detail['name']}}
+              <div [innerHTML]="detail['name'] | mddsAnchor:'/sites/[REPLACEME]':'[REPLACEME]'"></div>
             </div>
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
