@@ -10,23 +10,35 @@ import {
 import {
   FormsModule
 } from '@angular/forms';
+
+import { FilesModule } from '@hicoder/angular-file'
 import {
   WebsitesCoreModule
 } from '../websites/websites.core.module';
+
+import {SiteUploadComponent} from './cust/site-upload.component';
+import {MySitesComponent} from './cust/my-sites.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
+
+    FilesModule,
+  
     WebsitesCoreModule,
   ],
-  declarations: [],
+  declarations: [
+    SiteUploadComponent,
+    MySitesComponent,
+  ],
   exports: [],
   providers: [],
   entryComponents: [],
 })
 export class WebsitesCustModule {}/*>>> Please check this recent updates and merge with existing ones***
-**Date: Wed Jun 30 2021 14:20:11 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 26 2020 18:12:13 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

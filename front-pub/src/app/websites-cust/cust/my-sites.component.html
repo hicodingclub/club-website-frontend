@@ -1,0 +1,38 @@
+<div class="container">
+    <div *ngIf="site && site.name">
+        <app-site-detail [id]="site['_id']" [options]="{
+                disableActionButtions: true
+            }">
+        </app-site-detail>
+        <p *ngIf="site.ready" class="my-5">Your website link is <a
+                href="https://hicodingclub.org/sites/{{site.name}}">https://hicodingclub.org/sites/{{site.name}}</a>
+        </p>
+        <div class="d-flex flex-wrap justify-content-center my-5">
+            <button *ngIf="site.ready" (click)="changeStatus()" class="btn btn-outline-primary mx-2">
+                <span *ngIf="site.enabled">Disable Site</span>
+                <span *ngIf="!site.enabled">Enable Site</span>
+            </button>
+            <a routerLink="/websites/cust/build" role="button" class="btn btn-outline-primary mx-2">
+                Upload New Project File
+            </a>
+        </div>
+    </div>
+    <div *ngIf="site && !site.name">
+        <div class="jumbotron my-3">
+            <h1>You don't have a website uploaded yet!</h1>
+            <p class="lead">HiCoding Club members and students are welcome to host your personalized website, witten in
+                Angular, under HiCoding Club domain.</p>
+            <hr class="my-4">
+            <ul>
+                <li aria-disabled="true">Upload your Angular project zip file.</li>
+                <li>Choose your own application name, say, "<b>myapp</b>".</li>
+                <li>Then your website will be accessible at: <a href="#">https://www.hicodingclub.org/websites/myapp</a>
+                </li>
+            </ul>
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary btn-lg" routerLink="/websites/cust/build" role="button">Upload Your
+                    Website</a>
+            </div>
+        </div>
+    </div>
+</div>

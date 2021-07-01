@@ -17,12 +17,12 @@ html {
 }
 
 .bgimg-1 {
-    background-image: url("../../assets/team.jpg");
+    background-image: url("../../../assets/team.jpg");
     min-height: 650px;
 }
 
 .bgimg-2 {
-    background-image: url("../../assets/memberProgramming.jpeg");
+    background-image: url("../../../assets/memberProgramming.jpeg");
     min-height: 250px;
 }
 

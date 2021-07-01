@@ -21,10 +21,10 @@ import { file_upload_uri, file_download_uri } from './injection-tokens/file-uplo
 import { MDDS_ROUTE_REUSE_RUIs } from '@hicoder/angular-core';
 import { route_reuse_uris } from './injection-tokens/reuse-strategy.conf';
 
-import { HomepageComponent } from './homepage/homepage.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
-import { MembersComponent } from './members/members.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { MembersComponent } from './pages/members/members.component';
 
 import { PublicinfoModule } from './publicinfo/publicinfo.module';
 
