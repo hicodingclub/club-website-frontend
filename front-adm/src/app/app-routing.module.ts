@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'websites', loadChildren: () => import('./websites/websites.module').then(m => m.WebsitesModule) },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
